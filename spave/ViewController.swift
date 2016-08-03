@@ -22,9 +22,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var labelForSpentToday: UILabel!
     @IBOutlet weak var labelForSpentThisWeek: UILabel!
     
+    @IBOutlet weak var labelForSpentThisWeek2: UILabel!
+    @IBOutlet weak var labelForSpentToday2: UILabel!
+    @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
+    @IBOutlet weak var viewForSpentToday: UIView!
+    
     let defaults = NSUserDefaults.standardUserDefaults()
-    let green = UIColor(red: 126/255, green: 211/255, blue: 36/255, alpha: 1.0)
-    let red = UIColor(red: 208/255, green: 2/255, blue: 27/255, alpha: 1.0)
+    let blue = UIColor(red: 60/255, green: 176/255, blue: 226/255, alpha: 1.0)
+    let pink = UIColor(red: 226/255, green: 60/255, blue: 105/255, alpha: 1.0)
     var locationManager: CLLocationManager = CLLocationManager()
     
     var totalCostOfTheDay: Int = 0
@@ -54,12 +59,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var savedThisMonth: Int = 0 {
         didSet {
-            labelForSavingsGoal.text = String("€\(savedThisMonth)")
+            labelForSavingsGoal.text = String(savedThisMonth)
             counterView.counter = savedThisMonth
-            if (savedThisMonth < savingsGoal/2) {
-                counterView.counterColor = red
+            if (savedThisMonth < 0) {
+                counterView.counterColor = pink
             } else {
-                counterView.counterColor = green
+                counterView.counterColor = blue
             }
         }
     }
@@ -73,6 +78,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidAppear(animated: Bool) {
         
+        
         //Load user defaults
         savingsGoal = defaults.integerForKey("savingsGoal")
         monthlyBudget = defaults.integerForKey("monthlyBudget")
@@ -85,9 +91,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         buttonToTrack.layer.cornerRadius = 20
         labelForCost.font = UIFont(name: "Helvetica", size: 48)
         let navBar = navigationController!.navigationBar
+        
         navBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         navBar.shadowImage = UIImage()
         navBar.translucent = true
+        
+        buttonToTrack.hidden = true
+        labelForCost.hidden = true
         
         //navBarColor.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
@@ -111,6 +121,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         barChartView.noDataTextDescription = "No data yet. Start tracking by click clicking the cha-ching button"
         
         updateUI()
+        showTrackControl(false)
         
         
         
@@ -170,6 +181,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         super.viewDidLoad()
         
+        self.tapGestureRecognizer.cancelsTouchesInView = false
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(ViewController.updateUI), name:
             UIApplicationWillEnterForegroundNotification, object: nil)
         
@@ -198,7 +211,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func handleTap(recognizer: UITapGestureRecognizer) {
+       showTrackControl(false)
+    }
     @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
+        
+        showTrackControl(true)
         let translation = recognizer.translationInView(self.view)
         /*if let view = recognizer.view {
          view.center = CGPoint(x:view.center.x + translation.x,
@@ -234,6 +252,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         print("current location when track: \(locationManager.location?.coordinate)")
         
         updateUI()
+        showTrackControl(false)
     }
     
     
@@ -249,15 +268,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         labelForSpentThisWeek.text = String("€\(valueForLabelSpentThisWeek)")
         labelForCost.text = "€\(newCostToTrack)"
         
-        labelForSavingsGoal.text = String("€\(savedThisMonth)")
+        labelForSavingsGoal.text = String(savedThisMonth)
         counterView.counter = calculateSavingsThisMonth()
         
         
         // Update color of circle
         if (savedThisMonth < savingsGoal/2) {
-            counterView.counterColor = red
+            counterView.counterColor = pink
         } else {
-            counterView.counterColor = green
+            counterView.counterColor = blue
         }
         
         // Update chart
@@ -355,6 +374,26 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     
+    func showTrackControl(show:Bool) {
+        if show {
+            buttonToTrack.hidden = false
+            labelForCost.hidden = false
+            labelForSpentToday.hidden = true
+            labelForSpentToday2.hidden = true
+            labelForSpentThisWeek.hidden = true
+            labelForSpentThisWeek2.hidden = true
+            
+        } else {
+            buttonToTrack.hidden = true
+            labelForCost.hidden = true
+            labelForSpentToday.hidden = false
+            labelForSpentToday2.hidden = false
+            labelForSpentThisWeek.hidden = false
+            labelForSpentThisWeek2.hidden = false
+        }
+    }
+    
+    
     func setChart(dataPoints: [String], values: [Double]) {
         barChartView.noDataText = "You need to provide data for the chart."
         
@@ -386,9 +425,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             let dataEntry = BarChartDataEntry(value: values[i], xIndex: i)
             dataEntries.append(dataEntry)
             if (Int(values[i]) < monthlyBudget/numbersOfDaysInCurrentMonth) {
-                chartColorSet.append(green)
+                chartColorSet.append(blue)
             } else {
-                chartColorSet.append(red)
+                chartColorSet.append(pink)
             }
         }
         let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "money spent")

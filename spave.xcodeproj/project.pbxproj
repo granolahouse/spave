@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24181FFB1D523FA800A4E0B6 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24181FF91D522B2800A4E0B6 /* Roboto-Thin.ttf */; };
+		24181FFD1D5241D200A4E0B6 /* SF-UI-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 24181FFC1D5241CC00A4E0B6 /* SF-UI-Display-Thin.otf */; };
+		24181FFF1D52447500A4E0B6 /* SF-UI-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 24181FFE1D52447000A4E0B6 /* SF-UI-Display-Regular.otf */; };
 		24C645631D51FEA000AB1E66 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C6455F1D51FEA000AB1E66 /* SettingsViewController.swift */; };
 		24C645641D51FEA000AB1E66 /* SpendingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C645601D51FEA000AB1E66 /* SpendingsViewController.swift */; };
 		24C645651D51FEA000AB1E66 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C645611D51FEA000AB1E66 /* CoreDataTableViewController.swift */; };
@@ -45,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24181FF91D522B2800A4E0B6 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		24181FFC1D5241CC00A4E0B6 /* SF-UI-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Thin.otf"; sourceTree = "<group>"; };
+		24181FFE1D52447000A4E0B6 /* SF-UI-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Regular.otf"; sourceTree = "<group>"; };
 		24C6455F1D51FEA000AB1E66 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		24C645601D51FEA000AB1E66 /* SpendingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpendingsViewController.swift; sourceTree = "<group>"; };
 		24C645611D51FEA000AB1E66 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +105,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24181FFA1D522B3700A4E0B6 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				24181FFE1D52447000A4E0B6 /* SF-UI-Display-Regular.otf */,
+				24181FF91D522B2800A4E0B6 /* Roboto-Thin.ttf */,
+				24181FFC1D5241CC00A4E0B6 /* SF-UI-Display-Thin.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		24E1B06B1D51FCD1008BDAD4 = {
 			isa = PBXGroup;
 			children = (
@@ -124,13 +140,13 @@
 		24E1B0761D51FCD1008BDAD4 /* spave */ = {
 			isa = PBXGroup;
 			children = (
+				24181FFA1D522B3700A4E0B6 /* Fonts */,
 				24E1B0B11D51FDE9008BDAD4 /* Controllers */,
 				24E1B0AE1D51FDD2008BDAD4 /* Supporting Files */,
 				24E1B0AB1D51FD8F008BDAD4 /* Views */,
 				24E1B0A81D51FD43008BDAD4 /* Models */,
 				24E1B0771D51FCD1008BDAD4 /* AppDelegate.swift */,
 				24E1B0811D51FCD1008BDAD4 /* Assets.xcassets */,
-				24E1B0831D51FCD1008BDAD4 /* LaunchScreen.storyboard */,
 				24E1B0861D51FCD1008BDAD4 /* Info.plist */,
 				24E1B07E1D51FCD1008BDAD4 /* spave.xcdatamodeld */,
 			);
@@ -170,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				24E1B0AC1D51FD9F008BDAD4 /* Main.storyboard */,
+				24E1B0831D51FCD1008BDAD4 /* LaunchScreen.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -282,6 +299,7 @@
 				TargetAttributes = {
 					24E1B0731D51FCD1008BDAD4 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 9GPRB6M9CA;
 					};
 					24E1B08A1D51FCD1008BDAD4 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -318,9 +336,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24181FFB1D523FA800A4E0B6 /* Roboto-Thin.ttf in Resources */,
 				24E1B0851D51FCD1008BDAD4 /* LaunchScreen.storyboard in Resources */,
+				24181FFF1D52447500A4E0B6 /* SF-UI-Display-Regular.otf in Resources */,
 				24E1B0821D51FCD1008BDAD4 /* Assets.xcassets in Resources */,
 				24E1B0AD1D51FD9F008BDAD4 /* Main.storyboard in Resources */,
+				24181FFD1D5241D200A4E0B6 /* SF-UI-Display-Thin.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +560,7 @@
 			baseConfigurationReference = 3DE6C31BC513D3FECFE96E1D /* Pods-spave.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = spave/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = granolahouse.spave;
@@ -551,6 +573,7 @@
 			baseConfigurationReference = D0B8A2A099EB7E01910E6F5F /* Pods-spave.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = spave/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = granolahouse.spave;

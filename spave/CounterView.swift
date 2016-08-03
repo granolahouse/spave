@@ -33,10 +33,10 @@ let π:CGFloat = CGFloat(M_PI)
         let center = CGPoint(x:bounds.width/2, y: bounds.height/2)
         
         // 2
-        let radius: CGFloat = max(bounds.width, bounds.height)
+        let radius: CGFloat = max(bounds.width, bounds.height)-40
         print("Width:\(bounds.width), height: \(bounds.height), radius: \(radius)")
         // 3
-        let arcWidth: CGFloat = 6
+        let arcWidth: CGFloat = 3
         
         // 4
         let startAngle: CGFloat = 3 * π / 2
@@ -56,6 +56,22 @@ let π:CGFloat = CGFloat(M_PI)
         } else {
             clockWise = true
         }
+        
+        
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()
+        
+        
+        //// Shadow Declarations
+        let shadow = counterColor
+        let shadowOffset = CGSizeMake(2, 2)
+        let shadowBlurRadius: CGFloat = 20
+
+        
+        
+        
+        
+        
         // 5
         var path = UIBezierPath(arcCenter: center,
                                 radius: radius/2 - arcWidth/2-5,
@@ -71,16 +87,22 @@ let π:CGFloat = CGFloat(M_PI)
         
         pathInner.lineWidth = arcWidth
         
-        let lightGrey = UIColor(red: 255/155, green: 255/155, blue: 255/155, alpha: 0.5)
+        let lightGrey = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1)
         lightGrey.setStroke()
         pathInner.stroke()
 
         
         // 6
         path.lineWidth = arcWidth
+        
+        CGContextSaveGState(context)
+        CGContextSetShadowWithColor(context, shadowOffset, shadowBlurRadius,  (shadow as UIColor).CGColor)
+        
         counterColor.setStroke()
         path.lineCapStyle = .Round
         path.stroke()
+        CGContextRestoreGState(context)
+        
         
         
         
