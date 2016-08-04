@@ -10,6 +10,7 @@
 		24181FFB1D523FA800A4E0B6 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24181FF91D522B2800A4E0B6 /* Roboto-Thin.ttf */; };
 		24181FFD1D5241D200A4E0B6 /* SF-UI-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 24181FFC1D5241CC00A4E0B6 /* SF-UI-Display-Thin.otf */; };
 		24181FFF1D52447500A4E0B6 /* SF-UI-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 24181FFE1D52447000A4E0B6 /* SF-UI-Display-Regular.otf */; };
+		249C5CE01D53718600EE4853 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 249C5CDF1D53718600EE4853 /* Info.plist */; };
 		24C645631D51FEA000AB1E66 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C6455F1D51FEA000AB1E66 /* SettingsViewController.swift */; };
 		24C645641D51FEA000AB1E66 /* SpendingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C645601D51FEA000AB1E66 /* SpendingsViewController.swift */; };
 		24C645651D51FEA000AB1E66 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C645611D51FEA000AB1E66 /* CoreDataTableViewController.swift */; };
@@ -51,6 +52,7 @@
 		24181FF91D522B2800A4E0B6 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		24181FFC1D5241CC00A4E0B6 /* SF-UI-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Thin.otf"; sourceTree = "<group>"; };
 		24181FFE1D52447000A4E0B6 /* SF-UI-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Regular.otf"; sourceTree = "<group>"; };
+		249C5CDF1D53718600EE4853 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24C6455F1D51FEA000AB1E66 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		24C645601D51FEA000AB1E66 /* SpendingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpendingsViewController.swift; sourceTree = "<group>"; };
 		24C645611D51FEA000AB1E66 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
@@ -65,7 +67,6 @@
 		24E1B07F1D51FCD1008BDAD4 /* spave.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = spave.xcdatamodel; sourceTree = "<group>"; };
 		24E1B0811D51FCD1008BDAD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24E1B0841D51FCD1008BDAD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		24E1B0861D51FCD1008BDAD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24E1B08B1D51FCD1008BDAD4 /* spaveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = spaveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24E1B08F1D51FCD1008BDAD4 /* spaveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spaveTests.swift; sourceTree = "<group>"; };
 		24E1B0911D51FCD1008BDAD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -147,8 +148,8 @@
 				24E1B0A81D51FD43008BDAD4 /* Models */,
 				24E1B0771D51FCD1008BDAD4 /* AppDelegate.swift */,
 				24E1B0811D51FCD1008BDAD4 /* Assets.xcassets */,
-				24E1B0861D51FCD1008BDAD4 /* Info.plist */,
 				24E1B07E1D51FCD1008BDAD4 /* spave.xcdatamodeld */,
+				249C5CDF1D53718600EE4853 /* Info.plist */,
 			);
 			path = spave;
 			sourceTree = "<group>";
@@ -340,6 +341,7 @@
 				24E1B0851D51FCD1008BDAD4 /* LaunchScreen.storyboard in Resources */,
 				24181FFF1D52447500A4E0B6 /* SF-UI-Display-Regular.otf in Resources */,
 				24E1B0821D51FCD1008BDAD4 /* Assets.xcassets in Resources */,
+				249C5CE01D53718600EE4853 /* Info.plist in Resources */,
 				24E1B0AD1D51FD9F008BDAD4 /* Main.storyboard in Resources */,
 				24181FFD1D5241D200A4E0B6 /* SF-UI-Display-Thin.otf in Resources */,
 			);
@@ -560,11 +562,13 @@
 			baseConfigurationReference = 3DE6C31BC513D3FECFE96E1D /* Pods-spave.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = spave/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = granolahouse.spave;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -573,11 +577,13 @@
 			baseConfigurationReference = D0B8A2A099EB7E01910E6F5F /* Pods-spave.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = spave/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = granolahouse.spave;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

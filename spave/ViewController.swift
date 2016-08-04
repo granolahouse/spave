@@ -12,7 +12,7 @@ import Charts
 import CoreLocation
 
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var labelForCost: UILabel!
     @IBOutlet weak var counterView: CounterView!
@@ -181,7 +181,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         super.viewDidLoad()
         
-        self.tapGestureRecognizer.cancelsTouchesInView = false
+        self.tapGestureRecognizer.delegate = self
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(ViewController.updateUI), name:
             UIApplicationWillEnterForegroundNotification, object: nil)
@@ -212,6 +212,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func handleTap(recognizer: UITapGestureRecognizer) {
+
+        
        showTrackControl(false)
     }
     @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
