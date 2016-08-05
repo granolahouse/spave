@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RtX-mq-Nfo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RtX-mq-Nfo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -18,7 +18,6 @@
             <string>SFUIDisplay-Regular</string>
         </mutableArray>
         <mutableArray key="SF-UI-Display-Thin.otf">
-            <string>SFUIDisplay-Thin</string>
             <string>SFUIDisplay-Thin</string>
         </mutableArray>
     </customFonts>
@@ -51,11 +50,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVA-bj-fnx">
-                                <rect key="frame" x="0.0" y="0.0" width="44" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <state key="normal" title="Details › "/>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftq-rJ-9y9" userLabel="areaCircle">
                                 <rect key="frame" x="0.0" y="64" width="600" height="268"/>
                                 <subviews>
@@ -111,6 +105,13 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MFY-yy-hqp" userLabel="areaForSpentTodayMonth ">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="134"/>
                                         <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3nJ-DU-3O8" userLabel="separatorLine" customClass="CustomSeperatorLine" customModule="spave" customModuleProvider="target">
+                                                <rect key="frame" x="299.5" y="0.0" width="1" height="134"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="1" id="432-BZ-FEj"/>
+                                                </constraints>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Kt-r6-6hR" userLabel="leftNumber">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="134"/>
                                                 <subviews>
@@ -169,29 +170,23 @@
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="misc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ge-eP-cbr" userLabel="category">
-                                                        <rect key="frame" x="121" y="49" width="58" height="36"/>
-                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Thin" family="SF UI Display" pointSize="30"/>
-                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEI-yL-4iE" userLabel="label for category">
-                                                        <rect key="frame" x="128.5" y="95" width="43" height="12"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vpo-JW-b89">
+                                                        <rect key="frame" x="75" y="0.0" width="150" height="134"/>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="lV7-KT-abk"/>
+                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="GgU-ZL-NeC"/>
+                                                        </connections>
+                                                    </pickerView>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="iEI-yL-4iE" firstAttribute="top" secondItem="9Ge-eP-cbr" secondAttribute="bottom" constant="10" id="1SY-Or-Fzk"/>
                                                     <constraint firstItem="dgk-16-UPr" firstAttribute="centerX" secondItem="30b-u3-cCP" secondAttribute="centerX" id="6aH-Ur-6Az"/>
                                                     <constraint firstItem="dgk-16-UPr" firstAttribute="centerY" secondItem="30b-u3-cCP" secondAttribute="centerY" id="Cc3-8q-4Jp"/>
                                                     <constraint firstItem="oMM-Lo-H6M" firstAttribute="top" secondItem="dgk-16-UPr" secondAttribute="bottom" constant="10" id="Jet-An-bE5"/>
-                                                    <constraint firstItem="9Ge-eP-cbr" firstAttribute="centerX" secondItem="30b-u3-cCP" secondAttribute="centerX" id="RDb-Nb-9yQ"/>
-                                                    <constraint firstItem="oMM-Lo-H6M" firstAttribute="centerX" secondItem="9Ge-eP-cbr" secondAttribute="centerX" id="YGQ-Ie-mfr"/>
-                                                    <constraint firstItem="9Ge-eP-cbr" firstAttribute="centerY" secondItem="30b-u3-cCP" secondAttribute="centerY" id="aGN-Ok-Bj6"/>
+                                                    <constraint firstItem="vpo-JW-b89" firstAttribute="centerX" secondItem="30b-u3-cCP" secondAttribute="centerX" id="Kn4-AR-kBn"/>
+                                                    <constraint firstItem="vpo-JW-b89" firstAttribute="width" secondItem="30b-u3-cCP" secondAttribute="width" multiplier="1/2" id="Nee-Le-TRM"/>
+                                                    <constraint firstItem="vpo-JW-b89" firstAttribute="height" secondItem="30b-u3-cCP" secondAttribute="height" id="Uoa-MI-esB"/>
                                                     <constraint firstItem="oMM-Lo-H6M" firstAttribute="centerX" secondItem="dgk-16-UPr" secondAttribute="centerX" id="gkJ-YT-3Ov"/>
-                                                    <constraint firstItem="iEI-yL-4iE" firstAttribute="centerX" secondItem="9Ge-eP-cbr" secondAttribute="centerX" id="wMH-jM-cix"/>
+                                                    <constraint firstItem="vpo-JW-b89" firstAttribute="centerY" secondItem="30b-u3-cCP" secondAttribute="centerY" id="mXe-h5-Idk"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jN-be-mgG" customClass="CustomAddButton" customModule="spave" customModuleProvider="target">
@@ -212,14 +207,17 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="3nJ-DU-3O8" firstAttribute="height" secondItem="MFY-yy-hqp" secondAttribute="height" id="5jl-3P-jks"/>
                                             <constraint firstItem="8Kt-r6-6hR" firstAttribute="leading" secondItem="MFY-yy-hqp" secondAttribute="leading" id="EVH-zQ-JQ7"/>
                                             <constraint firstItem="30b-u3-cCP" firstAttribute="width" secondItem="MFY-yy-hqp" secondAttribute="width" multiplier="1/2" id="M0k-1Z-tbH"/>
+                                            <constraint firstItem="3nJ-DU-3O8" firstAttribute="centerX" secondItem="MFY-yy-hqp" secondAttribute="centerX" id="NKq-NM-ifl"/>
                                             <constraint firstItem="8Kt-r6-6hR" firstAttribute="top" secondItem="MFY-yy-hqp" secondAttribute="top" id="SlI-Mb-lBo"/>
                                             <constraint firstItem="5jN-be-mgG" firstAttribute="centerY" secondItem="MFY-yy-hqp" secondAttribute="centerY" id="VeH-V2-F51"/>
                                             <constraint firstAttribute="trailing" secondItem="30b-u3-cCP" secondAttribute="trailing" id="XKQ-xr-I5j"/>
                                             <constraint firstItem="5jN-be-mgG" firstAttribute="centerX" secondItem="MFY-yy-hqp" secondAttribute="centerX" id="a6a-NF-8i5"/>
                                             <constraint firstItem="30b-u3-cCP" firstAttribute="height" secondItem="MFY-yy-hqp" secondAttribute="height" id="ahq-13-FeQ"/>
                                             <constraint firstItem="30b-u3-cCP" firstAttribute="top" secondItem="MFY-yy-hqp" secondAttribute="top" id="dXs-x6-nwk"/>
+                                            <constraint firstItem="3nJ-DU-3O8" firstAttribute="centerY" secondItem="MFY-yy-hqp" secondAttribute="centerY" id="h1h-xG-5ia"/>
                                             <constraint firstItem="8Kt-r6-6hR" firstAttribute="height" secondItem="MFY-yy-hqp" secondAttribute="height" id="mbZ-nP-l4x"/>
                                             <constraint firstItem="8Kt-r6-6hR" firstAttribute="width" secondItem="MFY-yy-hqp" secondAttribute="width" multiplier="1/2" id="wzw-yV-9ab"/>
                                         </constraints>
@@ -288,9 +286,8 @@
                         <outlet property="barChartView" destination="mky-nl-knh" id="xxU-be-yy3"/>
                         <outlet property="buttonForSpendings" destination="KH5-Ml-gD8" id="UET-kD-nrT"/>
                         <outlet property="buttonToTrack" destination="5jN-be-mgG" id="57j-9a-CtO"/>
+                        <outlet property="categoryPicker" destination="vpo-JW-b89" id="aYw-5r-K5V"/>
                         <outlet property="counterView" destination="WMU-6b-LBv" id="rTs-hL-Zuv"/>
-                        <outlet property="fieldForCategory" destination="9Ge-eP-cbr" id="6MB-AQ-unf"/>
-                        <outlet property="labelForCategory" destination="iEI-yL-4iE" id="TqR-eJ-Mhp"/>
                         <outlet property="labelForCost" destination="EOU-HF-606" id="Oyn-Sn-efh"/>
                         <outlet property="labelForSavingsGoal" destination="u7U-7B-u1U" id="xt0-ym-aCm"/>
                         <outlet property="labelForSpendingToTrack" destination="Ykq-XZ-Xdq" id="Db7-2G-rqn"/>
@@ -298,7 +295,9 @@
                         <outlet property="labelForSpentThisWeek2" destination="oMM-Lo-H6M" id="TJq-ai-YUd"/>
                         <outlet property="labelForSpentToday" destination="CF9-KH-TtB" id="hSd-Zu-uZi"/>
                         <outlet property="labelForSpentToday2" destination="Zsx-bZ-JkI" id="XdN-zs-78X"/>
+                        <outlet property="seperatorLine" destination="3nJ-DU-3O8" id="mHM-5R-miN"/>
                         <outlet property="tapGestureRecognizer" destination="PAs-kV-t8w" id="uHb-5f-1cn"/>
+                        <outlet property="viewLeftNumber" destination="8Kt-r6-6hR" id="ISX-FB-36b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

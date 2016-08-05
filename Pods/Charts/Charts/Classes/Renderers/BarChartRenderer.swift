@@ -133,12 +133,18 @@ public class BarChartRenderer: ChartDataRendererBase
                     barShadow.size.height = viewPortHandler.contentHeight
                     
                     CGContextSetFillColorWithColor(context, dataSet.barShadowColor.CGColor)
-                    CGContextFillRect(context, barShadow)
+                    /*CUSTOMIZE CGContextFillRect(context, barShadow)*/
+                    let bezierPath = UIBezierPath(roundedRect: barRect, cornerRadius: 5)
+                    CGContextAddPath(context, bezierPath.CGPath);
+                    CGContextDrawPath(context, CGPathDrawingMode.Fill);
                 }
                 
                 // Set the color for the currently drawn value. If the index is out of bounds, reuse colors.
                 CGContextSetFillColorWithColor(context, dataSet.colorAt(j).CGColor)
-                CGContextFillRect(context, barRect)
+                /*CUSTOMIZE CGContextFillRect(context, barShadow)*/
+                let bezierPath = UIBezierPath(roundedRect: barRect, cornerRadius: 5)
+                CGContextAddPath(context, bezierPath.CGPath);
+                CGContextDrawPath(context, CGPathDrawingMode.Fill);
                 
                 if drawBorder
                 {
@@ -186,7 +192,11 @@ public class BarChartRenderer: ChartDataRendererBase
                     barShadow.size.height = viewPortHandler.contentHeight
                     
                     CGContextSetFillColorWithColor(context, dataSet.barShadowColor.CGColor)
-                    CGContextFillRect(context, barShadow)
+                    /*CUSTOMIZE CGContextFillRect(context, barShadow)*/
+                    let bezierPath = UIBezierPath(roundedRect: barRect, cornerRadius: 5)
+                    CGContextAddPath(context, bezierPath.CGPath);
+                    CGContextDrawPath(context, CGPathDrawingMode.Fill);
+                    
                 }
                 
                 // fill the stack
@@ -246,7 +256,10 @@ public class BarChartRenderer: ChartDataRendererBase
                     
                     // Set the color for the currently drawn value. If the index is out of bounds, reuse colors.
                     CGContextSetFillColorWithColor(context, dataSet.colorAt(k).CGColor)
-                    CGContextFillRect(context, barRect)
+                    /*CUSTOMIZE CGContextFillRect(context, barShadow)*/
+                    let bezierPath = UIBezierPath(roundedRect: barRect, cornerRadius: 5)
+                    CGContextAddPath(context, bezierPath.CGPath);
+                    CGContextDrawPath(context, CGPathDrawingMode.Fill);
                     
                     if drawBorder
                     {
@@ -545,7 +558,10 @@ public class BarChartRenderer: ChartDataRendererBase
                     
                     prepareBarHighlight(x: x, y1: y1, y2: y2, barspacehalf: barspaceHalf, trans: trans, rect: &barRect)
                     
-                    CGContextFillRect(context, barRect)
+                    /*CUSTOMIZE CGContextFillRect(context, barShadow)*/
+                    let bezierPath = UIBezierPath(roundedRect: barRect, cornerRadius: 5)
+                    CGContextAddPath(context, bezierPath.CGPath);
+                    CGContextDrawPath(context, CGPathDrawingMode.Fill);
                     
                     if (drawHighlightArrowEnabled)
                     {
@@ -579,7 +595,10 @@ public class BarChartRenderer: ChartDataRendererBase
                         CGContextAddLineToPoint(context, _highlightArrowPtsBuffer[2].x, _highlightArrowPtsBuffer[2].y)
                         CGContextClosePath(context)
                         
-                        CGContextFillPath(context)
+                        /*CUSTOMIZE CGContextFillRect(context, barShadow)*/
+                        let bezierPath = UIBezierPath(roundedRect: barRect, cornerRadius: 5)
+                        CGContextAddPath(context, bezierPath.CGPath);
+                        CGContextDrawPath(context, CGPathDrawingMode.Fill);
                         
                         CGContextRestoreGState(context)
                     }

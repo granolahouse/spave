@@ -12,7 +12,7 @@ import Charts
 import CoreLocation
 
 
-class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var labelForCost: UILabel!
     @IBOutlet weak var counterView: CounterView!
@@ -30,11 +30,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
     @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet weak var viewForSpentToday: UIView!
     
+    @IBOutlet weak var categoryPicker: UIPickerView!
+    @IBOutlet weak var seperatorLine: CustomSeperatorLine!
+    @IBOutlet weak var viewLeftNumber: UIView!
     @IBOutlet weak var buttonForSpendings: UIBarButtonItem!
     let defaults = NSUserDefaults.standardUserDefaults()
     let blue = UIColor(red: 60/255, green: 176/255, blue: 226/255, alpha: 1.0)
     let pink = UIColor(red: 226/255, green: 60/255, blue: 105/255, alpha: 1.0)
     let darkBlue = UIColor(red: 41/255, green: 52/255, blue: 72/255, alpha: 1.0)
+    let pickerValues = ["misc", "food", "fun", "travel"]
+
+    
     
     var locationManager: CLLocationManager = CLLocationManager()
     
@@ -81,6 +87,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
     var fetchedResultsController : NSFetchedResultsController?
     
     
+
+    
+    
     
     override func viewDidAppear(animated: Bool) {
         
@@ -96,8 +105,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         let font = UIFont(name: ".SFUIText-Regular", size: 14)!
         buttonForSpendings.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         buttonForSpendings.tintColor = darkBlue
-
-        
         
         
         let navBar = navigationController!.navigationBar
@@ -391,9 +398,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
             buttonToTrack.hidden = false
             labelForCost.hidden = false
             labelForSpendingToTrack.hidden = false
-            labelForCategory.hidden=false
-            fieldForCategory.hidden = false
+            categoryPicker.hidden = false
             
+            
+            seperatorLine.hidden = true
             labelForSpentToday.hidden = true
             labelForSpentToday2.hidden = true
             labelForSpentThisWeek.hidden = true
@@ -404,10 +412,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
             buttonToTrack.hidden = true
             labelForCost.hidden = true
             labelForSpendingToTrack.hidden = true
-            labelForCategory.hidden=true
-            fieldForCategory.hidden = true
+            categoryPicker.hidden = true
             
             
+            seperatorLine.hidden = false
             labelForSpentToday.hidden = false
             labelForSpentToday2.hidden = false
             labelForSpentThisWeek.hidden = false
@@ -468,6 +476,35 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         barChartView.data = chartData
         
     }
+    
+    
+    //Picker view controlls
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerValues.count
+    }
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        return pickerValues[row]
+        
+        
+    }
+    
+    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView {
+        let pickerLabel = UILabel()
+        pickerLabel.textColor = UIColor.blackColor()
+        pickerLabel.text = pickerValues[row]
+        pickerLabel.font = UIFont(name: ".SFUIText-Regular", size: 12)!
+        pickerLabel.textAlignment = NSTextAlignment.Center
+        return pickerLabel
+    }
+    
+   
+    
     
     
 }
