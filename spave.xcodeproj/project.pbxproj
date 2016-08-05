@@ -11,6 +11,7 @@
 		24181FFD1D5241D200A4E0B6 /* SF-UI-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 24181FFC1D5241CC00A4E0B6 /* SF-UI-Display-Thin.otf */; };
 		24181FFF1D52447500A4E0B6 /* SF-UI-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 24181FFE1D52447000A4E0B6 /* SF-UI-Display-Regular.otf */; };
 		249C5CE01D53718600EE4853 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 249C5CDF1D53718600EE4853 /* Info.plist */; };
+		249C5CE21D54A0F100EE4853 /* CustomAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249C5CE11D54A0F100EE4853 /* CustomAddButton.swift */; };
 		24C645631D51FEA000AB1E66 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C6455F1D51FEA000AB1E66 /* SettingsViewController.swift */; };
 		24C645641D51FEA000AB1E66 /* SpendingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C645601D51FEA000AB1E66 /* SpendingsViewController.swift */; };
 		24C645651D51FEA000AB1E66 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C645611D51FEA000AB1E66 /* CoreDataTableViewController.swift */; };
@@ -53,6 +54,7 @@
 		24181FFC1D5241CC00A4E0B6 /* SF-UI-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Thin.otf"; sourceTree = "<group>"; };
 		24181FFE1D52447000A4E0B6 /* SF-UI-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Regular.otf"; sourceTree = "<group>"; };
 		249C5CDF1D53718600EE4853 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		249C5CE11D54A0F100EE4853 /* CustomAddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAddButton.swift; sourceTree = "<group>"; };
 		24C6455F1D51FEA000AB1E66 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		24C645601D51FEA000AB1E66 /* SpendingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpendingsViewController.swift; sourceTree = "<group>"; };
 		24C645611D51FEA000AB1E66 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				24C645601D51FEA000AB1E66 /* SpendingsViewController.swift */,
 				24C645611D51FEA000AB1E66 /* CoreDataTableViewController.swift */,
 				24C645621D51FEA000AB1E66 /* SpendingViewController.swift */,
+				249C5CE11D54A0F100EE4853 /* CustomAddButton.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				24C645651D51FEA000AB1E66 /* CoreDataTableViewController.swift in Sources */,
 				24C645641D51FEA000AB1E66 /* SpendingsViewController.swift in Sources */,
 				24C645681D51FEBC00AB1E66 /* CoreDataStack.swift in Sources */,
+				249C5CE21D54A0F100EE4853 /* CustomAddButton.swift in Sources */,
 				24E1B0781D51FCD1008BDAD4 /* AppDelegate.swift in Sources */,
 				24E1B0B01D51FDDD008BDAD4 /* CounterView.swift in Sources */,
 				24C645721D51FFDB00AB1E66 /* Expense+CoreDataProperties.swift in Sources */,

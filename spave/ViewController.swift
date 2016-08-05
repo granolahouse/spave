@@ -87,9 +87,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         
         //Some UI changes
         counterView.backgroundColor = UIColor.clearColor()
-        buttonToTrack.backgroundColor = UIColor(red: 189/255, green: 16/255, blue: 224/255, alpha: 1)
-        buttonToTrack.layer.cornerRadius = 20
-        labelForCost.font = UIFont(name: "Helvetica", size: 48)
+        
+        
+        
+        
         let navBar = navigationController!.navigationBar
         
         navBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
