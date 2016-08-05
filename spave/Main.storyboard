@@ -55,9 +55,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="44" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <state key="normal" title="Details › "/>
-                                <connections>
-                                    <segue destination="y1U-gY-ldJ" kind="show" id="CPE-V0-KE5"/>
-                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftq-rJ-9y9" userLabel="areaCircle">
                                 <rect key="frame" x="0.0" y="64" width="600" height="268"/>
@@ -65,19 +62,19 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WMU-6b-LBv" userLabel="viewForCircle" customClass="CounterView" customModule="spave" customModuleProvider="target">
                                         <rect key="frame" x="176" y="0.0" width="248" height="248"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7U-7B-u1U">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7U-7B-u1U">
                                                 <rect key="frame" x="76" y="86" width="148" height="75"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="64"/>
                                                 <color key="textColor" red="0.16078431372549018" green="0.20392156862745098" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="€" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeI-gw-5wA">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeI-gw-5wA">
                                                 <rect key="frame" x="50" y="111" width="21" height="43"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Thin" family="SF UI Display" pointSize="36"/>
                                                 <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="saved this month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsq-sZ-Oz8">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="saved this month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsq-sZ-Oz8">
                                                 <rect key="frame" x="81" y="161" width="89" height="15"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="12"/>
                                                 <color key="textColor" red="0.66666666666666663" green="0.68235294117647061" blue="0.70588235294117641" alpha="1" colorSpace="calibratedRGB"/>
@@ -117,11 +114,15 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Kt-r6-6hR" userLabel="leftNumber">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="134"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="€40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CF9-KH-TtB">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CF9-KH-TtB">
                                                         <rect key="frame" x="125" y="49" width="50" height="36"/>
+                                                        <gestureRecognizers/>
                                                         <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="30"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="ZBX-m7-KnJ" appends="YES" id="afo-Q8-qhb"/>
+                                                        </connections>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="spent today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zsx-bZ-JkI">
                                                         <rect key="frame" x="121" y="95" width="57" height="12"/>
@@ -156,7 +157,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="30b-u3-cCP" userLabel="rightNumber">
                                                 <rect key="frame" x="300" y="0.0" width="300" height="134"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="€350" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgk-16-UPr">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€350" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgk-16-UPr">
                                                         <rect key="frame" x="117" y="49" width="66" height="35"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="30"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -168,7 +169,7 @@
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="misc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ge-eP-cbr" userLabel="category">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="misc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ge-eP-cbr" userLabel="category">
                                                         <rect key="frame" x="121" y="49" width="58" height="36"/>
                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Thin" family="SF UI Display" pointSize="30"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -271,6 +272,11 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="N6K-6q-ufY">
+                        <barButtonItem key="leftBarButtonItem" title="Spendings" id="KH5-Ml-gD8">
+                            <connections>
+                                <segue destination="y1U-gY-ldJ" kind="show" id="U2v-3K-1ms"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="Settings" style="plain" id="A8b-TT-8Ka">
                             <color key="tintColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -280,6 +286,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="barChartView" destination="mky-nl-knh" id="xxU-be-yy3"/>
+                        <outlet property="buttonForSpendings" destination="KH5-Ml-gD8" id="UET-kD-nrT"/>
                         <outlet property="buttonToTrack" destination="5jN-be-mgG" id="57j-9a-CtO"/>
                         <outlet property="counterView" destination="WMU-6b-LBv" id="rTs-hL-Zuv"/>
                         <outlet property="fieldForCategory" destination="9Ge-eP-cbr" id="6MB-AQ-unf"/>
@@ -305,6 +312,7 @@
                         <action selector="handleTap:" destination="BYZ-38-t0r" id="rxE-sf-9aF"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="ZBX-m7-KnJ"/>
             </objects>
             <point key="canvasLocation" x="343" y="240"/>
         </scene>

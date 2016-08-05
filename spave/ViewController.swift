@@ -30,9 +30,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
     @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet weak var viewForSpentToday: UIView!
     
+    @IBOutlet weak var buttonForSpendings: UIBarButtonItem!
     let defaults = NSUserDefaults.standardUserDefaults()
     let blue = UIColor(red: 60/255, green: 176/255, blue: 226/255, alpha: 1.0)
     let pink = UIColor(red: 226/255, green: 60/255, blue: 105/255, alpha: 1.0)
+    let darkBlue = UIColor(red: 41/255, green: 52/255, blue: 72/255, alpha: 1.0)
+    
     var locationManager: CLLocationManager = CLLocationManager()
     
     var totalCostOfTheDay: Int = 0
@@ -90,7 +93,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         
         //Some UI changes
         counterView.backgroundColor = UIColor.clearColor()
-        
+        let font = UIFont(name: ".SFUIText-Regular", size: 14)!
+        buttonForSpendings.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+        buttonForSpendings.tintColor = darkBlue
+
         
         
         
