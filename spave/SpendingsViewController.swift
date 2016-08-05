@@ -35,7 +35,8 @@ class SpendingsViewController: CoreDataTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.separatorStyle = .SingleLine
+        tableView.separatorColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1)
         
         self.refreshControl?.addTarget(self, action: #selector(SpendingsViewController.refresh), forControlEvents: UIControlEvents.ValueChanged)
 
@@ -75,11 +76,10 @@ class SpendingsViewController: CoreDataTableViewController {
         
         let humanReadableExpenseDate = dateFormatter.stringFromDate(expense.date!)
         //dateString now contains the string "Sunday, 7 AM".
+        cell.detailTextLabel!.text = humanReadableExpenseDate
         
         
-        cell.detailTextLabel?.text = humanReadableExpenseDate
-        
-        
+
         return cell
         
     }
@@ -110,6 +110,12 @@ class SpendingsViewController: CoreDataTableViewController {
             tableView.reloadData()
         }
     }
+    
+   
+
+    
+    
+    
     
    
     

@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import Charts
 import CoreLocation
-
+@IBDesignable
 
 class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
