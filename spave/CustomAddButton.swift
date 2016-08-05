@@ -8,7 +8,18 @@
 
 import Foundation
 import UIKit
+
+@IBDesignable
+
 class CustomAddButton: UIButton {
+    
+    var path: UIBezierPath?
+    
+
+
+    
+    
+    
     override func drawRect(rect: CGRect) {
         
         print("Rect with: \(rect.width-10)")
@@ -16,15 +27,20 @@ class CustomAddButton: UIButton {
         
         let rectWithPadding = CGRect(x: rect.minX+5, y: rect.minY+5, width: rect.width-10.0, height: rect.height-10.0)
         
-        let path = UIBezierPath(ovalInRect: rectWithPadding)
+        self.path = UIBezierPath(ovalInRect: rectWithPadding)
         
-        path.lineWidth = 3
+        self.path!.lineWidth = 3
         
         let lightGrey = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1)
         lightGrey.setStroke()
-        path.stroke()
+        self.path!.stroke()
         
         
        
     }
+     
+    
+        
+        
+    
 }

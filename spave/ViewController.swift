@@ -22,6 +22,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
     @IBOutlet weak var labelForSpentToday: UILabel!
     @IBOutlet weak var labelForSpentThisWeek: UILabel!
     
+    @IBOutlet weak var labelForSpendingToTrack: UILabel!
+    @IBOutlet weak var labelForCategory: UILabel!
+    @IBOutlet weak var fieldForCategory: UILabel!
     @IBOutlet weak var labelForSpentThisWeek2: UILabel!
     @IBOutlet weak var labelForSpentToday2: UILabel!
     @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
@@ -381,14 +384,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         if show {
             buttonToTrack.hidden = false
             labelForCost.hidden = false
+            labelForSpendingToTrack.hidden = false
+            labelForCategory.hidden=false
+            fieldForCategory.hidden = false
+            
             labelForSpentToday.hidden = true
             labelForSpentToday2.hidden = true
             labelForSpentThisWeek.hidden = true
             labelForSpentThisWeek2.hidden = true
             
+            
         } else {
             buttonToTrack.hidden = true
             labelForCost.hidden = true
+            labelForSpendingToTrack.hidden = true
+            labelForCategory.hidden=true
+            fieldForCategory.hidden = true
+            
+            
             labelForSpentToday.hidden = false
             labelForSpentToday2.hidden = false
             labelForSpentThisWeek.hidden = false
