@@ -30,7 +30,6 @@
 		24E1B0AD1D51FD9F008BDAD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24E1B0AC1D51FD9F008BDAD4 /* Main.storyboard */; };
 		24E1B0B01D51FDDD008BDAD4 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E1B0AF1D51FDDD008BDAD4 /* CounterView.swift */; };
 		24F9942A1D54DB7900C516FA /* CustomSeperatorLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F994291D54DB7900C516FA /* CustomSeperatorLine.swift */; };
-		24F9942E1D54E9C100C516FA /* CategoryPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F9942D1D54E9C100C516FA /* CategoryPickerDelegate.swift */; };
 		B6A41E05AB3BC764305D505A /* Pods_spave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B95B9D56FFD89D695C7A514 /* Pods_spave.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,7 +79,6 @@
 		24E1B0AC1D51FD9F008BDAD4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		24E1B0AF1D51FDDD008BDAD4 /* CounterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		24F994291D54DB7900C516FA /* CustomSeperatorLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSeperatorLine.swift; sourceTree = "<group>"; };
-		24F9942D1D54E9C100C516FA /* CategoryPickerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryPickerDelegate.swift; sourceTree = "<group>"; };
 		3B95B9D56FFD89D695C7A514 /* Pods_spave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE6C31BC513D3FECFE96E1D /* Pods-spave.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spave.debug.xcconfig"; path = "Pods/Target Support Files/Pods-spave/Pods-spave.debug.xcconfig"; sourceTree = "<group>"; };
 		D0B8A2A099EB7E01910E6F5F /* Pods-spave.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spave.release.xcconfig"; path = "Pods/Target Support Files/Pods-spave/Pods-spave.release.xcconfig"; sourceTree = "<group>"; };
@@ -216,7 +214,6 @@
 				24C645621D51FEA000AB1E66 /* SpendingViewController.swift */,
 				249C5CE11D54A0F100EE4853 /* CustomAddButton.swift */,
 				24F994291D54DB7900C516FA /* CustomSeperatorLine.swift */,
-				24F9942D1D54E9C100C516FA /* CategoryPickerDelegate.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -434,7 +431,6 @@
 				24C645681D51FEBC00AB1E66 /* CoreDataStack.swift in Sources */,
 				249C5CE21D54A0F100EE4853 /* CustomAddButton.swift in Sources */,
 				24E1B0781D51FCD1008BDAD4 /* AppDelegate.swift in Sources */,
-				24F9942E1D54E9C100C516FA /* CategoryPickerDelegate.swift in Sources */,
 				24E1B0B01D51FDDD008BDAD4 /* CounterView.swift in Sources */,
 				24C645721D51FFDB00AB1E66 /* Expense+CoreDataProperties.swift in Sources */,
 				24C645661D51FEA000AB1E66 /* SpendingViewController.swift in Sources */,
