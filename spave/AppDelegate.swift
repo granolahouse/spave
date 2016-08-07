@@ -54,10 +54,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             defaults.setInteger(800, forKey: "monthlyBudget")
             defaults.setInteger(60, forKey: "savingsGoal")
             
+            
+           
+            
         }
         
-        
-        
+                
         // Load some notebooks and notes.
         //preloadData()
         

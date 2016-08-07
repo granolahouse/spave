@@ -107,7 +107,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         buttonForSpendings.tintColor = darkBlue
         
         
+        let backImg: UIImage = UIImage(named: "Settings")!
+        
+        UIBarButtonItem.appearance().setBackButtonBackgroundImage(backImg, forState: .Normal, barMetrics: .Default)
+        
+        
+
+        
         let navBar = navigationController!.navigationBar
+        navBar.backIndicatorImage = backImg
+        
+        
+        navBar.backItem?.title = ""
+        
         
         navBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         navBar.shadowImage = UIImage()

@@ -271,6 +271,7 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="N6K-6q-ufY">
+                        <barButtonItem key="backBarButtonItem" title=" " id="z6T-0o-P8n"/>
                         <barButtonItem key="leftBarButtonItem" title="Spendings" id="KH5-Ml-gD8">
                             <connections>
                                 <segue destination="y1U-gY-ldJ" kind="show" id="U2v-3K-1ms"/>

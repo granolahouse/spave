@@ -19,6 +19,8 @@ class SpendingViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         
+        
+        
         if let expense = expense {
             
             if let locationSet = expense.location {
