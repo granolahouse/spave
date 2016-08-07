@@ -54,7 +54,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftq-rJ-9y9" userLabel="areaCircle">
                                 <rect key="frame" x="0.0" y="64" width="600" height="268"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WMU-6b-LBv" userLabel="viewForCircle" customClass="CounterView" customModule="spave" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WMU-6b-LBv" userLabel="viewForCircle" customClass="AnimatedCircle" customModule="spave" customModuleProvider="target">
                                         <rect key="frame" x="176" y="0.0" width="248" height="248"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7U-7B-u1U">

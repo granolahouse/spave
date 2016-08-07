@@ -30,6 +30,7 @@
 		24E1B0AD1D51FD9F008BDAD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24E1B0AC1D51FD9F008BDAD4 /* Main.storyboard */; };
 		24E1B0B01D51FDDD008BDAD4 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E1B0AF1D51FDDD008BDAD4 /* CounterView.swift */; };
 		24F9942A1D54DB7900C516FA /* CustomSeperatorLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F994291D54DB7900C516FA /* CustomSeperatorLine.swift */; };
+		24F994A61D578BC700C516FA /* AnimatedCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F994A51D578BC700C516FA /* AnimatedCircle.swift */; };
 		B6A41E05AB3BC764305D505A /* Pods_spave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B95B9D56FFD89D695C7A514 /* Pods_spave.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		24E1B0AC1D51FD9F008BDAD4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		24E1B0AF1D51FDDD008BDAD4 /* CounterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		24F994291D54DB7900C516FA /* CustomSeperatorLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSeperatorLine.swift; sourceTree = "<group>"; };
+		24F994A51D578BC700C516FA /* AnimatedCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedCircle.swift; sourceTree = "<group>"; };
 		3B95B9D56FFD89D695C7A514 /* Pods_spave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE6C31BC513D3FECFE96E1D /* Pods-spave.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spave.debug.xcconfig"; path = "Pods/Target Support Files/Pods-spave/Pods-spave.debug.xcconfig"; sourceTree = "<group>"; };
 		D0B8A2A099EB7E01910E6F5F /* Pods-spave.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spave.release.xcconfig"; path = "Pods/Target Support Files/Pods-spave/Pods-spave.release.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				24E1B0AF1D51FDDD008BDAD4 /* CounterView.swift */,
+				24F994A51D578BC700C516FA /* AnimatedCircle.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				24C645661D51FEA000AB1E66 /* SpendingViewController.swift in Sources */,
 				24C645631D51FEA000AB1E66 /* SettingsViewController.swift in Sources */,
 				24C6456F1D51FF8500AB1E66 /* Model.xcdatamodeld in Sources */,
+				24F994A61D578BC700C516FA /* AnimatedCircle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
