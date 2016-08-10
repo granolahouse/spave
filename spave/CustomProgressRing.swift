@@ -33,12 +33,12 @@ import UIKit
     
     
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    override func drawRect(rect: CGRect) {
         
+        self.backgroundColor = UIColor.blackColor()
         
-       bezier = UIBezierPath(arcCenter: CGPoint(x: self.frame.size.width / 2.0, y: self.frame.size.height / 2.0),
-                                  radius: (self.frame.size.width - 10)/2,
+       bezier = UIBezierPath(arcCenter: CGPoint(x: bounds.width/2, y: bounds.height/2),
+                                  radius: (self.bounds.width-10)/2,
                                   startAngle: CGFloat(-M_PI_2),
                                   endAngle: CGFloat(M_PI * 2 - M_PI_2),
                                   clockwise: true)
