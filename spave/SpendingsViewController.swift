@@ -91,22 +91,23 @@ class SpendingsViewController: CoreDataTableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             
-            // Stack
-            let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            let stack = delegate.stack
             
             let expense = fetchedResultsController!.objectAtIndexPath(indexPath) as! Expense
             
             // remove your object
             
-            stack.context.deleteObject(expense)
+            print("I will delete \(expense)")
             
-            // save changes
+            fetchedResultsController?.managedObjectContext.deleteObject(expense)
+            //stack.context.deleteObject(expense)
+            
+            /* save changes
             do {
                 try stack.context.save()
+                print("saved delete")
             } catch{
                 print("error when saving context")
-            }
+            }*/
             tableView.reloadData()
         }
     }

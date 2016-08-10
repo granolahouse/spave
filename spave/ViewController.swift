@@ -15,12 +15,13 @@ import CoreLocation
 class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var labelForCost: UILabel!
-    @IBOutlet weak var counterView: CounterView!
+    
     @IBOutlet weak var buttonToTrack: UIButton!
     @IBOutlet weak var barChartView: BarChartView!
     @IBOutlet weak var labelForSavingsGoal: UILabel!
     @IBOutlet weak var labelForSpentToday: UILabel!
     @IBOutlet weak var labelForSpentThisWeek: UILabel!
+    @IBOutlet weak var customProgressBar: CustomProgressRing!
     
     @IBOutlet weak var labelForSpendingToTrack: UILabel!
     @IBOutlet weak var labelForCategory: UILabel!
@@ -72,12 +73,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
     var savedThisMonth: Int = 0 {
         didSet {
             labelForSavingsGoal.text = String(savedThisMonth)
-            counterView.counter = savedThisMonth
-            if (savedThisMonth < 0) {
-                counterView.counterColor = pink
-            } else {
-                counterView.counterColor = blue
-            }
+            customProgressBar.counter = savedThisMonth
         }
     }
     
@@ -98,27 +94,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         savingsGoal = defaults.integerForKey("savingsGoal")
         monthlyBudget = defaults.integerForKey("monthlyBudget")
         newCostToTrack = 0
-        counterView.savingsGoal = savingsGoal
+        customProgressBar.savingsGoal = savingsGoal
         
         //Some UI changes
-        counterView.backgroundColor = UIColor.clearColor()
+        customProgressBar.backgroundColor = UIColor.clearColor()
         let font = UIFont(name: ".SFUIText-Regular", size: 14)!
         buttonForSpendings.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
         buttonForSpendings.tintColor = darkBlue
         
         
-        let backImg: UIImage = UIImage(named: "Settings")!
-        
-        UIBarButtonItem.appearance().setBackButtonBackgroundImage(backImg, forState: .Normal, barMetrics: .Default)
         
         
-
+        //UIBarButtonItem.appearance().setBackButtonBackgroundImage(backImg, forState: .Normal, barMetrics: .Default)
+        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "BackIcon")
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "BackIcon")
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        
         
         let navBar = navigationController!.navigationBar
-        navBar.backIndicatorImage = backImg
-        
-        
-        navBar.backItem?.title = ""
         
         
         navBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
@@ -216,8 +209,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
             UIApplicationWillEnterForegroundNotification, object: nil)
         
         
-        
-        
         locationManager = CLLocationManager()
         locationManager.delegate = self;
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -241,7 +232,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
     }
     
     @IBAction func handleTap(recognizer: UITapGestureRecognizer) {
-
         
        showTrackControl(false)
     }
@@ -300,15 +290,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         labelForCost.text = "€\(newCostToTrack)"
         
         labelForSavingsGoal.text = String(savedThisMonth)
-        counterView.counter = calculateSavingsThisMonth()
+        //animatedCircle.counter = calculateSavingsThisMonth()
         
         
-        // Update color of circle
-        if (savedThisMonth < savingsGoal/2) {
-            counterView.counterColor = pink
-        } else {
-            counterView.counterColor = blue
-        }
+        
         
         // Update chart
         drawSpendingsOverviewChart()
