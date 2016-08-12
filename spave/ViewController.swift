@@ -12,7 +12,7 @@ import Charts
 import CoreLocation
 @IBDesignable
 
-class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class ViewController: UIViewController {
     
     @IBOutlet weak var labelForCost: UILabel!
     
@@ -31,7 +31,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
     @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet weak var viewForSpentToday: UIView!
     
-    @IBOutlet weak var categoryPicker: UIPickerView!
     @IBOutlet weak var seperatorLine: CustomSeperatorLine!
     @IBOutlet weak var viewLeftNumber: UIView!
     @IBOutlet weak var buttonForSpendings: UIBarButtonItem!
@@ -39,11 +38,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
     let blue = UIColor(red: 60/255, green: 176/255, blue: 226/255, alpha: 1.0)
     let pink = UIColor(red: 226/255, green: 60/255, blue: 105/255, alpha: 1.0)
     let darkBlue = UIColor(red: 41/255, green: 52/255, blue: 72/255, alpha: 1.0)
-    let pickerValues = ["misc", "food", "fun", "travel"]
 
     
     
-    var locationManager: CLLocationManager = CLLocationManager()
     
     var totalCostOfTheDay: Int = 0
     var dailyLimit: Int = 6
@@ -51,11 +48,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
     var monthlyBudget: Int = 0
     
     
-    var newCostToTrack: Int = 0 {
-        didSet {
-            labelForCost.text = "€\(newCostToTrack)"
-        }
-    }
+    
     
     var valueForLabelSpentToday: Int = 0 {
         didSet {
@@ -93,7 +86,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         //Load user defaults
         savingsGoal = defaults.integerForKey("savingsGoal")
         monthlyBudget = defaults.integerForKey("monthlyBudget")
-        newCostToTrack = 0
         customProgressBar.savingsGoal = savingsGoal
         
         //Some UI changes
@@ -118,8 +110,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         navBar.shadowImage = UIImage()
         navBar.translucent = true
         
-        buttonToTrack.hidden = true
-        labelForCost.hidden = true
+        
         
         //navBarColor.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
@@ -143,7 +134,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         barChartView.noDataTextDescription = "No data yet. Start tracking by click clicking the cha-ching button"
         
         updateUI()
-        showTrackControl(false)
         
         
         
@@ -203,28 +193,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         
         super.viewDidLoad()
         
-        self.tapGestureRecognizer.delegate = self
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(ViewController.updateUI), name:
             UIApplicationWillEnterForegroundNotification, object: nil)
         
         
-        locationManager = CLLocationManager()
-        locationManager.delegate = self;
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.updateUI), name:"AddExpenseModalDismissed", object: nil)
         
         
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
-    {
-        
-        let location = locations.last! as CLLocation
-        
-        
-    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -233,48 +212,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
     
     @IBAction func handleTap(recognizer: UITapGestureRecognizer) {
         
-       showTrackControl(false)
-    }
-    @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
-        
-        showTrackControl(true)
-        let translation = recognizer.translationInView(self.view)
-        /*if let view = recognizer.view {
-         view.center = CGPoint(x:view.center.x + translation.x,
-         y:view.center.y + translation.y)
-         }*/
-        newCostToTrack -= Int(translation.y)
-        if (newCostToTrack < 0) {
-            newCostToTrack = 0
-        }
-        labelForCost.text = "€\(String(newCostToTrack))"
-        recognizer.setTranslation(CGPointZero, inView: self.view)
     }
     
-    @IBAction func track(sender: AnyObject) {
-        print("we track \(newCostToTrack)")
-        
-        // Save tracked expense to the managedObjectContext; Will be made persistent through autosave
-        let expenseToTrack = Expense(value: newCostToTrack, date: NSDate(), context: fetchedResultsController!.managedObjectContext)
-        //We just tracked a new expense and set the newCostToTrack back to zero
-        newCostToTrack=0
-        
-        if let location = locationManager.location {
-            expenseToTrack.location = location
-            print("yay, we just saved our first location")
-        }
-        
-        do {
-            try fetchedResultsController?.performFetch()
-        } catch {
-            print("fetch didn't work")
-        }
-        
-        print("current location when track: \(locationManager.location?.coordinate)")
-        
-        updateUI()
-        showTrackControl(false)
-    }
     
     
     func updateUI() {
@@ -287,12 +226,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         // Update labels
         labelForSpentToday.text = "€\(valueForLabelSpentToday)"
         labelForSpentThisWeek.text = String("€\(valueForLabelSpentThisWeek)")
-        labelForCost.text = "€\(newCostToTrack)"
+
         
         labelForSavingsGoal.text = String(savedThisMonth)
         //animatedCircle.counter = calculateSavingsThisMonth()
-        
-        
+        customProgressBar.counter = savedThisMonth
+        print("updatedUI; SavedThisMonth: \(customProgressBar.counter), \(customProgressBar.savingsGoal)")
         
         
         // Update chart
@@ -390,36 +329,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
     }
     
     
-    func showTrackControl(show:Bool) {
-        if show {
-            buttonToTrack.hidden = false
-            labelForCost.hidden = false
-            labelForSpendingToTrack.hidden = false
-            categoryPicker.hidden = false
-            
-            
-            seperatorLine.hidden = true
-            labelForSpentToday.hidden = true
-            labelForSpentToday2.hidden = true
-            labelForSpentThisWeek.hidden = true
-            labelForSpentThisWeek2.hidden = true
-            
-            
-        } else {
-            buttonToTrack.hidden = true
-            labelForCost.hidden = true
-            labelForSpendingToTrack.hidden = true
-            categoryPicker.hidden = true
-            
-            
-            seperatorLine.hidden = false
-            labelForSpentToday.hidden = false
-            labelForSpentToday2.hidden = false
-            labelForSpentThisWeek.hidden = false
-            labelForSpentThisWeek2.hidden = false
-        }
-    }
-    
+        
     
     func setChart(dataPoints: [String], values: [Double]) {
         barChartView.noDataText = "You need to provide data for the chart."
@@ -475,31 +385,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
     }
     
     
-    //Picker view controlls
-    
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerValues.count
-    }
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
-        return pickerValues[row]
-        
-        
-    }
-    
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView {
-        let pickerLabel = UILabel()
-        pickerLabel.textColor = UIColor.blackColor()
-        pickerLabel.text = pickerValues[row]
-        pickerLabel.font = UIFont(name: ".SFUIText-Regular", size: 12)!
-        pickerLabel.textAlignment = NSTextAlignment.Center
-        return pickerLabel
-    }
-    
+      
    
     
     

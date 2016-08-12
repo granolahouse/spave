@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RtX-mq-Nfo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RtX-mq-Nfo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -15,6 +16,7 @@
             <string>Roboto-Thin</string>
         </mutableArray>
         <mutableArray key="SF-UI-Display-Regular.otf">
+            <string>SFUIDisplay-Regular</string>
             <string>SFUIDisplay-Regular</string>
             <string>SFUIDisplay-Regular</string>
         </mutableArray>
@@ -42,7 +44,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="spave" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="spave" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -106,13 +108,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MFY-yy-hqp" userLabel="areaForSpentTodayMonth ">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="134"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3nJ-DU-3O8" userLabel="separatorLine" customClass="CustomSeperatorLine" customModule="spave" customModuleProvider="target">
-                                                <rect key="frame" x="299.5" y="0.0" width="1" height="134"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="1" id="432-BZ-FEj"/>
-                                                </constraints>
-                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Kt-r6-6hR" userLabel="leftNumber">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="134"/>
                                                 <subviews>
@@ -122,9 +117,6 @@
                                                         <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="30"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
-                                                        <connections>
-                                                            <outletCollection property="gestureRecognizers" destination="ZBX-m7-KnJ" appends="YES" id="afo-Q8-qhb"/>
-                                                        </connections>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="spent today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zsx-bZ-JkI">
                                                         <rect key="frame" x="121" y="95" width="57" height="12"/>
@@ -132,27 +124,11 @@
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOU-HF-606">
-                                                        <rect key="frame" x="142" y="49" width="16.5" height="35.5"/>
-                                                        <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="30"/>
-                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="spending to track" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ykq-XZ-Xdq">
-                                                        <rect key="frame" x="108" y="94.5" width="84.5" height="12"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="EOU-HF-606" firstAttribute="centerX" secondItem="8Kt-r6-6hR" secondAttribute="centerX" id="5Mk-DN-Pxq"/>
                                                     <constraint firstItem="CF9-KH-TtB" firstAttribute="centerX" secondItem="8Kt-r6-6hR" secondAttribute="centerX" id="CIV-Sq-xAP"/>
-                                                    <constraint firstItem="Ykq-XZ-Xdq" firstAttribute="centerX" secondItem="EOU-HF-606" secondAttribute="centerX" id="DQy-5J-MQK"/>
                                                     <constraint firstItem="Zsx-bZ-JkI" firstAttribute="top" secondItem="CF9-KH-TtB" secondAttribute="bottom" constant="10" id="TkX-so-Oin"/>
                                                     <constraint firstItem="CF9-KH-TtB" firstAttribute="centerY" secondItem="8Kt-r6-6hR" secondAttribute="centerY" id="dOX-wB-DIg"/>
-                                                    <constraint firstItem="Ykq-XZ-Xdq" firstAttribute="top" secondItem="EOU-HF-606" secondAttribute="bottom" constant="10" id="mvu-zu-6D7"/>
-                                                    <constraint firstItem="EOU-HF-606" firstAttribute="centerY" secondItem="8Kt-r6-6hR" secondAttribute="centerY" id="rgY-Tf-pBi"/>
                                                     <constraint firstItem="Zsx-bZ-JkI" firstAttribute="centerX" secondItem="CF9-KH-TtB" secondAttribute="centerX" id="wMa-Cs-YjD"/>
                                                 </constraints>
                                             </view>
@@ -171,23 +147,12 @@
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vpo-JW-b89">
-                                                        <rect key="frame" x="75" y="0.0" width="150" height="134"/>
-                                                        <connections>
-                                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="lV7-KT-abk"/>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="GgU-ZL-NeC"/>
-                                                        </connections>
-                                                    </pickerView>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="dgk-16-UPr" firstAttribute="centerX" secondItem="30b-u3-cCP" secondAttribute="centerX" id="6aH-Ur-6Az"/>
                                                     <constraint firstItem="dgk-16-UPr" firstAttribute="centerY" secondItem="30b-u3-cCP" secondAttribute="centerY" id="Cc3-8q-4Jp"/>
                                                     <constraint firstItem="oMM-Lo-H6M" firstAttribute="top" secondItem="dgk-16-UPr" secondAttribute="bottom" constant="10" id="Jet-An-bE5"/>
-                                                    <constraint firstItem="vpo-JW-b89" firstAttribute="centerX" secondItem="30b-u3-cCP" secondAttribute="centerX" id="Kn4-AR-kBn"/>
-                                                    <constraint firstItem="vpo-JW-b89" firstAttribute="width" secondItem="30b-u3-cCP" secondAttribute="width" multiplier="1/2" id="Nee-Le-TRM"/>
-                                                    <constraint firstItem="vpo-JW-b89" firstAttribute="height" secondItem="30b-u3-cCP" secondAttribute="height" id="Uoa-MI-esB"/>
                                                     <constraint firstItem="oMM-Lo-H6M" firstAttribute="centerX" secondItem="dgk-16-UPr" secondAttribute="centerX" id="gkJ-YT-3Ov"/>
-                                                    <constraint firstItem="vpo-JW-b89" firstAttribute="centerY" secondItem="30b-u3-cCP" secondAttribute="centerY" id="mXe-h5-Idk"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jN-be-mgG" customClass="CustomAddButton" customModule="spave" customModuleProvider="target">
@@ -199,26 +164,25 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="24"/>
                                                 <state key="normal" title="+">
-                                                    <color key="titleColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.23529411759999999" green="0.69019607839999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="track:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PjR-fO-OX7"/>
+                                                    <segue destination="EwR-MJ-Hci" kind="popoverPresentation" popoverAnchorView="5jN-be-mgG" id="toA-07-Ooh">
+                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                    </segue>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="3nJ-DU-3O8" firstAttribute="height" secondItem="MFY-yy-hqp" secondAttribute="height" id="5jl-3P-jks"/>
                                             <constraint firstItem="8Kt-r6-6hR" firstAttribute="leading" secondItem="MFY-yy-hqp" secondAttribute="leading" id="EVH-zQ-JQ7"/>
                                             <constraint firstItem="30b-u3-cCP" firstAttribute="width" secondItem="MFY-yy-hqp" secondAttribute="width" multiplier="1/2" id="M0k-1Z-tbH"/>
-                                            <constraint firstItem="3nJ-DU-3O8" firstAttribute="centerX" secondItem="MFY-yy-hqp" secondAttribute="centerX" id="NKq-NM-ifl"/>
                                             <constraint firstItem="8Kt-r6-6hR" firstAttribute="top" secondItem="MFY-yy-hqp" secondAttribute="top" id="SlI-Mb-lBo"/>
                                             <constraint firstItem="5jN-be-mgG" firstAttribute="centerY" secondItem="MFY-yy-hqp" secondAttribute="centerY" id="VeH-V2-F51"/>
                                             <constraint firstAttribute="trailing" secondItem="30b-u3-cCP" secondAttribute="trailing" id="XKQ-xr-I5j"/>
                                             <constraint firstItem="5jN-be-mgG" firstAttribute="centerX" secondItem="MFY-yy-hqp" secondAttribute="centerX" id="a6a-NF-8i5"/>
                                             <constraint firstItem="30b-u3-cCP" firstAttribute="height" secondItem="MFY-yy-hqp" secondAttribute="height" id="ahq-13-FeQ"/>
                                             <constraint firstItem="30b-u3-cCP" firstAttribute="top" secondItem="MFY-yy-hqp" secondAttribute="top" id="dXs-x6-nwk"/>
-                                            <constraint firstItem="3nJ-DU-3O8" firstAttribute="centerY" secondItem="MFY-yy-hqp" secondAttribute="centerY" id="h1h-xG-5ia"/>
                                             <constraint firstItem="8Kt-r6-6hR" firstAttribute="height" secondItem="MFY-yy-hqp" secondAttribute="height" id="mbZ-nP-l4x"/>
                                             <constraint firstItem="8Kt-r6-6hR" firstAttribute="width" secondItem="MFY-yy-hqp" secondAttribute="width" multiplier="1/2" id="wzw-yV-9ab"/>
                                         </constraints>
@@ -265,10 +229,6 @@
                             <constraint firstItem="4Xk-ol-Xex" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ois-qB-naD"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4Xk-ol-Xex" secondAttribute="bottom" id="pNg-6B-91e"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="3jN-5d-UJd" appends="YES" id="ofJ-cO-TSZ"/>
-                            <outletCollection property="gestureRecognizers" destination="PAs-kV-t8w" appends="YES" id="ndW-pn-WqI"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="N6K-6q-ufY">
                         <barButtonItem key="leftBarButtonItem" title="Spendings" id="KH5-Ml-gD8">
@@ -287,32 +247,16 @@
                         <outlet property="barChartView" destination="mky-nl-knh" id="xxU-be-yy3"/>
                         <outlet property="buttonForSpendings" destination="KH5-Ml-gD8" id="UET-kD-nrT"/>
                         <outlet property="buttonToTrack" destination="5jN-be-mgG" id="57j-9a-CtO"/>
-                        <outlet property="categoryPicker" destination="vpo-JW-b89" id="aYw-5r-K5V"/>
                         <outlet property="customProgressBar" destination="WMU-6b-LBv" id="wbM-Qu-WcB"/>
-                        <outlet property="labelForCost" destination="EOU-HF-606" id="Oyn-Sn-efh"/>
                         <outlet property="labelForSavingsGoal" destination="u7U-7B-u1U" id="xt0-ym-aCm"/>
-                        <outlet property="labelForSpendingToTrack" destination="Ykq-XZ-Xdq" id="Db7-2G-rqn"/>
                         <outlet property="labelForSpentThisWeek" destination="dgk-16-UPr" id="WA7-fg-agw"/>
                         <outlet property="labelForSpentThisWeek2" destination="oMM-Lo-H6M" id="TJq-ai-YUd"/>
                         <outlet property="labelForSpentToday" destination="CF9-KH-TtB" id="hSd-Zu-uZi"/>
                         <outlet property="labelForSpentToday2" destination="Zsx-bZ-JkI" id="XdN-zs-78X"/>
-                        <outlet property="seperatorLine" destination="3nJ-DU-3O8" id="mHM-5R-miN"/>
-                        <outlet property="tapGestureRecognizer" destination="PAs-kV-t8w" id="uHb-5f-1cn"/>
                         <outlet property="viewLeftNumber" destination="8Kt-r6-6hR" id="ISX-FB-36b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="3jN-5d-UJd">
-                    <connections>
-                        <action selector="handlePan:" destination="BYZ-38-t0r" id="RiJ-3n-GZ2"/>
-                    </connections>
-                </panGestureRecognizer>
-                <tapGestureRecognizer id="PAs-kV-t8w">
-                    <connections>
-                        <action selector="handleTap:" destination="BYZ-38-t0r" id="rxE-sf-9aF"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="ZBX-m7-KnJ"/>
             </objects>
             <point key="canvasLocation" x="343" y="240"/>
         </scene>
@@ -403,6 +347,109 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Zo-4i-hvq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="974" y="240"/>
+        </scene>
+        <!--Add expense-->
+        <scene sceneID="nbU-5s-ICH">
+            <objects>
+                <viewController title="Add expense" id="EwR-MJ-Hci" customClass="AddExpenseViewController" customModule="spave" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="n3u-l9-9ka"/>
+                        <viewControllerLayoutGuide type="bottom" id="mwY-bh-OeX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1BU-8h-GSu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vq-wr-hZ8" customClass="CustomAddButton" customModule="spave" customModuleProvider="target">
+                                <rect key="frame" x="270" y="340" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="6HS-sJ-R85"/>
+                                    <constraint firstAttribute="width" constant="60" id="CO3-5C-hQc"/>
+                                    <constraint firstAttribute="width" secondItem="3vq-wr-hZ8" secondAttribute="height" id="RNQ-5a-zb6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="24"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" red="0.23529411764705882" green="0.69019607843137254" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="track:" destination="EwR-MJ-Hci" eventType="touchUpInside" id="gK8-Ae-ELg"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iU-Dg-5RG">
+                                <rect key="frame" x="177" y="352.5" width="33" height="35.5"/>
+                                <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track your expense" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRq-7T-Ppo">
+                                <rect key="frame" x="196" y="60" width="208" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNf-hO-6Dk">
+                                <rect key="frame" x="545" y="20" width="30" height="30"/>
+                                <state key="normal" title="x">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel:" destination="EwR-MJ-Hci" eventType="touchUpInside" id="8hd-I6-57Z"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zdl-jP-Arv">
+                                <rect key="frame" x="368" y="262" width="100" height="216"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="qnM-im-bIq"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="EwR-MJ-Hci" id="6rU-jo-geL"/>
+                                    <outlet property="delegate" destination="EwR-MJ-Hci" id="eqV-o1-906"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="zdl-jP-Arv" firstAttribute="leading" secondItem="3vq-wr-hZ8" secondAttribute="trailing" constant="38" id="7iz-0d-Pol"/>
+                            <constraint firstItem="jRq-7T-Ppo" firstAttribute="top" secondItem="n3u-l9-9ka" secondAttribute="bottom" constant="40" id="7uf-sl-fZI"/>
+                            <constraint firstItem="BNf-hO-6Dk" firstAttribute="top" secondItem="n3u-l9-9ka" secondAttribute="bottom" id="Dy2-Un-W62"/>
+                            <constraint firstItem="1iU-Dg-5RG" firstAttribute="centerY" secondItem="3vq-wr-hZ8" secondAttribute="centerY" id="ECV-dI-n7D"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BNf-hO-6Dk" secondAttribute="trailing" constant="5" id="NDN-KR-5ET"/>
+                            <constraint firstItem="3vq-wr-hZ8" firstAttribute="leading" secondItem="1iU-Dg-5RG" secondAttribute="trailing" constant="60" id="NKf-kD-ayf"/>
+                            <constraint firstItem="3vq-wr-hZ8" firstAttribute="width" secondItem="3vq-wr-hZ8" secondAttribute="height" id="UWq-or-HK7"/>
+                            <constraint firstItem="jRq-7T-Ppo" firstAttribute="centerX" secondItem="1BU-8h-GSu" secondAttribute="centerX" id="gSW-au-1Ky"/>
+                            <constraint firstItem="BNf-hO-6Dk" firstAttribute="centerY" secondItem="jRq-7T-Ppo" secondAttribute="centerY" id="l1G-ZB-Zt5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BNf-hO-6Dk" secondAttribute="trailing" constant="5" id="udl-NB-il0"/>
+                            <constraint firstItem="3vq-wr-hZ8" firstAttribute="centerX" secondItem="1BU-8h-GSu" secondAttribute="centerX" id="w9h-Wx-Dht"/>
+                            <constraint firstItem="zdl-jP-Arv" firstAttribute="centerY" secondItem="3vq-wr-hZ8" secondAttribute="centerY" id="yp9-Ei-Eeu"/>
+                            <constraint firstItem="mwY-bh-OeX" firstAttribute="top" secondItem="3vq-wr-hZ8" secondAttribute="bottom" constant="200" id="zkc-ub-CIb"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Dy2-Un-W62"/>
+                                <exclude reference="NDN-KR-5ET"/>
+                            </mask>
+                        </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="DPg-Ah-8kS" appends="YES" id="Wft-WH-onE"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="buttonAdd" destination="3vq-wr-hZ8" id="mPB-3Z-Oxo"/>
+                        <outlet property="categoryPicker" destination="zdl-jP-Arv" id="Eqy-BF-6xO"/>
+                        <outlet property="labelForExpenseToTrack" destination="1iU-Dg-5RG" id="qzT-Px-gb2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7HW-bq-Syd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="DPg-Ah-8kS">
+                    <connections>
+                        <action selector="handlePan:" destination="EwR-MJ-Hci" id="zq2-Fc-D2O"/>
+                        <outlet property="delegate" destination="EwR-MJ-Hci" id="KAu-gI-Eyr"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="344" y="909"/>
         </scene>
         <!--Spendings-->
         <scene sceneID="vbb-zo-KDZ">

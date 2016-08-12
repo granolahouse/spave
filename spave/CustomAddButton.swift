@@ -31,8 +31,7 @@ class CustomAddButton: UIButton {
         
         self.path!.lineWidth = 3
         
-        let lightGrey = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1)
-        lightGrey.setStroke()
+        UIDesign().blue.setStroke()
         self.path!.stroke()
         
         

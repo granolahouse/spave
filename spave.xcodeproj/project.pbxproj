@@ -11,6 +11,7 @@
 		24181FFD1D5241D200A4E0B6 /* SF-UI-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 24181FFC1D5241CC00A4E0B6 /* SF-UI-Display-Thin.otf */; };
 		24181FFF1D52447500A4E0B6 /* SF-UI-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 24181FFE1D52447000A4E0B6 /* SF-UI-Display-Regular.otf */; };
 		247ECE0F1D5B99390099AABF /* CustomProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247ECE0E1D5B99390099AABF /* CustomProgressRing.swift */; };
+		2494B1C71D5E3309005EFB68 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2494B1C61D5E3309005EFB68 /* AddExpenseViewController.swift */; };
 		249C5CE01D53718600EE4853 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 249C5CDF1D53718600EE4853 /* Info.plist */; };
 		249C5CE21D54A0F100EE4853 /* CustomAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249C5CE11D54A0F100EE4853 /* CustomAddButton.swift */; };
 		24B159B21D5BB4B80084BC5F /* UIDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B159B11D5BB4B80084BC5F /* UIDesign.swift */; };
@@ -56,6 +57,7 @@
 		24181FFC1D5241CC00A4E0B6 /* SF-UI-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Thin.otf"; sourceTree = "<group>"; };
 		24181FFE1D52447000A4E0B6 /* SF-UI-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Regular.otf"; sourceTree = "<group>"; };
 		247ECE0E1D5B99390099AABF /* CustomProgressRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomProgressRing.swift; sourceTree = "<group>"; };
+		2494B1C61D5E3309005EFB68 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
 		249C5CDF1D53718600EE4853 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		249C5CE11D54A0F100EE4853 /* CustomAddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAddButton.swift; sourceTree = "<group>"; };
 		24B159B11D5BB4B80084BC5F /* UIDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDesign.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				24C645621D51FEA000AB1E66 /* SpendingViewController.swift */,
 				249C5CE11D54A0F100EE4853 /* CustomAddButton.swift */,
 				24F994291D54DB7900C516FA /* CustomSeperatorLine.swift */,
+				2494B1C61D5E3309005EFB68 /* AddExpenseViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				24C645641D51FEA000AB1E66 /* SpendingsViewController.swift in Sources */,
 				24C645681D51FEBC00AB1E66 /* CoreDataStack.swift in Sources */,
 				249C5CE21D54A0F100EE4853 /* CustomAddButton.swift in Sources */,
+				2494B1C71D5E3309005EFB68 /* AddExpenseViewController.swift in Sources */,
 				24E1B0781D51FCD1008BDAD4 /* AppDelegate.swift in Sources */,
 				24C645721D51FFDB00AB1E66 /* Expense+CoreDataProperties.swift in Sources */,
 				24C645661D51FEA000AB1E66 /* SpendingViewController.swift in Sources */,

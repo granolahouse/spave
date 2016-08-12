@@ -31,17 +31,16 @@ import UIKit
         }
     }
     
-    
-    
-    override func drawRect(rect: CGRect) {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
         
         self.backgroundColor = UIColor.blackColor()
         
-       bezier = UIBezierPath(arcCenter: CGPoint(x: bounds.width/2, y: bounds.height/2),
-                                  radius: (self.bounds.width-10)/2,
-                                  startAngle: CGFloat(-M_PI_2),
-                                  endAngle: CGFloat(M_PI * 2 - M_PI_2),
-                                  clockwise: true)
+        bezier = UIBezierPath(arcCenter: CGPoint(x: bounds.width/2, y: bounds.height/2),
+                              radius: (self.bounds.width-10)/2,
+                              startAngle: CGFloat(-M_PI_2),
+                              endAngle: CGFloat(M_PI * 2 - M_PI_2),
+                              clockwise: true)
         
         backgroundCircleLayer.path = bezier.CGPath
         backgroundCircleLayer.fillColor = UIColor.clearColor().CGColor
@@ -68,12 +67,25 @@ import UIKit
         //myLayer.shadowOffset = CGSize(width: 2, height: 2)
         
         layer.addSublayer(myLayer)
+
+    }
+    override func drawRect(rect: CGRect) {
+        bezier = UIBezierPath(arcCenter: CGPoint(x: bounds.width/2, y: bounds.height/2),
+                              radius: (self.bounds.width-10)/2,
+                              startAngle: CGFloat(-M_PI_2),
+                              endAngle: CGFloat(M_PI * 2 - M_PI_2),
+                              clockwise: true)
+        backgroundCircleLayer.path = bezier.CGPath
+        myLayer.path = bezier.CGPath
         
     }
+    
+    
     
   
     
     func setProgress(progress: CGFloat, duration: CGFloat) {
+        print("ser progress: \(progress)")
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.fromValue = myLayer.strokeEnd
         animation.toValue = progress
