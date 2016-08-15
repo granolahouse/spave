@@ -409,47 +409,17 @@
                                     <outlet property="delegate" destination="EwR-MJ-Hci" id="eqV-o1-906"/>
                                 </connections>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9q-fy-WKU" customClass="CustomArrowButton" customModule="spave" customModuleProvider="target">
-                                <rect key="frame" x="186" y="318" width="15" height="15"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="15" id="ZqC-Oq-Na5"/>
-                                    <constraint firstAttribute="width" secondItem="Q9q-fy-WKU" secondAttribute="height" id="cFg-FM-OZ5"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="up" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="increase:" destination="EwR-MJ-Hci" eventType="touchUpInside" id="AUn-Hr-R29"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Yv-iK-89i" customClass="CustomArrowButton" customModule="spave" customModuleProvider="target">
-                                <rect key="frame" x="185.5" y="408" width="15" height="15"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="2Yv-iK-89i" secondAttribute="height" id="Q1D-Qu-Omc"/>
-                                    <constraint firstAttribute="width" constant="15" id="vxz-ef-APd"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="up" value="NO"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="decrease:" destination="EwR-MJ-Hci" eventType="touchUpInside" id="9tj-Cw-AY5"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="BNf-hO-6Dk" firstAttribute="top" secondItem="n3u-l9-9ka" secondAttribute="bottom" id="4CY-of-bh9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BNf-hO-6Dk" secondAttribute="trailing" id="5Sc-yw-Spk"/>
-                            <constraint firstItem="1iU-Dg-5RG" firstAttribute="top" secondItem="Q9q-fy-WKU" secondAttribute="bottom" constant="20" id="6VQ-VL-F9w"/>
                             <constraint firstItem="zdl-jP-Arv" firstAttribute="leading" secondItem="3vq-wr-hZ8" secondAttribute="trailing" constant="38" id="7iz-0d-Pol"/>
                             <constraint firstItem="jRq-7T-Ppo" firstAttribute="top" secondItem="n3u-l9-9ka" secondAttribute="bottom" constant="40" id="7uf-sl-fZI"/>
                             <constraint firstItem="1iU-Dg-5RG" firstAttribute="centerY" secondItem="3vq-wr-hZ8" secondAttribute="centerY" id="ECV-dI-n7D"/>
-                            <constraint firstItem="Q9q-fy-WKU" firstAttribute="centerX" secondItem="1iU-Dg-5RG" secondAttribute="centerX" id="Lfi-qI-Y5h"/>
                             <constraint firstItem="3vq-wr-hZ8" firstAttribute="leading" secondItem="1iU-Dg-5RG" secondAttribute="trailing" constant="60" id="NKf-kD-ayf"/>
-                            <constraint firstItem="2Yv-iK-89i" firstAttribute="centerX" secondItem="1iU-Dg-5RG" secondAttribute="centerX" id="Pot-UB-0al"/>
                             <constraint firstItem="3vq-wr-hZ8" firstAttribute="width" secondItem="3vq-wr-hZ8" secondAttribute="height" id="UWq-or-HK7"/>
-                            <constraint firstItem="2Yv-iK-89i" firstAttribute="top" secondItem="1iU-Dg-5RG" secondAttribute="bottom" constant="20" id="eVa-v4-m3N"/>
                             <constraint firstItem="jRq-7T-Ppo" firstAttribute="centerX" secondItem="1BU-8h-GSu" secondAttribute="centerX" id="gSW-au-1Ky"/>
                             <constraint firstItem="3vq-wr-hZ8" firstAttribute="centerX" secondItem="1BU-8h-GSu" secondAttribute="centerX" id="w9h-Wx-Dht"/>
                             <constraint firstItem="zdl-jP-Arv" firstAttribute="centerY" secondItem="3vq-wr-hZ8" secondAttribute="centerY" id="yp9-Ei-Eeu"/>

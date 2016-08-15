@@ -91,35 +91,30 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
         buttonAdd.layer.addSublayer(shapeLayer)
     }
     
-    @IBAction func increase(sender: AnyObject) {
-        expenseToTrack+=1
-    }
     
-    @IBAction func decrease(sender: AnyObject) {
-        expenseToTrack-=1
-    }
     @IBAction func handlePan(recognizer: UIPanGestureRecognizer) {
         let translation = recognizer.translationInView(self.view)
-        print("translation: \(translation.y)")
-        /*if let view = recognizer.view {
-         view.center = CGPoint(x:view.center.x + translation.x,
-         y:view.center.y + translation.y)
-         }*/
-        if (translation.y < 0) {
+
+        if (recognizer.state == .Changed) {
+            if (translation.y < -10) {
             
                 expenseToTrack += 1
             
-        } else if (translation.y > 0) {
+                recognizer.setTranslation(CGPointZero, inView: self.view)
+
+                
+            } else if (translation.y > 10) {
         
                 expenseToTrack -= 1
-        
+                recognizer.setTranslation(CGPointZero, inView: self.view)
+            }
         }
         
         if (expenseToTrack < 0) {
             expenseToTrack = 0
         }
         
-        recognizer.setTranslation(CGPointZero, inView: self.view)
+        
     }
     
     
