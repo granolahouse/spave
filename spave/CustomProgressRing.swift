@@ -9,16 +9,17 @@
 import Foundation
 import UIKit
 
-@IBDesignable class CustomProgressRing: UIView {
+
+class CustomProgressRing: UIView {
     
     
-    @IBInspectable var savingsGoal = 300
+    var savingsGoal = 300
     let myLayer = CAShapeLayer()
     let backgroundCircleLayer = CAShapeLayer()
     
     var bezier = UIBezierPath()
     
-    @IBInspectable var counter: Int = 0 {
+    var counter: Int = 0 {
         
         didSet {
             if (counter > 0) {
@@ -29,6 +30,10 @@ import UIKit
             myLayer.strokeColor = UIDesign().blue.CGColor
             myLayer.shadowColor = UIDesign().blue.CGColor
         }
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
     
     required init?(coder aDecoder: NSCoder) {

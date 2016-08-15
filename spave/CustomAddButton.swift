@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-@IBDesignable
+
 
 class CustomAddButton: UIButton {
     
@@ -18,6 +18,13 @@ class CustomAddButton: UIButton {
 
 
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     
     override func drawRect(rect: CGRect) {

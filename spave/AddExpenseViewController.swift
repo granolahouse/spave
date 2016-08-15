@@ -16,11 +16,16 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
     
     var locationManager: CLLocationManager = CLLocationManager()
     
-    var expenseToTrack: Int = 0
+    var expenseToTrack: Int = 0 {
+        didSet {
+            labelForExpenseToTrack.text = "€\(String(expenseToTrack))"
+        }
+    }
     
     @IBOutlet weak var labelForExpenseToTrack: UILabel!
     var fetchedResultsController : NSFetchedResultsController?
     
+    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var categoryPicker: UIPickerView!
     let pickerValues = ["misc", "food", "fun", "travel"]
 
@@ -30,6 +35,7 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
         
         super.viewDidLoad()
         
+        self.closeButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2/2))
         
         //Location
         locationManager = CLLocationManager()
@@ -52,15 +58,19 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
         
         
         
-        let globalPoint = buttonAdd.superview?.convertPoint(buttonAdd.frame.origin, toView: nil)
+        
+        //let globalPoint = buttonAdd.superview?.convertPoint(buttonAdd.frame.origin, toView: nil)
         
         
-        drawCircle(view.frame.width/2, y: globalPoint!.y, radius: 3, color: UIColor.whiteColor().CGColor)
-        drawCircle(view.frame.width/2, y: buttonAdd.frame.maxY-20, radius: 3, color: UIDesign().blue.CGColor)
-        drawCircle(view.frame.width/2, y: buttonAdd.frame.maxY-30, radius: 3, color: UIDesign().blue.CGColor)
-        drawCircle(view.frame.width/2, y: buttonAdd.frame.maxY+30, radius: 3, color: UIDesign().blue.CGColor)
-        drawCircle(view.frame.width/2, y: buttonAdd.frame.maxY+40, radius: 3, color: UIDesign().blue.CGColor)
-        
+        drawCircle(self.buttonAdd.bounds.width/2, y: self.buttonAdd.bounds.minY-(1*self.buttonAdd.bounds.height/2), radius: 3, color:  UIDesign().blue.colorWithAlphaComponent(1).CGColor)
+        drawCircle(self.buttonAdd.bounds.width/2, y: self.buttonAdd.bounds.minY-(2*self.buttonAdd.bounds.height/2), radius: 3, color: UIDesign().blue.colorWithAlphaComponent(0.8).CGColor)
+        drawCircle(self.buttonAdd.bounds.width/2, y: self.buttonAdd.bounds.minY-(3*self.buttonAdd.bounds.height/2), radius: 3, color: UIDesign().blue.colorWithAlphaComponent(0.6).CGColor)
+        drawCircle(self.buttonAdd.bounds.width/2, y: self.buttonAdd.bounds.minY-(4*self.buttonAdd.bounds.height/2), radius: 3, color: UIDesign().blue.colorWithAlphaComponent(0.4).CGColor)
+        drawCircle(self.buttonAdd.bounds.width/2, y: self.buttonAdd.bounds.minY-(5*self.buttonAdd.bounds.height/2), radius: 3, color: UIDesign().blue.colorWithAlphaComponent(0.2).CGColor)
+
+        drawCircle(self.buttonAdd.bounds.width/2, y: self.buttonAdd.bounds.maxY+(1*self.buttonAdd.bounds.height/2), radius: 3, color: UIDesign().blue.colorWithAlphaComponent(1).CGColor)
+        drawCircle(self.buttonAdd.bounds.width/2, y: self.buttonAdd.bounds.maxY+(2*self.buttonAdd.bounds.height/2), radius: 3, color: UIDesign().blue.colorWithAlphaComponent(0.8).CGColor)
+        drawCircle(self.buttonAdd.bounds.width/2, y: self.buttonAdd.bounds.maxY+(3*self.buttonAdd.bounds.height/2), radius: 3, color: UIDesign().blue.colorWithAlphaComponent(0.6).CGColor)
     }
     
     
@@ -78,21 +88,37 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
         shapeLayer.strokeColor = UIColor.clearColor().CGColor
         //you can change the line width
         shapeLayer.lineWidth = 1.0
-        view.layer.addSublayer(shapeLayer)
+        buttonAdd.layer.addSublayer(shapeLayer)
     }
     
+    @IBAction func increase(sender: AnyObject) {
+        expenseToTrack+=1
+    }
     
+    @IBAction func decrease(sender: AnyObject) {
+        expenseToTrack-=1
+    }
     @IBAction func handlePan(recognizer: UIPanGestureRecognizer) {
         let translation = recognizer.translationInView(self.view)
+        print("translation: \(translation.y)")
         /*if let view = recognizer.view {
          view.center = CGPoint(x:view.center.x + translation.x,
          y:view.center.y + translation.y)
          }*/
-        expenseToTrack -= Int(translation.y)
+        if (translation.y < 0) {
+            
+                expenseToTrack += 1
+            
+        } else if (translation.y > 0) {
+        
+                expenseToTrack -= 1
+        
+        }
+        
         if (expenseToTrack < 0) {
             expenseToTrack = 0
         }
-        labelForExpenseToTrack.text = "€\(String(expenseToTrack))"
+        
         recognizer.setTranslation(CGPointZero, inView: self.view)
     }
     

@@ -34,6 +34,9 @@ class SpendingsViewController: CoreDataTableViewController {
     var selectedExpense: Expense?
     
     override func viewDidLoad() {
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        
         super.viewDidLoad()
         tableView.separatorStyle = .SingleLine
         tableView.separatorColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1)

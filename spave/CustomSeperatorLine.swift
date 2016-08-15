@@ -10,7 +10,20 @@ import Foundation
 import UIKit
 
 @IBDesignable
+
 class CustomSeperatorLine: UIView {
+   
+    
+ 
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    
     override func drawRect(rect: CGRect) {
         
         let separatorLine = UIBezierPath()
@@ -24,7 +37,8 @@ class CustomSeperatorLine: UIView {
         separatorLine.closePath()
         
         //If you want to stroke it with a red color
-        UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1).set()
+        UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1).setStroke()
+        
         separatorLine.stroke()
         //If you want to fill it as well
         //separatorLine.fill()

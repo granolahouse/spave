@@ -10,19 +10,41 @@ import Foundation
 import UIKit
 import MapKit
 
-class SpendingViewController: UIViewController {
+class SpendingViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var map: MKMapView!
     var expense: Expense?
     
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var descriptionTextfield: UITextField!
     
-    override func viewDidAppear(animated: Bool) {
+    
+    override func viewDidLoad() {
         
         
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        
+        
+        
+        descriptionTextfield.delegate = self
         
         if let expense = expense {
             
+            //Date
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "EEEE, h:s a"
+            let humanReadableExpenseDate = dateFormatter.stringFromDate(expense.date!)
+            dateLabel.text = humanReadableExpenseDate
+            
+            
+            
+            //Description
+            if let desc = expense.desc {
+                descriptionTextfield.text = desc
+            }
+            
+            //Location
             if let locationSet = expense.location {
                 let location = locationSet as! CLLocation
                 let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
@@ -44,4 +66,21 @@ class SpendingViewController: UIViewController {
         }
         
     }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        print("textfield left")
+        if let expense = expense {
+            expense.desc = textField.text
+        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        print("return")
+        return true
+    }
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    
 }
