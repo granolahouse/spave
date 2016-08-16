@@ -42,7 +42,7 @@ class CustomProgressRing: UIView {
         self.backgroundColor = UIColor.blackColor()
         
         bezier = UIBezierPath(arcCenter: CGPoint(x: bounds.width/2, y: bounds.height/2),
-                              radius: (self.bounds.width-10)/2,
+                              radius: (self.bounds.width-(self.bounds.width/6))/2,
                               startAngle: CGFloat(-M_PI_2),
                               endAngle: CGFloat(M_PI * 2 - M_PI_2),
                               clockwise: true)
@@ -76,7 +76,7 @@ class CustomProgressRing: UIView {
     }
     override func drawRect(rect: CGRect) {
         bezier = UIBezierPath(arcCenter: CGPoint(x: bounds.width/2, y: bounds.height/2),
-                              radius: (self.bounds.width-10)/2,
+                              radius: (self.bounds.width-(self.bounds.width/6))/2,
                               startAngle: CGFloat(-M_PI_2),
                               endAngle: CGFloat(M_PI * 2 - M_PI_2),
                               clockwise: true)

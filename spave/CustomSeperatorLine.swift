@@ -13,7 +13,8 @@ import UIKit
 
 class CustomSeperatorLine: UIView {
    
-    
+    @IBInspectable var horizontal: Bool = false
+    @IBInspectable var color: UIColor = UIColor.blackColor()
  
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,22 +27,44 @@ class CustomSeperatorLine: UIView {
     
     override func drawRect(rect: CGRect) {
         
-        let separatorLine = UIBezierPath()
+        if horizontal {
+            let separatorLine = UIBezierPath()
+            
+            separatorLine.moveToPoint(CGPoint(x:rect.minX, y:rect.minY))
+            
+            separatorLine.addLineToPoint(CGPoint(x:rect.maxX, y:rect.minY))
+            
+            //Keep using the method addLineToPoint until you get to the one where about to close the path
+            
+            separatorLine.closePath()
+            
+            //If you want to stroke it with a red color
+            color.setStroke()
+            
+            separatorLine.stroke()
+            //If you want to fill it as well
+            //separatorLine.fill()
+        } else {
+            
+            let separatorLine = UIBezierPath()
+            
+            separatorLine.moveToPoint(CGPoint(x:rect.maxX, y:rect.minY))
+            
+            separatorLine.addLineToPoint(CGPoint(x:rect.maxX, y:rect.maxY))
+            
+            //Keep using the method addLineToPoint until you get to the one where about to close the path
+            
+            separatorLine.closePath()
+            
+            //If you want to stroke it with a red color
+            color.setStroke()
+            
+            separatorLine.stroke()
+            //If you want to fill it as well
+            //separatorLine.fill()
+            
+        }
         
-        separatorLine.moveToPoint(CGPoint(x:rect.maxX, y:rect.minY+(rect.height/3)))
-        
-        separatorLine.addLineToPoint(CGPoint(x:rect.maxX, y:rect.maxY-(rect.height/4)))
-        
-        //Keep using the method addLineToPoint until you get to the one where about to close the path
-        
-        separatorLine.closePath()
-        
-        //If you want to stroke it with a red color
-        UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1).setStroke()
-        
-        separatorLine.stroke()
-        //If you want to fill it as well
-        //separatorLine.fill()
         
 
     }

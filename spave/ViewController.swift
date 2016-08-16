@@ -354,6 +354,7 @@ class ViewController: UIViewController {
         barChartView.descriptionText = ""
         barChartView.legend.enabled = false
         
+        
         barChartView.scaleXEnabled = false
         barChartView.scaleYEnabled = false
         var dataEntries: [BarChartDataEntry] = []
@@ -370,16 +371,18 @@ class ViewController: UIViewController {
         }
         let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "money spent")
         chartDataSet.barSpace = 0.8
+        
         chartDataSet.drawValuesEnabled = false
         let chartData = BarChartData(xVals: dataPoints, dataSet: chartDataSet)
         
         chartDataSet.colors = chartColorSet
         barChartView.animate(xAxisDuration: 0, yAxisDuration: 1.0)
         
-        let ll = ChartLimitLine(limit: Double(monthlyBudget/numbersOfDaysInCurrentMonth), label: "€\(monthlyBudget/numbersOfDaysInCurrentMonth)")
+        let ll = ChartLimitLine(limit: Double(monthlyBudget/numbersOfDaysInCurrentMonth), label: "Daily limit: €\(monthlyBudget/numbersOfDaysInCurrentMonth)")
         barChartView.leftAxis.addLimitLine(ll)
-        ll.labelPosition = .LeftBottom
-        ll.lineColor = UIColor.blackColor()
+        ll.labelPosition = .LeftTop
+        ll.drawLabelEnabled = false
+        ll.lineColor = UIDesign().lightGrey
         ll.lineWidth = 0.5
         barChartView.data = chartData
         
