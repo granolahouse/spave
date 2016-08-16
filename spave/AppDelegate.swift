@@ -46,9 +46,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if defaults.boolForKey("appLaunchedFirstTime") {
             
+            if let categories = defaults.objectForKey("categories") {
+                //categories already initialized
+            } else {
+                defaults.setObject(["misc","food", "fun", "travel"], forKey: "categories")
+            }
+            
         } else {
             //app was launched the first time, so we create some NSDefaults and set their default
             defaults.setBool(true, forKey: "appLaunchedFirstTime")
+            
+            //Categories
+            defaults.setObject(["misc","food", "fun", "travel"], forKey: "categories")
             
             //Monthly budget
             defaults.setInteger(800, forKey: "monthlyBudget")

@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 import CoreLocation
 
-class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, CLLocationManagerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, CLLocationManagerDelegate {
 
     
     var locationManager: CLLocationManager = CLLocationManager()
@@ -26,14 +26,22 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
     var fetchedResultsController : NSFetchedResultsController?
     
     @IBOutlet weak var closeButton: UIButton!
+    
     @IBOutlet weak var categoryPicker: UIPickerView!
-    let pickerValues = ["misc", "food", "fun", "travel"]
+   
+    var categories: [String]?
+    
 
+    
     @IBOutlet weak var buttonAdd: CustomAddButton!
    
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        categories = defaults.objectForKey("categories") as? [String]
         
         self.closeButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2/2))
         
@@ -146,6 +154,10 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
             print("yay, we just saved our first location")
         }
         
+        //Save category
+        let selectedRow = categoryPicker.selectedRowInComponent(0)
+        expense.category = pickerView(categoryPicker, titleForRow: selectedRow, forComponent: 0)
+        
         do {
             try fetchedResultsController?.performFetch()
         } catch {
@@ -160,30 +172,30 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
         }))
     }
     
-    //Picker view controlls
     
+    //Picker delegate functions
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerValues.count
+        
+        return categories!.count
     }
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
-        return pickerValues[row]
-        
+        return categories![row]
         
     }
     
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
         let pickerLabel = UILabel()
         pickerLabel.textColor = UIColor.whiteColor()
-        pickerLabel.text = pickerValues[row]
+        pickerLabel.text = categories![row]
         pickerLabel.font = UIFont(name: ".SFUIText-Regular", size: 12)!
         pickerLabel.textAlignment = NSTextAlignment.Center
         return pickerLabel
     }
-
+    
 
 }

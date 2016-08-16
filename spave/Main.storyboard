@@ -405,8 +405,8 @@
                                     <constraint firstAttribute="width" constant="100" id="qnM-im-bIq"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="dataSource" destination="EwR-MJ-Hci" id="6rU-jo-geL"/>
-                                    <outlet property="delegate" destination="EwR-MJ-Hci" id="eqV-o1-906"/>
+                                    <outlet property="dataSource" destination="EwR-MJ-Hci" id="7MI-9J-1t4"/>
+                                    <outlet property="delegate" destination="EwR-MJ-Hci" id="7gC-aD-wWS"/>
                                 </connections>
                             </pickerView>
                         </subviews>
@@ -431,7 +431,7 @@
                     </view>
                     <connections>
                         <outlet property="buttonAdd" destination="3vq-wr-hZ8" id="mPB-3Z-Oxo"/>
-                        <outlet property="categoryPicker" destination="zdl-jP-Arv" id="Eqy-BF-6xO"/>
+                        <outlet property="categoryPicker" destination="zdl-jP-Arv" id="mFw-1t-LxY"/>
                         <outlet property="closeButton" destination="BNf-hO-6Dk" id="ZRC-Uw-Abh"/>
                         <outlet property="labelForExpenseToTrack" destination="1iU-Dg-5RG" id="qzT-Px-gb2"/>
                     </connections>
@@ -517,6 +517,18 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8zB-YD-Dmb" userLabel="content section">
                                 <rect key="frame" x="0.0" y="64" width="600" height="236"/>
                                 <subviews>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flv-DC-37v">
+                                        <rect key="frame" x="319" y="68" width="100" height="100"/>
+                                        <color key="tintColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="3Eu-5f-brU"/>
+                                            <constraint firstAttribute="width" constant="100" id="7cP-Iv-ulg"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dataSource" destination="zmH-H7-XqI" id="2PI-WH-ZaG"/>
+                                            <outlet property="delegate" destination="zmH-H7-XqI" id="6vF-DZ-Q3i"/>
+                                        </connections>
+                                    </pickerView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0pC-M1-syp" customClass="CustomSeperatorLine" customModule="spave" customModuleProvider="target">
                                         <rect key="frame" x="299" y="80" width="1" height="75"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -530,14 +542,14 @@
                                         <color key="textColor" red="0.16078431372549018" green="0.20392156862745098" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a description" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ciP-MR-bui">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a description" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ciP-MR-bui">
                                         <rect key="frame" x="40" y="176" width="520" height="30"/>
                                         <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSp-Ue-PXE">
-                                        <rect key="frame" x="278.5" y="39" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSp-Ue-PXE">
+                                        <rect key="frame" x="284" y="45.5" width="31" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -554,6 +566,8 @@
                                     <constraint firstItem="jSp-Ue-PXE" firstAttribute="centerX" secondItem="0pC-M1-syp" secondAttribute="centerX" id="Wrg-fq-Kbl"/>
                                     <constraint firstItem="0pC-M1-syp" firstAttribute="centerY" secondItem="8zB-YD-Dmb" secondAttribute="centerY" id="dpd-yR-6wg"/>
                                     <constraint firstItem="0pC-M1-syp" firstAttribute="top" secondItem="jSp-Ue-PXE" secondAttribute="bottom" constant="20.5" id="iga-5o-keG"/>
+                                    <constraint firstItem="flv-DC-37v" firstAttribute="leading" secondItem="0pC-M1-syp" secondAttribute="leading" constant="20" id="kY3-6o-HMh"/>
+                                    <constraint firstItem="flv-DC-37v" firstAttribute="centerY" secondItem="0pC-M1-syp" secondAttribute="centerY" id="qKp-Bc-dFi"/>
                                     <constraint firstItem="0pC-M1-syp" firstAttribute="centerX" secondItem="8zB-YD-Dmb" secondAttribute="centerX" id="qcl-qR-bnT"/>
                                     <constraint firstItem="ciP-MR-bui" firstAttribute="centerX" secondItem="8zB-YD-Dmb" secondAttribute="centerX" id="whG-ay-QGA"/>
                                 </constraints>
@@ -572,6 +586,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="categoryPicker" destination="flv-DC-37v" id="mWa-Dp-QlA"/>
                         <outlet property="dateLabel" destination="jSp-Ue-PXE" id="uTE-22-fBv"/>
                         <outlet property="descriptionTextfield" destination="ciP-MR-bui" id="Ecj-r0-XP7"/>
                         <outlet property="label" destination="cfN-1H-DMH" id="9Xj-8v-EZD"/>

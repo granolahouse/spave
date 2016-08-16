@@ -210,9 +210,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func handleTap(recognizer: UITapGestureRecognizer) {
-        
-    }
+   
     
     
     
@@ -326,6 +324,7 @@ class ViewController: UIViewController {
         
         setChart(daysForBarChart.reverse(), values: [todayMinus6,todayMinus5,todayMinus4,todayMinus3,todayMinus2,todayMinus1,today])
         
+        
     }
     
     
@@ -355,6 +354,8 @@ class ViewController: UIViewController {
         barChartView.descriptionText = ""
         barChartView.legend.enabled = false
         
+        barChartView.scaleXEnabled = false
+        barChartView.scaleYEnabled = false
         var dataEntries: [BarChartDataEntry] = []
         var chartColorSet : [UIColor] = []
         
