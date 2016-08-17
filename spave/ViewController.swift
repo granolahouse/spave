@@ -92,7 +92,7 @@ class ViewController: UIViewController {
         customProgressBar.backgroundColor = UIColor.clearColor()
         let font = UIFont(name: ".SFUIText-Regular", size: 14)!
         buttonForSpendings.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
-        buttonForSpendings.tintColor = darkBlue
+        
         
         
         
@@ -101,7 +101,7 @@ class ViewController: UIViewController {
         self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "BackIcon")
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "BackIcon")
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
-        
+        self.navigationItem.backBarButtonItem?.tintColor = UIDesign().lightGrey
         
         let navBar = navigationController!.navigationBar
         

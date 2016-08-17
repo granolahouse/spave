@@ -9,15 +9,17 @@
 import Foundation
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var textfieldForSavingsGoal: UITextField!
     @IBOutlet weak var textfieldForMonthlyBudget: UITextField!
+    @IBOutlet weak var labelForCalculatedDailyLimit: UILabel!
     
     let defaults = NSUserDefaults.standardUserDefaults()
 
-    
+    var dailyLimit = 0
+    var numbersOfDaysInCurrentMonth = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,23 +28,45 @@ class SettingsViewController: UIViewController {
         textfieldForSavingsGoal.text = String(defaults.integerForKey("savingsGoal"))
         textfieldForMonthlyBudget.text = String(defaults.integerForKey("monthlyBudget"))
         
+        //Numbers of days of current month
+        let calendar = NSCalendar.currentCalendar()
+        numbersOfDaysInCurrentMonth = calendar.component([.Day], fromDate: NSDate().endOfMonth())
+        
+        
+        dailyLimit = (defaults.integerForKey("monthlyBudget")-defaults.integerForKey("savingsGoal"))/numbersOfDaysInCurrentMonth
+        labelForCalculatedDailyLimit.text = String("€\(dailyLimit)")
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func saveSettings(sender: AnyObject) {
-        
-        let newMonthlyBudget = Int(textfieldForMonthlyBudget.text!)
-        let newSavingsGoal = Int(textfieldForSavingsGoal.text!)
-        defaults.setInteger(newMonthlyBudget!, forKey: "monthlyBudget")
-        defaults.setInteger(newSavingsGoal!, forKey: "savingsGoal")
-    }
     
     @IBAction func resetDatabase(sender: AnyObject) {
         // Get the stack
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         delegate.resetDatabase()
     }
+    
+    
+    //Textfield delegates
+    func textFieldDidEndEditing(textField: UITextField) {
+       
+        let newMonthlyBudget = Int(textfieldForMonthlyBudget.text!)
+        let newSavingsGoal = Int(textfieldForSavingsGoal.text!)
+        defaults.setInteger(newMonthlyBudget!, forKey: "monthlyBudget")
+        defaults.setInteger(newSavingsGoal!, forKey: "savingsGoal")
+        
+        dailyLimit = (defaults.integerForKey("monthlyBudget")-defaults.integerForKey("savingsGoal"))/numbersOfDaysInCurrentMonth
+        labelForCalculatedDailyLimit.text = String("€\(dailyLimit)")
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        return true
+    }
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
 }

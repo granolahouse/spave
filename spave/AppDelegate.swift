@@ -44,6 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Settings with user defaults
         let defaults = NSUserDefaults.standardUserDefaults()
         
+        
+        
+        
+        
         if defaults.boolForKey("appLaunchedFirstTime") {
             
             if let categories = defaults.objectForKey("categories") {
