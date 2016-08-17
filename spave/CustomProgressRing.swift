@@ -65,11 +65,11 @@ class CustomProgressRing: UIView {
         myLayer.strokeEnd = 1
         
         myLayer.shadowColor = UIDesign().blue.CGColor
-        myLayer.shadowRadius = 10
+        myLayer.shadowRadius = 8
         myLayer.shadowOpacity = 1
         
         
-        //myLayer.shadowOffset = CGSize(width: 2, height: 2)
+        myLayer.shadowOffset = CGSize(width: 0, height: 0)
         
         layer.addSublayer(myLayer)
 

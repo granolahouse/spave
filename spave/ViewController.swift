@@ -38,7 +38,13 @@ class ViewController: UIViewController {
     let blue = UIColor(red: 60/255, green: 176/255, blue: 226/255, alpha: 1.0)
     let pink = UIColor(red: 226/255, green: 60/255, blue: 105/255, alpha: 1.0)
     let darkBlue = UIColor(red: 41/255, green: 52/255, blue: 72/255, alpha: 1.0)
-
+    var ll: ChartLimitLine = ChartLimitLine()
+    
+    var numbersOfDaysInCurrentMonth: Int {
+        //Numbers of days of current month
+        let calendar = NSCalendar.currentCalendar()
+        return calendar.component([.Day], fromDate: NSDate().endOfMonth())
+    }
     
     
     
@@ -97,6 +103,7 @@ class ViewController: UIViewController {
         
         
         
+        
         //UIBarButtonItem.appearance().setBackButtonBackgroundImage(backImg, forState: .Normal, barMetrics: .Default)
         self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "BackIcon")
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "BackIcon")
@@ -131,10 +138,19 @@ class ViewController: UIViewController {
         
         
         
-        barChartView.noDataTextDescription = "No data yet. Start tracking by click clicking the cha-ching button"
+        barChartView.noDataTextDescription = "No data yet. Start tracking by adding your expenses"
         
         updateUI()
         
+        //Check if the user opens the app for the first time. If so, show onboarding
+        
+        if defaults.boolForKey("UserHasSeenOnboarding") {
+            //Do nothing
+        } else {
+            let onboardingController = self.storyboard?.instantiateViewControllerWithIdentifier("Onboarding") as! OnboardingPageViewController
+            self.presentViewController(onboardingController, animated: true, completion: nil)
+        }
+
         
         
         
@@ -187,12 +203,22 @@ class ViewController: UIViewController {
             self.presentViewController(alert, animated: true, completion: nil)
         }
         
+    
     }
+    
+
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+    
+       
         
+        
+        
+        ll = ChartLimitLine(limit: Double((monthlyBudget-defaults.integerForKey("savingsGoal"))/numbersOfDaysInCurrentMonth), label: "Daily limit: €\(monthlyBudget/numbersOfDaysInCurrentMonth)")
+        
+        barChartView.leftAxis.addLimitLine(ll)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(ViewController.updateUI), name:
             UIApplicationWillEnterForegroundNotification, object: nil)
@@ -333,9 +359,7 @@ class ViewController: UIViewController {
     func setChart(dataPoints: [String], values: [Double]) {
         barChartView.noDataText = "You need to provide data for the chart."
         
-        //Numbers of days of current month
-        let calendar = NSCalendar.currentCalendar()
-        let numbersOfDaysInCurrentMonth = calendar.component([.Day], fromDate: NSDate().endOfMonth())
+        
         
         
         //Some Chart UI changes
@@ -378,11 +402,13 @@ class ViewController: UIViewController {
         chartDataSet.colors = chartColorSet
         barChartView.animate(xAxisDuration: 0, yAxisDuration: 1.0)
         
-        let ll = ChartLimitLine(limit: Double(monthlyBudget/numbersOfDaysInCurrentMonth), label: "Daily limit: €\(monthlyBudget/numbersOfDaysInCurrentMonth)")
-        barChartView.leftAxis.addLimitLine(ll)
+        
+        
+        
+        ll.limit = Double((monthlyBudget-defaults.integerForKey("savingsGoal"))/numbersOfDaysInCurrentMonth)
         ll.labelPosition = .LeftTop
         ll.drawLabelEnabled = false
-        ll.lineColor = UIDesign().lightGrey
+        ll.lineColor = UIDesign().red
         ll.lineWidth = 0.5
         barChartView.data = chartData
         

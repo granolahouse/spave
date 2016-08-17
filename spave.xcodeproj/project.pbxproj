@@ -10,6 +10,9 @@
 		24181FFB1D523FA800A4E0B6 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24181FF91D522B2800A4E0B6 /* Roboto-Thin.ttf */; };
 		24181FFD1D5241D200A4E0B6 /* SF-UI-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 24181FFC1D5241CC00A4E0B6 /* SF-UI-Display-Thin.otf */; };
 		24181FFF1D52447500A4E0B6 /* SF-UI-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 24181FFE1D52447000A4E0B6 /* SF-UI-Display-Regular.otf */; };
+		2453F4741D64BA0C005AE56D /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2453F4731D64BA0C005AE56D /* OnboardingPageViewController.swift */; };
+		2453F4761D64C1E6005AE56D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2453F4751D64C1E6005AE56D /* Main.storyboard */; };
+		2453F47A1D64C714005AE56D /* Onboarding3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2453F4791D64C714005AE56D /* Onboarding3ViewController.swift */; };
 		247ECE0F1D5B99390099AABF /* CustomProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247ECE0E1D5B99390099AABF /* CustomProgressRing.swift */; };
 		2494B1C71D5E3309005EFB68 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2494B1C61D5E3309005EFB68 /* AddExpenseViewController.swift */; };
 		249C5CE01D53718600EE4853 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 249C5CDF1D53718600EE4853 /* Info.plist */; };
@@ -31,7 +34,6 @@
 		24E1B0851D51FCD1008BDAD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24E1B0831D51FCD1008BDAD4 /* LaunchScreen.storyboard */; };
 		24E1B0901D51FCD1008BDAD4 /* spaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E1B08F1D51FCD1008BDAD4 /* spaveTests.swift */; };
 		24E1B09B1D51FCD1008BDAD4 /* spaveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E1B09A1D51FCD1008BDAD4 /* spaveUITests.swift */; };
-		24E1B0AD1D51FD9F008BDAD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24E1B0AC1D51FD9F008BDAD4 /* Main.storyboard */; };
 		24F9942A1D54DB7900C516FA /* CustomSeperatorLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F994291D54DB7900C516FA /* CustomSeperatorLine.swift */; };
 		B6A41E05AB3BC764305D505A /* Pods_spave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B95B9D56FFD89D695C7A514 /* Pods_spave.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +59,9 @@
 		24181FF91D522B2800A4E0B6 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		24181FFC1D5241CC00A4E0B6 /* SF-UI-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Thin.otf"; sourceTree = "<group>"; };
 		24181FFE1D52447000A4E0B6 /* SF-UI-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Regular.otf"; sourceTree = "<group>"; };
+		2453F4731D64BA0C005AE56D /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		2453F4751D64C1E6005AE56D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2453F4791D64C714005AE56D /* Onboarding3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Onboarding3ViewController.swift; sourceTree = "<group>"; };
 		247ECE0E1D5B99390099AABF /* CustomProgressRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomProgressRing.swift; sourceTree = "<group>"; };
 		2494B1C61D5E3309005EFB68 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
 		249C5CDF1D53718600EE4853 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,7 +88,6 @@
 		24E1B0961D51FCD1008BDAD4 /* spaveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = spaveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24E1B09A1D51FCD1008BDAD4 /* spaveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spaveUITests.swift; sourceTree = "<group>"; };
 		24E1B09C1D51FCD1008BDAD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		24E1B0AC1D51FD9F008BDAD4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		24F994291D54DB7900C516FA /* CustomSeperatorLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSeperatorLine.swift; sourceTree = "<group>"; };
 		3B95B9D56FFD89D695C7A514 /* Pods_spave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE6C31BC513D3FECFE96E1D /* Pods-spave.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spave.debug.xcconfig"; path = "Pods/Target Support Files/Pods-spave/Pods-spave.debug.xcconfig"; sourceTree = "<group>"; };
@@ -196,7 +200,7 @@
 		24E1B0AB1D51FD8F008BDAD4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				24E1B0AC1D51FD9F008BDAD4 /* Main.storyboard */,
+				2453F4751D64C1E6005AE56D /* Main.storyboard */,
 				24E1B0831D51FCD1008BDAD4 /* LaunchScreen.storyboard */,
 			);
 			name = Views;
@@ -223,6 +227,8 @@
 				249C5CE11D54A0F100EE4853 /* CustomAddButton.swift */,
 				24F994291D54DB7900C516FA /* CustomSeperatorLine.swift */,
 				2494B1C61D5E3309005EFB68 /* AddExpenseViewController.swift */,
+				2453F4731D64BA0C005AE56D /* OnboardingPageViewController.swift */,
+				2453F4791D64C714005AE56D /* Onboarding3ViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -352,12 +358,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2453F4761D64C1E6005AE56D /* Main.storyboard in Resources */,
 				24181FFB1D523FA800A4E0B6 /* Roboto-Thin.ttf in Resources */,
 				24E1B0851D51FCD1008BDAD4 /* LaunchScreen.storyboard in Resources */,
 				24181FFF1D52447500A4E0B6 /* SF-UI-Display-Regular.otf in Resources */,
 				24E1B0821D51FCD1008BDAD4 /* Assets.xcassets in Resources */,
 				249C5CE01D53718600EE4853 /* Info.plist in Resources */,
-				24E1B0AD1D51FD9F008BDAD4 /* Main.storyboard in Resources */,
 				24181FFD1D5241D200A4E0B6 /* SF-UI-Display-Thin.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,6 +440,7 @@
 				24F9942A1D54DB7900C516FA /* CustomSeperatorLine.swift in Sources */,
 				24C645731D51FFDB00AB1E66 /* Expense.swift in Sources */,
 				24E1B07A1D51FCD1008BDAD4 /* ViewController.swift in Sources */,
+				2453F47A1D64C714005AE56D /* Onboarding3ViewController.swift in Sources */,
 				247ECE0F1D5B99390099AABF /* CustomProgressRing.swift in Sources */,
 				24E1B0801D51FCD1008BDAD4 /* spave.xcdatamodeld in Sources */,
 				24C645651D51FEA000AB1E66 /* CoreDataTableViewController.swift in Sources */,
@@ -447,6 +454,7 @@
 				24C645661D51FEA000AB1E66 /* SpendingViewController.swift in Sources */,
 				24C645631D51FEA000AB1E66 /* SettingsViewController.swift in Sources */,
 				24C6456F1D51FF8500AB1E66 /* Model.xcdatamodeld in Sources */,
+				2453F4741D64BA0C005AE56D /* OnboardingPageViewController.swift in Sources */,
 				24B159B21D5BB4B80084BC5F /* UIDesign.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

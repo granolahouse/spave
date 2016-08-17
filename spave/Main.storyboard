@@ -18,6 +18,9 @@
             <string>Roboto-Thin</string>
             <string>Roboto-Thin</string>
             <string>Roboto-Thin</string>
+            <string>Roboto-Thin</string>
+            <string>Roboto-Thin</string>
+            <string>Roboto-Thin</string>
         </mutableArray>
         <mutableArray key="SF-UI-Display-Regular.otf">
             <string>SFUIDisplay-Regular</string>
@@ -29,6 +32,174 @@
         </mutableArray>
     </customFonts>
     <scenes>
+        <!--Onboarding Page View Controller-->
+        <scene sceneID="aH8-yj-KeZ">
+            <objects>
+                <pageViewController storyboardIdentifier="Onboarding" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="LcJ-u9-DLx" customClass="OnboardingPageViewController" customModule="spave" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mT5-4v-zrf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-276" y="-1062"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="qvp-Wd-OWg">
+            <objects>
+                <viewController storyboardIdentifier="Onboarding1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZhV-u2-TX1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="z9X-X0-vEK"/>
+                        <viewControllerLayoutGuide type="bottom" id="wUX-sm-cXb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zBm-kx-yX7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqd-EQ-1iW">
+                                <rect key="frame" x="263.5" y="40" width="73" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2G-ni-efz">
+                                <rect key="frame" x="228.5" y="185" width="143" height="21"/>
+                                <string key="text">... sounds familiar?
+</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Then spave is for you!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vd-JN-Aia">
+                                <rect key="frame" x="214.5" y="226" width="171.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Money" translatesAutoresizingMaskIntoConstraints="NO" id="T60-S5-AtP">
+                                <rect key="frame" x="266" y="277" width="68" height="290"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="290" id="5IK-8l-9fJ"/>
+                                    <constraint firstAttribute="width" constant="68" id="dGm-Ep-ePw"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkq-Tw-3Or">
+                                <rect key="frame" x="50" y="122" width="500" height="43"/>
+                                <string key="text">„It’s end of month but where 
+the hell is all my money gone?“</string>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tkq-Tw-3Or" firstAttribute="leading" secondItem="zBm-kx-yX7" secondAttribute="leadingMargin" constant="30" id="14W-Ed-NyI"/>
+                            <constraint firstItem="gqd-EQ-1iW" firstAttribute="top" secondItem="z9X-X0-vEK" secondAttribute="bottom" multiplier="2" id="DcX-EV-euZ"/>
+                            <constraint firstItem="5vd-JN-Aia" firstAttribute="top" secondItem="y2G-ni-efz" secondAttribute="bottom" constant="20" id="JId-ZY-J6t"/>
+                            <constraint firstItem="gqd-EQ-1iW" firstAttribute="centerX" secondItem="zBm-kx-yX7" secondAttribute="centerX" id="Nxq-WE-cVw"/>
+                            <constraint firstItem="tkq-Tw-3Or" firstAttribute="top" secondItem="gqd-EQ-1iW" secondAttribute="bottom" constant="39" id="TfW-4Q-zEP"/>
+                            <constraint firstItem="5vd-JN-Aia" firstAttribute="centerX" secondItem="zBm-kx-yX7" secondAttribute="centerX" id="ThF-xU-CKM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tkq-Tw-3Or" secondAttribute="trailing" constant="30" id="UmU-uH-EWc"/>
+                            <constraint firstItem="y2G-ni-efz" firstAttribute="centerX" secondItem="zBm-kx-yX7" secondAttribute="centerX" id="WD3-I5-07B"/>
+                            <constraint firstItem="T60-S5-AtP" firstAttribute="top" secondItem="5vd-JN-Aia" secondAttribute="bottom" constant="30" id="g22-gU-QgH"/>
+                            <constraint firstItem="T60-S5-AtP" firstAttribute="centerX" secondItem="zBm-kx-yX7" secondAttribute="centerX" id="q2q-i9-Pur"/>
+                            <constraint firstItem="y2G-ni-efz" firstAttribute="top" secondItem="tkq-Tw-3Or" secondAttribute="bottom" constant="20" id="x4O-1z-ixb"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k3b-Mh-p0C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="386" y="-1068"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="eP7-fd-L9f">
+            <objects>
+                <viewController storyboardIdentifier="Onboarding2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fVw-c2-dkj" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UMc-uy-x0l"/>
+                        <viewControllerLayoutGuide type="bottom" id="DZg-fj-g3Q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vfb-WY-8yj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWt-0L-SJA">
+                                <rect key="frame" x="263.5" y="40" width="73" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SET YOUR SAVINGS GOAL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sun-bD-S1b">
+                                <rect key="frame" x="197" y="108" width="206" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.23529411759999999" green="0.69019607839999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just tell spave how much money you wanna save per month and what your monthly budget is. The rest is math spave does for you. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jH-pD-h7V">
+                                <rect key="frame" x="50" y="129" width="500" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRACK ALL EXPENSES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfo-4W-hgm">
+                                <rect key="frame" x="211.5" y="192.5" width="177" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.23529411759999999" green="0.69019607839999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We made it extremely fast to track every expense. Even when you are standing at the supermarket cash point. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nG3-Nj-Yup">
+                                <rect key="frame" x="50" y="213.5" width="500" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMd-Fg-aT7">
+                                <rect key="frame" x="173.5" y="277" width="253" height="21"/>
+                                <string key="text">GET ENGAGED TO SAVE MONEY
+</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.23529411759999999" green="0.69019607839999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Each day spave calculates your estimated monthly savings. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9T-dT-vlF">
+                                <rect key="frame" x="50" y="298" width="500" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Let's go, set your goal! -&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEF-rZ-tf4">
+                                <rect key="frame" x="125" y="480" width="196" height="21"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="17"/>
+                                <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OMd-Fg-aT7" firstAttribute="centerX" secondItem="Vfb-WY-8yj" secondAttribute="centerX" id="2qk-b8-smB"/>
+                            <constraint firstItem="DZg-fj-g3Q" firstAttribute="top" secondItem="TEF-rZ-tf4" secondAttribute="bottom" constant="60" id="2w8-qa-ZBM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nG3-Nj-Yup" secondAttribute="trailing" constant="30" id="6gl-6U-dmz"/>
+                            <constraint firstItem="Sun-bD-S1b" firstAttribute="top" secondItem="NWt-0L-SJA" secondAttribute="bottom" multiplier="1.3" id="9KB-Zg-ec8"/>
+                            <constraint firstItem="nG3-Nj-Yup" firstAttribute="leading" secondItem="Vfb-WY-8yj" secondAttribute="leadingMargin" constant="30" id="E3d-Rp-FxD"/>
+                            <constraint firstItem="OMd-Fg-aT7" firstAttribute="top" secondItem="nG3-Nj-Yup" secondAttribute="bottom" constant="30" id="ETf-aZ-Kou"/>
+                            <constraint firstItem="TEF-rZ-tf4" firstAttribute="centerX" secondItem="Vfb-WY-8yj" secondAttribute="centerX" id="L0i-nb-zPf"/>
+                            <constraint firstItem="nG3-Nj-Yup" firstAttribute="centerX" secondItem="Vfb-WY-8yj" secondAttribute="centerX" id="PnM-ta-wkC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="i9T-dT-vlF" secondAttribute="trailing" constant="30" id="Pya-YL-7kU"/>
+                            <constraint firstItem="Sfo-4W-hgm" firstAttribute="top" secondItem="9jH-pD-h7V" secondAttribute="bottom" constant="30" id="Q0R-ml-H3V"/>
+                            <constraint firstItem="Sun-bD-S1b" firstAttribute="centerX" secondItem="Vfb-WY-8yj" secondAttribute="centerX" id="Qnm-PJ-RlR"/>
+                            <constraint firstItem="i9T-dT-vlF" firstAttribute="top" secondItem="OMd-Fg-aT7" secondAttribute="bottom" id="UDK-FF-7Xq"/>
+                            <constraint firstItem="9jH-pD-h7V" firstAttribute="leading" secondItem="Vfb-WY-8yj" secondAttribute="leadingMargin" constant="30" id="W0K-mX-sQT"/>
+                            <constraint firstItem="NWt-0L-SJA" firstAttribute="top" secondItem="UMc-uy-x0l" secondAttribute="bottom" multiplier="2" id="gXo-yA-8Uv"/>
+                            <constraint firstItem="Sfo-4W-hgm" firstAttribute="centerX" secondItem="Vfb-WY-8yj" secondAttribute="centerX" id="hS4-LI-A7A"/>
+                            <constraint firstItem="9jH-pD-h7V" firstAttribute="top" secondItem="Sun-bD-S1b" secondAttribute="bottom" id="mCf-Jd-dXK"/>
+                            <constraint firstItem="NWt-0L-SJA" firstAttribute="centerX" secondItem="Vfb-WY-8yj" secondAttribute="centerX" id="mZk-Xx-lAP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9jH-pD-h7V" secondAttribute="trailing" constant="30" id="v28-Rk-vKo"/>
+                            <constraint firstItem="i9T-dT-vlF" firstAttribute="leading" secondItem="Vfb-WY-8yj" secondAttribute="leadingMargin" constant="30" id="voV-nr-QHr"/>
+                            <constraint firstItem="nG3-Nj-Yup" firstAttribute="top" secondItem="Sfo-4W-hgm" secondAttribute="bottom" id="yiZ-v8-FRH"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sPE-Pe-Qph" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1097" y="-1010"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="xrE-6U-RtX">
             <objects>
@@ -309,7 +480,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Key-4q-JhN">
-                                <rect key="frame" x="246.5" y="550" width="107" height="30"/>
+                                <rect key="frame" x="473" y="550" width="107" height="30"/>
                                 <state key="normal" title="Reset database">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -347,13 +518,13 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€48" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25t-oc-TpT" userLabel="calculated daily limit ">
-                                <rect key="frame" x="261" y="425.5" width="79" height="56.5"/>
+                                <rect key="frame" x="261" y="408.5" width="79" height="56.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="48"/>
                                 <color key="textColor" red="0.23529411759999999" green="0.69019607839999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your daily limit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0e-Xk-26a">
-                                <rect key="frame" x="252" y="482" width="97" height="17"/>
+                                <rect key="frame" x="252" y="465" width="97" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -365,12 +536,12 @@
                             <constraint firstItem="25t-oc-TpT" firstAttribute="centerX" secondItem="kMq-Am-lBe" secondAttribute="centerX" id="3Ki-ku-IxO"/>
                             <constraint firstItem="L0e-Xk-26a" firstAttribute="centerX" secondItem="25t-oc-TpT" secondAttribute="centerX" id="8Ha-2x-e7P"/>
                             <constraint firstItem="lEK-qf-ina" firstAttribute="top" secondItem="Q2k-6X-8lH" secondAttribute="bottom" constant="80" id="Bgy-pZ-p3f"/>
+                            <constraint firstItem="25t-oc-TpT" firstAttribute="top" secondItem="lEK-qf-ina" secondAttribute="bottom" constant="80" id="CfQ-eG-ISG"/>
                             <constraint firstItem="lEK-qf-ina" firstAttribute="centerY" secondItem="vm4-hI-iyH" secondAttribute="centerY" id="GCJ-Z8-CM6"/>
                             <constraint firstItem="lEK-qf-ina" firstAttribute="centerX" secondItem="vm4-hI-iyH" secondAttribute="centerX" id="Hp5-m7-b9O"/>
                             <constraint firstItem="L0e-Xk-26a" firstAttribute="top" secondItem="25t-oc-TpT" secondAttribute="bottom" id="I6s-Wt-g32"/>
-                            <constraint firstItem="Key-4q-JhN" firstAttribute="centerX" secondItem="vm4-hI-iyH" secondAttribute="centerX" id="MQR-Zg-y0f"/>
                             <constraint firstItem="x5C-bs-zzF" firstAttribute="centerX" secondItem="T6E-Hw-mRS" secondAttribute="centerX" id="MhE-S8-Nsb"/>
-                            <constraint firstItem="25t-oc-TpT" firstAttribute="top" secondItem="kMq-Am-lBe" secondAttribute="bottom" constant="80" id="MrB-e0-9jE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Key-4q-JhN" secondAttribute="trailing" id="Q4l-fk-JWa"/>
                             <constraint firstItem="T6E-Hw-mRS" firstAttribute="centerX" secondItem="Q2k-6X-8lH" secondAttribute="centerX" id="Tee-ux-Kln"/>
                             <constraint firstItem="T6E-Hw-mRS" firstAttribute="top" secondItem="Q2k-6X-8lH" secondAttribute="bottom" id="VJt-RC-m6G"/>
                             <constraint firstItem="e7b-V5-hQo" firstAttribute="top" secondItem="Key-4q-JhN" secondAttribute="bottom" constant="20" id="aMt-lS-WdC"/>
@@ -642,9 +813,122 @@
             </objects>
             <point key="canvasLocation" x="1633" y="909"/>
         </scene>
+        <!--Onboarding3-->
+        <scene sceneID="UpH-TA-8ks">
+            <objects>
+                <viewController storyboardIdentifier="Onboarding3" title="Onboarding3" useStoryboardIdentifierAsRestorationIdentifier="YES" id="34n-qB-hI5" customClass="Onboarding3ViewController" customModule="spave" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hep-qU-o0m"/>
+                        <viewControllerLayoutGuide type="bottom" id="fZV-OG-X0A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CTa-WS-ocg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="200" placeholder="€200" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hsx-WS-3NQ">
+                                <rect key="frame" x="245.5" y="271.5" width="110" height="57"/>
+                                <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="48"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="34n-qB-hI5" id="b4K-NQ-E1D"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHH-fc-hYp">
+                                <rect key="frame" x="247.5" y="191" width="105" height="17"/>
+                                <string key="text">Monthly budget
+ </string>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly savings goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIu-6X-KDi">
+                                <rect key="frame" x="230.5" y="328.5" width="140" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just variable expenses (income - fix costs)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0NT-Lo-SQe">
+                                <rect key="frame" x="181" y="208" width="238.5" height="15"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="800" placeholder="€1.400" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1M4-2Z-zsP">
+                                <rect key="frame" x="227.5" y="134.5" width="146" height="57"/>
+                                <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="48"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="34n-qB-hI5" id="thE-Tz-DCz"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€48" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSa-vH-S2j" userLabel="calculated daily limit ">
+                                <rect key="frame" x="261" y="408.5" width="79" height="56.5"/>
+                                <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="48"/>
+                                <color key="textColor" red="0.23529411759999999" green="0.69019607839999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your daily limit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUY-Q7-KhZ">
+                                <rect key="frame" x="252" y="465" width="97" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9j-if-RR8" customClass="CustomAddButton" customModule="spave" customModuleProvider="target">
+                                <rect key="frame" x="270" y="510" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="M9j-if-RR8" secondAttribute="height" id="IiJ-ZV-z19"/>
+                                    <constraint firstAttribute="width" constant="60" id="dsX-pv-0CR"/>
+                                </constraints>
+                                <state key="normal" title="GO"/>
+                                <connections>
+                                    <action selector="go:" destination="34n-qB-hI5" eventType="touchUpInside" id="Jy4-Jw-rVa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set your goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLe-en-hS1">
+                                <rect key="frame" x="195.5" y="40" width="209" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WUY-Q7-KhZ" firstAttribute="centerX" secondItem="wSa-vH-S2j" secondAttribute="centerX" id="3F0-3R-QSy"/>
+                            <constraint firstItem="DIu-6X-KDi" firstAttribute="centerX" secondItem="hsx-WS-3NQ" secondAttribute="centerX" id="7oF-5W-W5h"/>
+                            <constraint firstItem="hsx-WS-3NQ" firstAttribute="centerX" secondItem="CTa-WS-ocg" secondAttribute="centerX" id="86l-Jc-If8"/>
+                            <constraint firstItem="RHH-fc-hYp" firstAttribute="centerX" secondItem="1M4-2Z-zsP" secondAttribute="centerX" id="AqM-b9-XbG"/>
+                            <constraint firstItem="DIu-6X-KDi" firstAttribute="top" secondItem="hsx-WS-3NQ" secondAttribute="bottom" id="PA6-3B-yCG"/>
+                            <constraint firstItem="wSa-vH-S2j" firstAttribute="centerX" secondItem="DIu-6X-KDi" secondAttribute="centerX" id="PSA-uX-lBC"/>
+                            <constraint firstItem="fZV-OG-X0A" firstAttribute="top" secondItem="M9j-if-RR8" secondAttribute="bottom" constant="30" id="RR6-nQ-C14"/>
+                            <constraint firstItem="wSa-vH-S2j" firstAttribute="top" secondItem="hsx-WS-3NQ" secondAttribute="bottom" constant="80" id="VvO-Dm-RE8"/>
+                            <constraint firstItem="mLe-en-hS1" firstAttribute="top" secondItem="hep-qU-o0m" secondAttribute="bottom" multiplier="2" id="au4-Ax-TSI"/>
+                            <constraint firstItem="WUY-Q7-KhZ" firstAttribute="top" secondItem="wSa-vH-S2j" secondAttribute="bottom" id="bE8-qM-hl7"/>
+                            <constraint firstItem="RHH-fc-hYp" firstAttribute="top" secondItem="1M4-2Z-zsP" secondAttribute="bottom" id="bcc-Hb-lIv"/>
+                            <constraint firstItem="1M4-2Z-zsP" firstAttribute="centerX" secondItem="hsx-WS-3NQ" secondAttribute="centerX" id="cSd-9d-cgt"/>
+                            <constraint firstItem="hsx-WS-3NQ" firstAttribute="top" secondItem="1M4-2Z-zsP" secondAttribute="bottom" constant="80" id="ilA-bM-ly9"/>
+                            <constraint firstItem="M9j-if-RR8" firstAttribute="centerX" secondItem="CTa-WS-ocg" secondAttribute="centerX" id="jpK-6r-Ehp"/>
+                            <constraint firstItem="0NT-Lo-SQe" firstAttribute="centerX" secondItem="RHH-fc-hYp" secondAttribute="centerX" id="lDl-OT-jEn"/>
+                            <constraint firstItem="hsx-WS-3NQ" firstAttribute="centerY" secondItem="CTa-WS-ocg" secondAttribute="centerY" id="pE0-so-0cS"/>
+                            <constraint firstItem="mLe-en-hS1" firstAttribute="centerX" secondItem="CTa-WS-ocg" secondAttribute="centerX" id="qqz-g6-bDZ"/>
+                            <constraint firstItem="0NT-Lo-SQe" firstAttribute="top" secondItem="RHH-fc-hYp" secondAttribute="bottom" id="x00-WE-sub"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="labelForCalculatedDailyLimit" destination="wSa-vH-S2j" id="PH0-ww-gNN"/>
+                        <outlet property="textfieldForMonthlyBudget" destination="1M4-2Z-zsP" id="m4E-A6-Rfr"/>
+                        <outlet property="textfieldForSavingsGoal" destination="hsx-WS-3NQ" id="ICi-s7-4bJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KHA-Xa-BOY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1804" y="-1010"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ExpensesIcon" width="23" height="20"/>
+        <image name="Money" width="68" height="290"/>
         <image name="Settings" width="23" height="23"/>
     </resources>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
