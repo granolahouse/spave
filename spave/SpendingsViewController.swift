@@ -32,6 +32,7 @@ class SpendingsViewController: CoreDataTableViewController {
     let spending:[Expense] = []
     
     var selectedExpense: Expense?
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         
@@ -66,10 +67,17 @@ class SpendingsViewController: CoreDataTableViewController {
         let expense = fetchedResultsController!.objectAtIndexPath(indexPath) as! Expense
         
         // Create the cell
-        let cell  = tableView.dequeueReusableCellWithIdentifier("spendingCell", forIndexPath: indexPath)
+        let cell  = tableView.dequeueReusableCellWithIdentifier("spendingCell", forIndexPath: indexPath) as! SpendingsTableViewCell
         
-        // Sync notebook -> Cell
-        cell.textLabel!.text = String("€\(expense.value!)")
+        // Display expense
+        var currency: Currency = Currency(currencyIso: .USD)
+        if let currencyAsString = expense.currency {
+            
+            currency = Currency(currencyIsoString: currencyAsString)
+        }
+        
+        
+        cell.expense!.text = String("\(currency.getSymbol())\(expense.value!)")
         
         //Get human readable date 
         
@@ -79,8 +87,14 @@ class SpendingsViewController: CoreDataTableViewController {
         
         let humanReadableExpenseDate = dateFormatter.stringFromDate(expense.date!)
         //dateString now contains the string "Sunday, 7 AM".
-        cell.detailTextLabel!.text = humanReadableExpenseDate
+        cell.date!.text = humanReadableExpenseDate
         
+        
+        if let desc = expense.desc {
+            cell.desc!.text = desc
+        } else {
+            cell.desc!.text = ""
+        }
         
 
         return cell

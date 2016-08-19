@@ -53,13 +53,24 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     //Textfield delegates
     func textFieldDidEndEditing(textField: UITextField) {
        
-        let newMonthlyBudget = Int(textfieldForMonthlyBudget.text!)
-        let newSavingsGoal = Int(textfieldForSavingsGoal.text!)
-        defaults.setInteger(newMonthlyBudget!, forKey: "monthlyBudget")
-        defaults.setInteger(newSavingsGoal!, forKey: "savingsGoal")
+        if textField.text == "" {
+            let alert = UIAlertController(title: "Ups", message: "Please enter a valid number", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: {(UIAlertAction) -> Void in
+                    textField.becomeFirstResponder()
+            }))
+                
+                
+            self.presentViewController(alert, animated: true, completion: nil)
+        } else {
         
-        dailyLimit = (defaults.integerForKey("monthlyBudget")-defaults.integerForKey("savingsGoal"))/numbersOfDaysInCurrentMonth
-        labelForCalculatedDailyLimit.text = String("€\(dailyLimit)")
+            let newMonthlyBudget = Int(textfieldForMonthlyBudget.text!)
+            let newSavingsGoal = Int(textfieldForSavingsGoal.text!)
+            defaults.setInteger(newMonthlyBudget!, forKey: "monthlyBudget")
+            defaults.setInteger(newSavingsGoal!, forKey: "savingsGoal")
+        
+            dailyLimit = (defaults.integerForKey("monthlyBudget")-defaults.integerForKey("savingsGoal"))/numbersOfDaysInCurrentMonth
+            labelForCalculatedDailyLimit.text = String("€\(dailyLimit)")
+        }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

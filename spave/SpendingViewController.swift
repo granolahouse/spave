@@ -75,7 +75,15 @@ class SpendingViewController: UIViewController, UITextFieldDelegate, UIPickerVie
             }
             
             //Load Expense
-            label.text = String("€\(expense.value!)")
+            
+            // Display expense
+            var currency: Currency = Currency(currencyIso: .USD)
+            if let currencyAsString = expense.currency {
+                
+                currency = Currency(currencyIsoString: currencyAsString)
+            }
+            
+            label.text = String("\(currency.getSymbol())\(expense.value!)")
             
         }
         

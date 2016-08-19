@@ -50,10 +50,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if defaults.boolForKey("appLaunchedFirstTime") {
             
-            if let categories = defaults.objectForKey("categories") {
-                //categories already initialized
-            } else {
+            if defaults.objectForKey("categories") == nil {
                 defaults.setObject(["misc","food", "fun", "travel"], forKey: "categories")
+            }
+            
+            if defaults.objectForKey("usersDefaultCurrency") == nil {
+                defaults.setObject(Currency.CurrencyIso.USD.rawValue, forKey: "usersDefaultCurrency")
             }
             
         } else {
@@ -66,6 +68,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //Monthly budget
             defaults.setInteger(800, forKey: "monthlyBudget")
             defaults.setInteger(60, forKey: "savingsGoal")
+            
+            //Users default currency
+            defaults.setObject(Currency.CurrencyIso.USD.rawValue, forKey: "usersDefaultCurrency")
             
             
            

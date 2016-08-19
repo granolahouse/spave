@@ -30,6 +30,7 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
     @IBOutlet weak var categoryPicker: UIPickerView!
    
     var categories: [String]?
+    let defaults = NSUserDefaults.standardUserDefaults()
     
 
     
@@ -157,6 +158,12 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
         //Save category
         let selectedRow = categoryPicker.selectedRowInComponent(0)
         expense.category = pickerView(categoryPicker, titleForRow: selectedRow, forComponent: 0)
+        
+        //Save currency
+        if let defaultCurrency = defaults.objectForKey("usersDefaultCurrency") as? Currency.CurrencyIso {
+            expense.currency = defaultCurrency.rawValue
+        }
+        
         
         do {
             try fetchedResultsController?.performFetch()
