@@ -16,9 +16,13 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
     
     var locationManager: CLLocationManager = CLLocationManager()
     
+    //We want to track in GBP
+    let currencyToTrack = Money.CurrencyIso.USD
+
+    
     var expenseToTrack: Int = 0 {
         didSet {
-            labelForExpenseToTrack.text = "€\(String(expenseToTrack))"
+            labelForExpenseToTrack.text = "\(currencyToTrack.getCurrencySymbol())\(String(expenseToTrack))"
         }
     }
     
@@ -32,7 +36,8 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
     var categories: [String]?
     let defaults = NSUserDefaults.standardUserDefaults()
     
-
+    
+    
     
     @IBOutlet weak var buttonAdd: CustomAddButton!
    
@@ -145,8 +150,27 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
     
         print("we track \(expenseToTrack)")
         
+        
+        //Initiatlize the money in the currency we want to track
+        var moneyToTrack = Money(amount: Double(expenseToTrack), currencyIso: currencyToTrack)
+        
+        //But now, we want to save the money in the user's currency
+        
+        //we only need to convert if the currency to track in is different from the users default currency.
+        if (currencyToTrack.rawValue != defaults.objectForKey("usersDefaultCurrency") as! String) {
+            do {
+                let m = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String)
+                moneyToTrack = try moneyToTrack.convertMoneyToDifferentCurrency(m.currency!)
+                print("DEBUG: successfully converted to EUR")
+            } catch {
+                //shit
+                print("DEBUG: Error while converting to EUR \(error)")
+            }
+        }
+        
+        
         // Save tracked expense to the managedObjectContext; Will be made persistent through autosave
-        let expense = Expense(value: expenseToTrack, date: NSDate(), context: fetchedResultsController!.managedObjectContext)
+        let expense = Expense(value: moneyToTrack.amount, date: NSDate(), context: fetchedResultsController!.managedObjectContext)
         //We just tracked a new expense and set the newCostToTrack back to zero
         expenseToTrack=0
         
@@ -160,9 +184,8 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
         expense.category = pickerView(categoryPicker, titleForRow: selectedRow, forComponent: 0)
         
         //Save currency
-        if let defaultCurrency = defaults.objectForKey("usersDefaultCurrency") as? Currency.CurrencyIso {
-            expense.currency = defaultCurrency.rawValue
-        }
+        expense.currency = moneyToTrack.currency!.rawValue
+
         
         
         do {

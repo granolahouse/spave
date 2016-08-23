@@ -74,17 +74,19 @@ class SpendingViewController: UIViewController, UITextFieldDelegate, UIPickerVie
                 categoryPicker.selectRow(defaultRowIndex!, inComponent: 0, animated: true)
             }
             
-            //Load Expense
+            var money: Money?
             
-            // Display expense
-            var currency: Currency = Currency(currencyIso: .USD)
-            if let currencyAsString = expense.currency {
-                
-                currency = Currency(currencyIsoString: currencyAsString)
+            //Load Expense
+            if let currency = expense.currency {
+                money = Money(amount: expense.value as! Double, currencyIsoString: currency)
+            } else {
+                let defaultCurrency = defaults.objectForKey("usersDefaultCurrency") as! String
+                money = Money(amount: expense.value as! Double, currencyIsoString: defaultCurrency)
             }
             
-            label.text = String("\(currency.getSymbol())\(expense.value!)")
             
+            
+            label.text = String("\(money!.currency!.getCurrencySymbol())\(Int(money!.amount))")
         }
         
     }

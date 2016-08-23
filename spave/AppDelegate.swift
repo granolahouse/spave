@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             
             if defaults.objectForKey("usersDefaultCurrency") == nil {
-                defaults.setObject(Currency.CurrencyIso.USD.rawValue, forKey: "usersDefaultCurrency")
+                defaults.setObject(Money.CurrencyIso.USD.rawValue, forKey: "usersDefaultCurrency")
             }
             
         } else {
@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             defaults.setInteger(60, forKey: "savingsGoal")
             
             //Users default currency
-            defaults.setObject(Currency.CurrencyIso.USD.rawValue, forKey: "usersDefaultCurrency")
+            defaults.setObject(Money.CurrencyIso.USD.rawValue, forKey: "usersDefaultCurrency")
             
             
            
