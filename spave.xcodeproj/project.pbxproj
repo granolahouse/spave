@@ -15,6 +15,7 @@
 		2453F47A1D64C714005AE56D /* Onboarding3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2453F4791D64C714005AE56D /* Onboarding3ViewController.swift */; };
 		2453F47C1D67996F005AE56D /* SpendingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2453F47B1D67996F005AE56D /* SpendingsTableViewCell.swift */; };
 		2453F47E1D67A72D005AE56D /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2453F47D1D67A72D005AE56D /* Money.swift */; };
+		2453F4801D6D976D005AE56D /* ChooseCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2453F47F1D6D976D005AE56D /* ChooseCurrencyViewController.swift */; };
 		247ECE0F1D5B99390099AABF /* CustomProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247ECE0E1D5B99390099AABF /* CustomProgressRing.swift */; };
 		2494B1C71D5E3309005EFB68 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2494B1C61D5E3309005EFB68 /* AddExpenseViewController.swift */; };
 		249C5CE01D53718600EE4853 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 249C5CDF1D53718600EE4853 /* Info.plist */; };
@@ -66,6 +67,7 @@
 		2453F4791D64C714005AE56D /* Onboarding3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Onboarding3ViewController.swift; sourceTree = "<group>"; };
 		2453F47B1D67996F005AE56D /* SpendingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpendingsTableViewCell.swift; sourceTree = "<group>"; };
 		2453F47D1D67A72D005AE56D /* Money.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
+		2453F47F1D6D976D005AE56D /* ChooseCurrencyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCurrencyViewController.swift; sourceTree = "<group>"; };
 		247ECE0E1D5B99390099AABF /* CustomProgressRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomProgressRing.swift; sourceTree = "<group>"; };
 		2494B1C61D5E3309005EFB68 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
 		249C5CDF1D53718600EE4853 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				2453F4791D64C714005AE56D /* Onboarding3ViewController.swift */,
 				2453F47B1D67996F005AE56D /* SpendingsTableViewCell.swift */,
 				2453F47D1D67A72D005AE56D /* Money.swift */,
+				2453F47F1D6D976D005AE56D /* ChooseCurrencyViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				24C645641D51FEA000AB1E66 /* SpendingsViewController.swift in Sources */,
 				24C645681D51FEBC00AB1E66 /* CoreDataStack.swift in Sources */,
 				249C5CE21D54A0F100EE4853 /* CustomAddButton.swift in Sources */,
+				2453F4801D6D976D005AE56D /* ChooseCurrencyViewController.swift in Sources */,
 				2494B1C71D5E3309005EFB68 /* AddExpenseViewController.swift in Sources */,
 				24B164971D62164A000AEAA1 /* CustomArrowButton.swift in Sources */,
 				2453F47E1D67A72D005AE56D /* Money.swift in Sources */,

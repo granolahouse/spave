@@ -198,7 +198,7 @@ the hell is all my money gone?“</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sPE-Pe-Qph" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1097" y="-1010"/>
+            <point key="canvasLocation" x="1045" y="-1068"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xrE-6U-RtX">
@@ -620,6 +620,13 @@ the hell is all my money gone?“</string>
                                     <outlet property="delegate" destination="EwR-MJ-Hci" id="7gC-aD-wWS"/>
                                 </connections>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOg-zq-jwu">
+                                <rect key="frame" x="241" y="103" width="118" height="30"/>
+                                <state key="normal" title="Change currency"/>
+                                <connections>
+                                    <segue destination="krg-fc-v4P" kind="presentation" id="D3g-YM-jPj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -725,6 +732,33 @@ the hell is all my money gone?“</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="haK-Ut-92T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="974" y="909"/>
+        </scene>
+        <!--Choose Currency View Controller-->
+        <scene sceneID="Epj-Fu-Pog">
+            <objects>
+                <viewController id="krg-fc-v4P" customClass="ChooseCurrencyViewController" customModule="spave" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="m0g-ZH-XED"/>
+                        <viewControllerLayoutGuide type="bottom" id="8oR-ic-enV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hnU-4d-V30">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RQV-xC-fjN">
+                                <rect key="frame" x="0.0" y="205" width="600" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="krg-fc-v4P" id="OUN-r8-hNT"/>
+                                    <outlet property="delegate" destination="krg-fc-v4P" id="CUH-bt-nNI"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Is-zT-ac0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="344" y="1645"/>
         </scene>
         <!--Spending View Controller-->
         <scene sceneID="HWp-v5-699">
@@ -939,7 +973,7 @@ the hell is all my money gone?“</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KHA-Xa-BOY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1804" y="-1010"/>
+            <point key="canvasLocation" x="1716" y="-1068"/>
         </scene>
     </scenes>
     <resources>
