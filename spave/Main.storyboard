@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RtX-mq-Nfo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RtX-mq-Nfo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -66,7 +66,7 @@
                                 <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Then spave is for you!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vd-JN-Aia">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Then spave is for you!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vd-JN-Aia">
                                 <rect key="frame" x="215" y="226" width="171" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -144,13 +144,13 @@ the hell is all my money gone?“</string>
                                 <color key="textColor" red="0.23529411759999999" green="0.69019607839999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="We made it extremely fast to track every expense. Even when you are standing at the supermarket cash point. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nG3-Nj-Yup">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We made it extremely fast to track every expense. Even when you are standing at the supermarket cash point. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nG3-Nj-Yup">
                                 <rect key="frame" x="50" y="214" width="500" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMd-Fg-aT7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMd-Fg-aT7">
                                 <rect key="frame" x="174" y="277" width="253" height="21"/>
                                 <string key="text">GET ENGAGED TO SAVE MONEY
 </string>
@@ -158,7 +158,7 @@ the hell is all my money gone?“</string>
                                 <color key="textColor" red="0.23529411759999999" green="0.69019607839999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Each day spave calculates your estimated monthly savings. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9T-dT-vlF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Each day spave calculates your estimated monthly savings. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9T-dT-vlF">
                                 <rect key="frame" x="50" y="298" width="500" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -490,7 +490,7 @@ the hell is all my money gone?“</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6E-Hw-mRS">
-                                <rect key="frame" x="247" y="192" width="105" height="17"/>
+                                <rect key="frame" x="247" y="202" width="105" height="17"/>
                                 <string key="text">Monthly budget
  </string>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
@@ -504,13 +504,13 @@ the hell is all my money gone?“</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just variable expenses (income - fix costs)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5C-bs-zzF">
-                                <rect key="frame" x="180" y="209" width="239" height="15"/>
+                                <rect key="frame" x="180" y="219" width="239" height="15"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                 <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="800" placeholder="€1.400" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Q2k-6X-8lH">
-                                <rect key="frame" x="227" y="135" width="146" height="57"/>
+                                <rect key="frame" x="227" y="145" width="146" height="57"/>
                                 <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="48"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -519,20 +519,20 @@ the hell is all my money gone?“</string>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€48" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25t-oc-TpT" userLabel="calculated daily limit ">
-                                <rect key="frame" x="260" y="409" width="79" height="57"/>
+                                <rect key="frame" x="260" y="399" width="79" height="57"/>
                                 <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="48"/>
                                 <color key="textColor" red="0.23529411759999999" green="0.69019607839999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your daily limit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0e-Xk-26a">
-                                <rect key="frame" x="251" y="466" width="97" height="17"/>
+                                <rect key="frame" x="251" y="456" width="97" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NoX-Yu-VNv">
-                                <rect key="frame" x="214" y="503" width="170" height="30"/>
-                                <state key="normal" title="Change default currency">
+                                <rect key="frame" x="241" y="503" width="118" height="30"/>
+                                <state key="normal" title="Change currency">
                                     <color key="titleColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -545,8 +545,8 @@ the hell is all my money gone?“</string>
                             <constraint firstItem="kMq-Am-lBe" firstAttribute="top" secondItem="lEK-qf-ina" secondAttribute="bottom" id="1ou-p2-N3v"/>
                             <constraint firstItem="25t-oc-TpT" firstAttribute="centerX" secondItem="kMq-Am-lBe" secondAttribute="centerX" id="3Ki-ku-IxO"/>
                             <constraint firstItem="L0e-Xk-26a" firstAttribute="centerX" secondItem="25t-oc-TpT" secondAttribute="centerX" id="8Ha-2x-e7P"/>
-                            <constraint firstItem="lEK-qf-ina" firstAttribute="top" secondItem="Q2k-6X-8lH" secondAttribute="bottom" constant="80" id="Bgy-pZ-p3f"/>
-                            <constraint firstItem="25t-oc-TpT" firstAttribute="top" secondItem="lEK-qf-ina" secondAttribute="bottom" constant="80" id="CfQ-eG-ISG"/>
+                            <constraint firstItem="lEK-qf-ina" firstAttribute="top" secondItem="Q2k-6X-8lH" secondAttribute="bottom" constant="70" id="Bgy-pZ-p3f"/>
+                            <constraint firstItem="25t-oc-TpT" firstAttribute="top" secondItem="lEK-qf-ina" secondAttribute="bottom" constant="70" id="CfQ-eG-ISG"/>
                             <constraint firstItem="lEK-qf-ina" firstAttribute="centerY" secondItem="vm4-hI-iyH" secondAttribute="centerY" id="GCJ-Z8-CM6"/>
                             <constraint firstItem="lEK-qf-ina" firstAttribute="centerX" secondItem="vm4-hI-iyH" secondAttribute="centerX" id="Hp5-m7-b9O"/>
                             <constraint firstItem="L0e-Xk-26a" firstAttribute="top" secondItem="25t-oc-TpT" secondAttribute="bottom" id="I6s-Wt-g32"/>
@@ -554,11 +554,11 @@ the hell is all my money gone?“</string>
                             <constraint firstAttribute="trailingMargin" secondItem="Key-4q-JhN" secondAttribute="trailing" id="Q4l-fk-JWa"/>
                             <constraint firstItem="T6E-Hw-mRS" firstAttribute="centerX" secondItem="Q2k-6X-8lH" secondAttribute="centerX" id="Tee-ux-Kln"/>
                             <constraint firstItem="T6E-Hw-mRS" firstAttribute="top" secondItem="Q2k-6X-8lH" secondAttribute="bottom" id="VJt-RC-m6G"/>
-                            <constraint firstItem="NoX-Yu-VNv" firstAttribute="top" secondItem="L0e-Xk-26a" secondAttribute="bottom" constant="20" id="VT6-YC-wYc"/>
                             <constraint firstItem="e7b-V5-hQo" firstAttribute="top" secondItem="Key-4q-JhN" secondAttribute="bottom" constant="20" id="aMt-lS-WdC"/>
                             <constraint firstItem="Q2k-6X-8lH" firstAttribute="centerX" secondItem="lEK-qf-ina" secondAttribute="centerX" id="aUc-1G-kgR"/>
                             <constraint firstItem="NoX-Yu-VNv" firstAttribute="centerX" secondItem="L0e-Xk-26a" secondAttribute="centerX" id="cag-4x-NMy"/>
                             <constraint firstItem="kMq-Am-lBe" firstAttribute="centerX" secondItem="lEK-qf-ina" secondAttribute="centerX" id="k8A-vp-OOz"/>
+                            <constraint firstItem="NoX-Yu-VNv" firstAttribute="top" secondItem="L0e-Xk-26a" secondAttribute="bottom" constant="30" id="yHo-UA-0gR"/>
                             <constraint firstItem="x5C-bs-zzF" firstAttribute="top" secondItem="T6E-Hw-mRS" secondAttribute="bottom" id="yRI-6B-lNe"/>
                         </constraints>
                     </view>
@@ -599,7 +599,7 @@ the hell is all my money gone?“</string>
                                     <action selector="track:" destination="EwR-MJ-Hci" eventType="touchUpInside" id="gK8-Ae-ELg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="€0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iU-Dg-5RG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iU-Dg-5RG">
                                 <rect key="frame" x="177" y="353" width="33" height="35"/>
                                 <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -708,7 +708,7 @@ the hell is all my money gone?“</string>
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nfl-OX-6Xl" id="FCs-MF-9He">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€35" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="leR-Uo-FEt">
@@ -899,7 +899,7 @@ the hell is all my money gone?“</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="€20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfN-1H-DMH">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfN-1H-DMH">
                                         <rect key="frame" x="165" y="43" width="105" height="75"/>
                                         <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="64"/>
                                         <color key="textColor" red="0.16078431372549018" green="0.20392156862745098" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>

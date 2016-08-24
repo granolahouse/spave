@@ -185,13 +185,14 @@ class ViewController: UIViewController {
                 //Number of days since begin of month
                 
                 var x = 0
-                
+                let currency = self.defaults.objectForKey("usersDefaultCurrency") as! String
                 //spendings until now, estimated by the user
                 if let spendingsUntilNow = Int(alert.textFields![0].text!) {
                     
                     //Fill database with estimated spendings
                     while x < numberOfDaysSinceStartOfMonth {
-                        let expenseToTrack = Expense(value: spendingsUntilNow/numberOfDaysSinceStartOfMonth, date: NSDate().dateOfDaysBeforeOrAfter(-1*numberOfDaysSinceStartOfMonth+x), context: self.self.fetchedResultsController!.managedObjectContext)
+                        var expenseToTrack = Expense(value: spendingsUntilNow/numberOfDaysSinceStartOfMonth, date: NSDate().dateOfDaysBeforeOrAfter(-1*numberOfDaysSinceStartOfMonth+x), context: self.self.fetchedResultsController!.managedObjectContext)
+                        expenseToTrack.currency = currency
                         x+=1
                     }
                 }

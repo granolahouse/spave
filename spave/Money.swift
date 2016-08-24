@@ -168,6 +168,7 @@ struct Money {
          return converted money
          */
         
+        print("››››› New currency: \(newCurrency)")
 
             //First: Convert moneyToTrack to EUR as we only have the currency exchange rates based to EUR
             if (currency != .EUR) {
@@ -186,8 +187,9 @@ struct Money {
                 }
             }
             
-            //Second: Convert moneyToTrack to the users default currency
-            
+            //Second: Convert moneyToTrack to the new currency, but only if it's not EUR, as we are already on EUR
+        
+        if (newCurrency != .EUR) {
             print("DEBUG: We need to convert to the users default currency")
             do {
                 let exchangeRateNew = try getCurrencyExchangeRateBasedOnEUR(newCurrency)
@@ -197,6 +199,7 @@ struct Money {
             } catch {
                 //shit
             }
+        }
 
         
         return self

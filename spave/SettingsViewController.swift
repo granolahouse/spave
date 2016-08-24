@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import CoreData
+
 
 class SettingsViewController: UIViewController, UITextFieldDelegate {
     
@@ -20,13 +22,15 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
 
     var dailyLimit = 0
     var numbersOfDaysInCurrentMonth = 0
+    var fetchedResultsController : NSFetchedResultsController?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let currencySymbol = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
         //Set the value of the textfields from NSDefaults
-        textfieldForSavingsGoal.text = String(defaults.integerForKey("savingsGoal"))
-        textfieldForMonthlyBudget.text = String(defaults.integerForKey("monthlyBudget"))
+        textfieldForSavingsGoal.text = "\(currencySymbol)\(String(defaults.integerForKey("savingsGoal")))"
+        textfieldForMonthlyBudget.text = "\(currencySymbol)\(String(defaults.integerForKey("monthlyBudget")))"
         
         //Numbers of days of current month
         let calendar = NSCalendar.currentCalendar()
@@ -35,7 +39,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AddExpenseViewController.changeCurrencyToTrack), name:"ChangeCurrencyToTrack", object: nil)
         
         dailyLimit = (defaults.integerForKey("monthlyBudget")-defaults.integerForKey("savingsGoal"))/numbersOfDaysInCurrentMonth
-        let currencySymbol = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
+        
         labelForCalculatedDailyLimit.text = String("\(currencySymbol)\(dailyLimit)")
         
     }
@@ -58,6 +62,58 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             labelForCalculatedDailyLimit.text = String("\(currencySymbol)\(dailyLimit)")
             
             //TODO: We now need to change all values in the database to the new currency
+            
+            //load expenses from Database
+            
+            // Stack
+            let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let stack = delegate.stack
+            
+            //Create Fetch Request
+            let fr = NSFetchRequest(entityName: "Expense")
+            fr.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+            
+            //FetchResultsController
+            fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
+
+            
+            //convert each expense to the new default currency; Attention, if there is no currency set we assume it's EUR
+
+            do {
+                let fetchedExpenses = try fetchedResultsController!.managedObjectContext.executeFetchRequest(fr) as! [Expense]
+                for expense in fetchedExpenses {
+                    var money: Money?
+                        let currentAmount = expense.value as! Int
+                    
+                        //Attention, if there is no currency set we assume it's EUR, since the only person used the app since now used it in EUR Coco and Me :)
+                        if let currentCurrency = expense.currency {
+                            money = Money(amount: Double(currentAmount), currencyIsoString: currentCurrency)
+                        } else {
+                            money = Money(amount: Double(currentAmount), currencyIso: .EUR)
+                        }
+                    
+                    
+                    do {
+                        money = try money!.convertMoneyToDifferentCurrency(Money(amount: 1, currencyIsoString: changedCurrency[0]).currency!)
+                    } catch {
+                        //shit
+                    }
+                    
+                    expense.value = Int(money!.amount) as NSNumber
+                    let changedCurrency = money!.currency!.rawValue
+                    let changedCurrencySymbol = money!.currency!.getCurrencySymbol()
+                    expense.currency = changedCurrency
+                    textfieldForSavingsGoal.text = "\(changedCurrencySymbol)\(String(defaults.integerForKey("savingsGoal")))"
+                    textfieldForMonthlyBudget.text = "\(changedCurrencySymbol)\(String(defaults.integerForKey("monthlyBudget")))"
+                    
+
+                }
+            } catch {
+                fatalError("Failed to fetch expenses: \(error)")
+            }
+            
+            //Set the value of the textfields from NSDefaults
+            
             
             
             
