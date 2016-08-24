@@ -114,7 +114,7 @@ struct Money {
         }
     }
     
-    func getCurrencyExchangeRatesFromWebService() throws -> [String: AnyObject] {
+    func getCurrencyExchangeRatesFromWebService() -> [String: AnyObject] {
         //Todo
         var currencyStringForURL = ""
         
@@ -124,23 +124,29 @@ struct Money {
         }
         
         let requestURL: NSURL = NSURL(string: "https://api.fixer.io/latest?symbols=\(currencyStringForURL)")!
-        let data = NSData(contentsOfURL: requestURL)
-        do {
-            let json = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as! [String: AnyObject]
+        if let data = NSData(contentsOfURL: requestURL) {
+            do {
+                let json = try NSJSONSerialization.JSONObjectWithData(data, options:.AllowFragments) as! [String: AnyObject]
             
-            print("successfully loaded rates from the webservice fixer.io")
-            return json["rates"] as! [String: AnyObject]
-        } catch {
-            print("error loading the rates from the webservice")
-            throw error
+                print("successfully loaded rates from the webservice fixer.io")
+                return json["rates"] as! [String: AnyObject]
+            
+                //Update defaults
+                defaults.setObject(json["rates"] as! [String: AnyObject], forKey: "currencyExchangeRates")
+            } catch {
+                print("error loading the rates from the webservice")
+                //lets return the data we have in the database
+                return defaults.objectForKey("currencyExchangeRates") as! [String: AnyObject]
+            }
+        } else {
+            return defaults.objectForKey("currencyExchangeRates") as! [String: AnyObject]
+            print("++++11111 we used the local version of exchangeRates")
         }
     }
     
-    func getCurrencyExchangeRateBasedOnEUR(currencyIso: CurrencyIso) throws -> Double? {
+    func getCurrencyExchangeRateBasedOnEUR(currencyIso: CurrencyIso) -> Double? {
         var rates: [String: AnyObject]
-        
-        do {
-            rates = try getCurrencyExchangeRatesFromWebService()
+            rates = getCurrencyExchangeRatesFromWebService()
             print("Rates array: \(rates)")
             for (currency, rate) in rates {
                 print("Iterating through the rates array: \(currency)")
@@ -149,9 +155,6 @@ struct Money {
                     return rate as? Double
                 }
             }
-        } catch {
-                throw error
-        }
         return nil
     }
     

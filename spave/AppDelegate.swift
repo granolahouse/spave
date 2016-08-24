@@ -58,6 +58,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 defaults.setObject(Money.CurrencyIso.USD.rawValue, forKey: "usersDefaultCurrency")
             }
             
+            //exchange Rates
+            if defaults.objectForKey("currencyExchangeRates") == nil {
+                //load exchange rates
+                var rates: [String: AnyObject]
+                do {
+                    let m = Money(amount: 1, currencyIso: .EUR)
+                    rates = try m.getCurrencyExchangeRatesFromWebService()
+                    defaults.setObject(rates, forKey: "currencyExchangeRates")
+                } catch {
+                    //shit - We could load some example rates instead?
+                }
+            }
+            
         } else {
             //app was launched the first time, so we create some NSDefaults and set their default
             defaults.setBool(true, forKey: "appLaunchedFirstTime")
@@ -71,6 +84,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             //Users default currency
             defaults.setObject(Money.CurrencyIso.USD.rawValue, forKey: "usersDefaultCurrency")
+            
+            //exchange Rates
+            
+            //load exchange rates
+            var rates: [String: AnyObject]
+            do {
+                let m = Money(amount: 1, currencyIso: .EUR)
+                rates = try m.getCurrencyExchangeRatesFromWebService()
+                defaults.setObject(rates, forKey: "currencyExchangeRates")
+            } catch {
+                //shit - We could load some example rates instead?
+            }
             
             
            
