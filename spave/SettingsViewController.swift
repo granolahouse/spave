@@ -32,9 +32,11 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         let calendar = NSCalendar.currentCalendar()
         numbersOfDaysInCurrentMonth = calendar.component([.Day], fromDate: NSDate().endOfMonth())
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AddExpenseViewController.changeCurrencyToTrack), name:"ChangeCurrencyToTrack", object: nil)
         
         dailyLimit = (defaults.integerForKey("monthlyBudget")-defaults.integerForKey("savingsGoal"))/numbersOfDaysInCurrentMonth
-        labelForCalculatedDailyLimit.text = String("€\(dailyLimit)")
+        let currencySymbol = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
+        labelForCalculatedDailyLimit.text = String("\(currencySymbol)\(dailyLimit)")
         
     }
     
@@ -48,6 +50,21 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         delegate.resetDatabase()
     }
+    
+    func changeCurrencyToTrack(notification:NSNotification) {
+        if let changedCurrency = notification.object as? [String] {
+            defaults.setObject(changedCurrency[0], forKey: "usersDefaultCurrency")
+            let currencySymbol = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
+            labelForCalculatedDailyLimit.text = String("\(currencySymbol)\(dailyLimit)")
+            
+            //TODO: We now need to change all values in the database to the new currency
+            
+            
+            
+        }
+        
+    }
+    
     
     
     //Textfield delegates
@@ -69,7 +86,9 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             defaults.setInteger(newSavingsGoal!, forKey: "savingsGoal")
         
             dailyLimit = (defaults.integerForKey("monthlyBudget")-defaults.integerForKey("savingsGoal"))/numbersOfDaysInCurrentMonth
-            labelForCalculatedDailyLimit.text = String("€\(dailyLimit)")
+            let currencySymbol = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
+            
+            labelForCalculatedDailyLimit.text = String("\(currencySymbol)\(dailyLimit)")
         }
     }
     

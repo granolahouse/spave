@@ -33,7 +33,8 @@ class Onboarding3ViewController: UIViewController {
         
         
         dailyLimit = (defaults.integerForKey("monthlyBudget")-defaults.integerForKey("savingsGoal"))/numbersOfDaysInCurrentMonth
-        labelForCalculatedDailyLimit.text = String("€\(dailyLimit)")
+        let currencySymbol = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
+        labelForCalculatedDailyLimit.text = String("\(currencySymbol)\(dailyLimit)")
         
     }
     
@@ -62,7 +63,8 @@ class Onboarding3ViewController: UIViewController {
         defaults.setInteger(newSavingsGoal!, forKey: "savingsGoal")
         
         dailyLimit = (defaults.integerForKey("monthlyBudget")-defaults.integerForKey("savingsGoal"))/numbersOfDaysInCurrentMonth
-        labelForCalculatedDailyLimit.text = String("€\(dailyLimit)")
+        let currencySymbol = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
+        labelForCalculatedDailyLimit.text = String("\(currencySymbol)\(dailyLimit)")
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

@@ -16,8 +16,15 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
     
     var locationManager: CLLocationManager = CLLocationManager()
     
-    //We want to track in GBP
-    let currencyToTrack = Money.CurrencyIso.USD
+    let defaults = NSUserDefaults.standardUserDefaults()
+
+    
+    
+    var currencyToTrack = Money.CurrencyIso.USD {
+        didSet {
+            labelForExpenseToTrack.text = "\(currencyToTrack.getCurrencySymbol())\(String(expenseToTrack))"
+        }
+    }
 
     
     var expenseToTrack: Int = 0 {
@@ -34,7 +41,6 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
     @IBOutlet weak var categoryPicker: UIPickerView!
    
     var categories: [String]?
-    let defaults = NSUserDefaults.standardUserDefaults()
     
     
     
@@ -44,8 +50,13 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
     override func viewDidLoad() {
         
         super.viewDidLoad()
+      
         
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaultCurrency = defaults.objectForKey("usersDefaultCurrency") as! String
+        currencyToTrack = Money(amount: 1, currencyIsoString: defaultCurrency).currency!
+        
+         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AddExpenseViewController.changeCurrencyToTrack), name:"ChangeCurrencyToTrack", object: nil)
+        
         
         categories = defaults.objectForKey("categories") as? [String]
         
@@ -144,6 +155,13 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
         
     }
     
+    func changeCurrencyToTrack(notification:NSNotification) {
+        if let changedCurrency = notification.object as? [String] {
+            currencyToTrack = Money(amount: 1, currencyIsoString: changedCurrency[0]).currency!
+        }
+        print("received choosen currency: \(currencyToTrack)")
+    }
+    
     @IBAction func track(sender: AnyObject) {
     
     
@@ -161,7 +179,7 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
             do {
                 let m = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String)
                 moneyToTrack = try moneyToTrack.convertMoneyToDifferentCurrency(m.currency!)
-                print("DEBUG: successfully converted to EUR")
+                print("DEBUG: successfully converted to \(m.currency!.rawValue) which is \(moneyToTrack.amount)")
             } catch {
                 //shit
                 print("DEBUG: Error while converting to EUR \(error)")
@@ -197,7 +215,7 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
         print("current location when track: \(locationManager.location?.coordinate)")
         
         self.dismissViewControllerAnimated(true, completion: ({
-                NSNotificationCenter.defaultCenter().postNotificationName("AddExpenseModalDismissed", object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName("AddExpenseModalDismissed", object: nil)
     
         }))
     }

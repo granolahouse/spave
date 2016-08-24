@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RtX-mq-Nfo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RtX-mq-Nfo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -53,21 +53,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqd-EQ-1iW">
-                                <rect key="frame" x="263.5" y="40" width="73" height="43"/>
+                                <rect key="frame" x="264" y="40" width="73" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2G-ni-efz">
-                                <rect key="frame" x="228.5" y="185" width="143" height="21"/>
+                                <rect key="frame" x="229" y="185" width="143" height="21"/>
                                 <string key="text">... sounds familiar?
 </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Then spave is for you!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vd-JN-Aia">
-                                <rect key="frame" x="214.5" y="226" width="171.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Then spave is for you!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vd-JN-Aia">
+                                <rect key="frame" x="215" y="226" width="171" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -84,7 +84,7 @@
                                 <string key="text">„It’s end of month but where 
 the hell is all my money gone?“</string>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -121,7 +121,7 @@ the hell is all my money gone?“</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWt-0L-SJA">
-                                <rect key="frame" x="263.5" y="40" width="73" height="43"/>
+                                <rect key="frame" x="264" y="40" width="73" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -133,32 +133,32 @@ the hell is all my money gone?“</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just tell spave how much money you wanna save per month and what your monthly budget is. The rest is math spave does for you. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jH-pD-h7V">
-                                <rect key="frame" x="50" y="129" width="500" height="33.5"/>
+                                <rect key="frame" x="50" y="129" width="500" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRACK ALL EXPENSES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfo-4W-hgm">
-                                <rect key="frame" x="211.5" y="192.5" width="177" height="21"/>
+                                <rect key="frame" x="212" y="193" width="177" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.23529411759999999" green="0.69019607839999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We made it extremely fast to track every expense. Even when you are standing at the supermarket cash point. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nG3-Nj-Yup">
-                                <rect key="frame" x="50" y="213.5" width="500" height="33.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="We made it extremely fast to track every expense. Even when you are standing at the supermarket cash point. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nG3-Nj-Yup">
+                                <rect key="frame" x="50" y="214" width="500" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMd-Fg-aT7">
-                                <rect key="frame" x="173.5" y="277" width="253" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMd-Fg-aT7">
+                                <rect key="frame" x="174" y="277" width="253" height="21"/>
                                 <string key="text">GET ENGAGED TO SAVE MONEY
 </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.23529411759999999" green="0.69019607839999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Each day spave calculates your estimated monthly savings. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9T-dT-vlF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Each day spave calculates your estimated monthly savings. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9T-dT-vlF">
                                 <rect key="frame" x="50" y="298" width="500" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -311,13 +311,13 @@ the hell is all my money gone?“</string>
                                                 <rect key="frame" x="300" y="0.0" width="300" height="134"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€350" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgk-16-UPr">
-                                                        <rect key="frame" x="117" y="40" width="66" height="35.5"/>
+                                                        <rect key="frame" x="117" y="40" width="66" height="36"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="30"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="spent this week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMM-Lo-H6M">
-                                                        <rect key="frame" x="112" y="81.5" width="76" height="12"/>
+                                                        <rect key="frame" x="112" y="82" width="76" height="12"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                         <color key="textColor" red="0.66666666666666663" green="0.68235294117647061" blue="0.70588235294117641" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -445,6 +445,7 @@ the hell is all my money gone?“</string>
                         <outlet property="barChartView" destination="mky-nl-knh" id="xxU-be-yy3"/>
                         <outlet property="buttonForSpendings" destination="KH5-Ml-gD8" id="UET-kD-nrT"/>
                         <outlet property="buttonToTrack" destination="5jN-be-mgG" id="57j-9a-CtO"/>
+                        <outlet property="currencyLabelInRing" destination="CeI-gw-5wA" id="wjh-zg-7yW"/>
                         <outlet property="customProgressBar" destination="WMU-6b-LBv" id="wbM-Qu-WcB"/>
                         <outlet property="labelForSavingsGoal" destination="u7U-7B-u1U" id="xt0-ym-aCm"/>
                         <outlet property="labelForSpentThisWeek" destination="dgk-16-UPr" id="WA7-fg-agw"/>
@@ -471,7 +472,7 @@ the hell is all my money gone?“</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="200" placeholder="€200" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lEK-qf-ina">
-                                <rect key="frame" x="245.5" y="271.5" width="110" height="57"/>
+                                <rect key="frame" x="245" y="272" width="110" height="57"/>
                                 <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="48"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -489,7 +490,7 @@ the hell is all my money gone?“</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6E-Hw-mRS">
-                                <rect key="frame" x="247.5" y="191" width="105" height="17"/>
+                                <rect key="frame" x="247" y="192" width="105" height="17"/>
                                 <string key="text">Monthly budget
  </string>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
@@ -497,19 +498,19 @@ the hell is all my money gone?“</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly savings goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMq-Am-lBe">
-                                <rect key="frame" x="230.5" y="328.5" width="140" height="17"/>
+                                <rect key="frame" x="230" y="329" width="140" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just variable expenses (income - fix costs)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5C-bs-zzF">
-                                <rect key="frame" x="181" y="208" width="238.5" height="15"/>
+                                <rect key="frame" x="180" y="209" width="239" height="15"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                 <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="800" placeholder="€1.400" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Q2k-6X-8lH">
-                                <rect key="frame" x="227.5" y="134.5" width="146" height="57"/>
+                                <rect key="frame" x="227" y="135" width="146" height="57"/>
                                 <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="48"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -518,17 +519,26 @@ the hell is all my money gone?“</string>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€48" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25t-oc-TpT" userLabel="calculated daily limit ">
-                                <rect key="frame" x="261" y="408.5" width="79" height="56.5"/>
+                                <rect key="frame" x="260" y="409" width="79" height="57"/>
                                 <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="48"/>
                                 <color key="textColor" red="0.23529411759999999" green="0.69019607839999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your daily limit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0e-Xk-26a">
-                                <rect key="frame" x="252" y="465" width="97" height="17"/>
+                                <rect key="frame" x="251" y="466" width="97" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NoX-Yu-VNv">
+                                <rect key="frame" x="214" y="503" width="170" height="30"/>
+                                <state key="normal" title="Change default currency">
+                                    <color key="titleColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="krg-fc-v4P" kind="presentation" animates="NO" modalPresentationStyle="overCurrentContext" id="EIN-HT-kxZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -544,8 +554,10 @@ the hell is all my money gone?“</string>
                             <constraint firstAttribute="trailingMargin" secondItem="Key-4q-JhN" secondAttribute="trailing" id="Q4l-fk-JWa"/>
                             <constraint firstItem="T6E-Hw-mRS" firstAttribute="centerX" secondItem="Q2k-6X-8lH" secondAttribute="centerX" id="Tee-ux-Kln"/>
                             <constraint firstItem="T6E-Hw-mRS" firstAttribute="top" secondItem="Q2k-6X-8lH" secondAttribute="bottom" id="VJt-RC-m6G"/>
+                            <constraint firstItem="NoX-Yu-VNv" firstAttribute="top" secondItem="L0e-Xk-26a" secondAttribute="bottom" constant="20" id="VT6-YC-wYc"/>
                             <constraint firstItem="e7b-V5-hQo" firstAttribute="top" secondItem="Key-4q-JhN" secondAttribute="bottom" constant="20" id="aMt-lS-WdC"/>
                             <constraint firstItem="Q2k-6X-8lH" firstAttribute="centerX" secondItem="lEK-qf-ina" secondAttribute="centerX" id="aUc-1G-kgR"/>
+                            <constraint firstItem="NoX-Yu-VNv" firstAttribute="centerX" secondItem="L0e-Xk-26a" secondAttribute="centerX" id="cag-4x-NMy"/>
                             <constraint firstItem="kMq-Am-lBe" firstAttribute="centerX" secondItem="lEK-qf-ina" secondAttribute="centerX" id="k8A-vp-OOz"/>
                             <constraint firstItem="x5C-bs-zzF" firstAttribute="top" secondItem="T6E-Hw-mRS" secondAttribute="bottom" id="yRI-6B-lNe"/>
                         </constraints>
@@ -587,8 +599,8 @@ the hell is all my money gone?“</string>
                                     <action selector="track:" destination="EwR-MJ-Hci" eventType="touchUpInside" id="gK8-Ae-ELg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iU-Dg-5RG">
-                                <rect key="frame" x="177" y="352.5" width="33" height="35.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="€0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iU-Dg-5RG">
+                                <rect key="frame" x="177" y="353" width="33" height="35"/>
                                 <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -609,6 +621,18 @@ the hell is all my money gone?“</string>
                                     <action selector="cancel:" destination="EwR-MJ-Hci" eventType="touchUpInside" id="8hd-I6-57Z"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPG-Qb-0y5">
+                                <rect key="frame" x="560" y="30" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcV-ic-2QL">
+                                <rect key="frame" x="570" y="40" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zdl-jP-Arv">
                                 <rect key="frame" x="368" y="262" width="100" height="216"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -620,11 +644,14 @@ the hell is all my money gone?“</string>
                                     <outlet property="delegate" destination="EwR-MJ-Hci" id="7gC-aD-wWS"/>
                                 </connections>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOg-zq-jwu">
-                                <rect key="frame" x="241" y="103" width="118" height="30"/>
-                                <state key="normal" title="Change currency"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOg-zq-jwu">
+                                <rect key="frame" x="134" y="396" width="118" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Change currency">
+                                    <color key="titleColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
-                                    <segue destination="krg-fc-v4P" kind="presentation" id="D3g-YM-jPj"/>
+                                    <segue destination="krg-fc-v4P" kind="presentation" animates="NO" modalPresentationStyle="overCurrentContext" id="D3g-YM-jPj"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -639,7 +666,9 @@ the hell is all my money gone?“</string>
                             <constraint firstItem="3vq-wr-hZ8" firstAttribute="leading" secondItem="1iU-Dg-5RG" secondAttribute="trailing" constant="60" id="NKf-kD-ayf"/>
                             <constraint firstItem="3vq-wr-hZ8" firstAttribute="width" secondItem="3vq-wr-hZ8" secondAttribute="height" id="UWq-or-HK7"/>
                             <constraint firstItem="jRq-7T-Ppo" firstAttribute="centerX" secondItem="1BU-8h-GSu" secondAttribute="centerX" id="gSW-au-1Ky"/>
+                            <constraint firstItem="yOg-zq-jwu" firstAttribute="top" secondItem="1iU-Dg-5RG" secondAttribute="bottom" constant="8" id="vRr-Yz-P9S"/>
                             <constraint firstItem="3vq-wr-hZ8" firstAttribute="centerX" secondItem="1BU-8h-GSu" secondAttribute="centerX" id="w9h-Wx-Dht"/>
+                            <constraint firstItem="yOg-zq-jwu" firstAttribute="centerX" secondItem="1iU-Dg-5RG" secondAttribute="centerX" id="wEo-It-WMh"/>
                             <constraint firstItem="zdl-jP-Arv" firstAttribute="centerY" secondItem="3vq-wr-hZ8" secondAttribute="centerY" id="yp9-Ei-Eeu"/>
                             <constraint firstItem="mwY-bh-OeX" firstAttribute="top" secondItem="3vq-wr-hZ8" secondAttribute="bottom" constant="200" id="zkc-ub-CIb"/>
                         </constraints>
@@ -679,23 +708,23 @@ the hell is all my money gone?“</string>
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nfl-OX-6Xl" id="FCs-MF-9He">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€35" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="leR-Uo-FEt">
-                                            <rect key="frame" x="8" y="7" width="39.5" height="28.5"/>
+                                            <rect key="frame" x="8" y="7" width="40" height="29"/>
                                             <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="24"/>
                                             <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbn-O8-5jN">
-                                            <rect key="frame" x="88" y="14" width="424" height="14.5"/>
+                                            <rect key="frame" x="88" y="14" width="424" height="15"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="otm-T8-DsZ">
-                                            <rect key="frame" x="565" y="15.5" width="26.5" height="14.5"/>
+                                            <rect key="frame" x="565" y="16" width="27" height="14"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -745,16 +774,84 @@ the hell is all my money gone?“</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RQV-xC-fjN">
-                                <rect key="frame" x="0.0" y="205" width="600" height="216"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="krg-fc-v4P" id="OUN-r8-hNT"/>
-                                    <outlet property="delegate" destination="krg-fc-v4P" id="CUH-bt-nNI"/>
-                                </connections>
-                            </pickerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ex5-0N-FYm">
+                                <rect key="frame" x="20" y="40" width="560" height="540"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RQV-xC-fjN">
+                                        <rect key="frame" x="140" y="162" width="280" height="216"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="krg-fc-v4P" id="OUN-r8-hNT"/>
+                                            <outlet property="delegate" destination="krg-fc-v4P" id="CUH-bt-nNI"/>
+                                        </connections>
+                                    </pickerView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7x-jD-QCy">
+                                        <rect key="frame" x="189" y="20" width="182" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJs-w1-zZ4" customClass="CustomAddButton" customModule="spave" customModuleProvider="target">
+                                        <rect key="frame" x="250" y="440" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="8dN-aP-7lw"/>
+                                            <constraint firstAttribute="width" secondItem="sJs-w1-zZ4" secondAttribute="height" id="obg-cd-UG4"/>
+                                        </constraints>
+                                        <state key="normal" title="OK">
+                                            <color key="titleColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="OK:" destination="krg-fc-v4P" eventType="touchUpInside" id="dqs-UN-1Of"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="When you track money in another currency spave will automatically convert to your default currency." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fK-4U-1s2">
+                                        <rect key="frame" x="141" y="98" width="280" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.8862745098" green="0.23529411759999999" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1t-Q3-PWI">
+                                        <rect key="frame" x="510" y="7" width="30" height="55"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                        <state key="normal" title="+">
+                                            <color key="titleColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeModal:" destination="krg-fc-v4P" eventType="touchUpInside" id="Qoi-to-tVx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="sJs-w1-zZ4" firstAttribute="centerX" secondItem="ex5-0N-FYm" secondAttribute="centerX" id="3fS-qF-bJf"/>
+                                    <constraint firstItem="8fK-4U-1s2" firstAttribute="width" secondItem="ex5-0N-FYm" secondAttribute="width" multiplier="1/2" id="8pG-oI-NGh"/>
+                                    <constraint firstItem="RQV-xC-fjN" firstAttribute="width" secondItem="ex5-0N-FYm" secondAttribute="width" multiplier="1/2" id="CfF-m8-3eh"/>
+                                    <constraint firstItem="x7x-jD-QCy" firstAttribute="centerX" secondItem="ex5-0N-FYm" secondAttribute="centerX" id="EVN-Uh-7Sg"/>
+                                    <constraint firstItem="RQV-xC-fjN" firstAttribute="centerX" secondItem="ex5-0N-FYm" secondAttribute="centerX" id="Lxk-6o-CrX"/>
+                                    <constraint firstItem="8fK-4U-1s2" firstAttribute="top" secondItem="x7x-jD-QCy" secondAttribute="bottom" multiplier="2" id="Om4-CC-DFP"/>
+                                    <constraint firstAttribute="bottom" secondItem="sJs-w1-zZ4" secondAttribute="bottom" constant="40" id="QSi-JF-Ey4"/>
+                                    <constraint firstItem="8fK-4U-1s2" firstAttribute="width" secondItem="ex5-0N-FYm" secondAttribute="width" multiplier="1/2" id="RX9-gA-Gor"/>
+                                    <constraint firstAttribute="trailing" secondItem="p1t-Q3-PWI" secondAttribute="trailing" constant="20" id="Se3-l7-x5x"/>
+                                    <constraint firstItem="RQV-xC-fjN" firstAttribute="centerY" secondItem="ex5-0N-FYm" secondAttribute="centerY" id="YUN-Jd-9FG"/>
+                                    <constraint firstItem="p1t-Q3-PWI" firstAttribute="centerY" secondItem="x7x-jD-QCy" secondAttribute="centerY" id="b0v-j2-hUr"/>
+                                    <constraint firstItem="8fK-4U-1s2" firstAttribute="centerX" secondItem="x7x-jD-QCy" secondAttribute="centerX" id="hMH-Qh-ku2"/>
+                                    <constraint firstItem="x7x-jD-QCy" firstAttribute="top" secondItem="ex5-0N-FYm" secondAttribute="top" constant="20" id="l8I-qT-sAd"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ex5-0N-FYm" firstAttribute="leading" secondItem="hnU-4d-V30" secondAttribute="leading" constant="20" id="4Fa-QA-OQr"/>
+                            <constraint firstItem="ex5-0N-FYm" firstAttribute="top" secondItem="m0g-ZH-XED" secondAttribute="bottom" constant="20" id="59A-WH-Jc1"/>
+                            <constraint firstAttribute="trailing" secondItem="ex5-0N-FYm" secondAttribute="trailing" constant="20" id="LQu-4v-WU0"/>
+                            <constraint firstItem="8oR-ic-enV" firstAttribute="top" secondItem="ex5-0N-FYm" secondAttribute="bottom" constant="20" id="fXK-b9-nuQ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="closeButton" destination="p1t-Q3-PWI" id="WE9-VQ-ABQ"/>
+                        <outlet property="currencyPicker" destination="RQV-xC-fjN" id="NqA-th-iuf"/>
+                        <outlet property="messageLabel" destination="8fK-4U-1s2" id="q3X-3S-Pr1"/>
+                        <outlet property="roundedCornersView" destination="ex5-0N-FYm" id="xRc-ju-8YX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Is-zT-ac0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -779,7 +876,7 @@ the hell is all my money gone?“</string>
                                 <rect key="frame" x="0.0" y="64" width="600" height="236"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flv-DC-37v">
-                                        <rect key="frame" x="329" y="30.5" width="100" height="100"/>
+                                        <rect key="frame" x="329" y="31" width="100" height="100"/>
                                         <color key="tintColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="3Eu-5f-brU"/>
@@ -791,7 +888,7 @@ the hell is all my money gone?“</string>
                                         </connections>
                                     </pickerView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0pC-M1-syp" customClass="CustomSeperatorLine" customModule="spave" customModuleProvider="target">
-                                        <rect key="frame" x="299" y="42.5" width="1" height="75"/>
+                                        <rect key="frame" x="299" y="43" width="1" height="75"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="etT-d6-q8b"/>
@@ -802,20 +899,20 @@ the hell is all my money gone?“</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfN-1H-DMH">
-                                        <rect key="frame" x="164.5" y="42.5" width="105.5" height="75"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="€20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfN-1H-DMH">
+                                        <rect key="frame" x="165" y="43" width="105" height="75"/>
                                         <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="64"/>
                                         <color key="textColor" red="0.16078431372549018" green="0.20392156862745098" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add a description" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ciP-MR-bui">
-                                        <rect key="frame" x="40" y="157.5" width="520" height="19"/>
+                                        <rect key="frame" x="40" y="158" width="520" height="19"/>
                                         <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSp-Ue-PXE">
-                                        <rect key="frame" x="284" y="8" width="31" height="14.5"/>
+                                        <rect key="frame" x="284" y="8" width="31" height="15"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -875,8 +972,8 @@ the hell is all my money gone?“</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="200" placeholder="€200" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hsx-WS-3NQ">
-                                <rect key="frame" x="245.5" y="271.5" width="110" height="57"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="200" placeholder="€200" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hsx-WS-3NQ">
+                                <rect key="frame" x="246" y="272" width="110" height="57"/>
                                 <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="48"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -884,28 +981,28 @@ the hell is all my money gone?“</string>
                                     <outlet property="delegate" destination="34n-qB-hI5" id="b4K-NQ-E1D"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHH-fc-hYp">
-                                <rect key="frame" x="247.5" y="191" width="105" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHH-fc-hYp">
+                                <rect key="frame" x="248" y="191" width="105" height="17"/>
                                 <string key="text">Monthly budget
  </string>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly savings goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIu-6X-KDi">
-                                <rect key="frame" x="230.5" y="328.5" width="140" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Monthly savings goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIu-6X-KDi">
+                                <rect key="frame" x="231" y="329" width="140" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just variable expenses (income - fix costs)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0NT-Lo-SQe">
-                                <rect key="frame" x="181" y="208" width="238.5" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Just variable expenses (income - fix costs)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0NT-Lo-SQe">
+                                <rect key="frame" x="181" y="208" width="239" height="15"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                 <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="800" placeholder="€1.400" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1M4-2Z-zsP">
-                                <rect key="frame" x="227.5" y="134.5" width="146" height="57"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="800" placeholder="€1.400" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1M4-2Z-zsP">
+                                <rect key="frame" x="228" y="135" width="146" height="57"/>
                                 <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="48"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -913,13 +1010,13 @@ the hell is all my money gone?“</string>
                                     <outlet property="delegate" destination="34n-qB-hI5" id="thE-Tz-DCz"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€48" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSa-vH-S2j" userLabel="calculated daily limit ">
-                                <rect key="frame" x="261" y="408.5" width="79" height="56.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="€48" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSa-vH-S2j" userLabel="calculated daily limit ">
+                                <rect key="frame" x="261" y="409" width="79" height="56"/>
                                 <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="48"/>
                                 <color key="textColor" red="0.23529411759999999" green="0.69019607839999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your daily limit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUY-Q7-KhZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your daily limit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUY-Q7-KhZ">
                                 <rect key="frame" x="252" y="465" width="97" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -937,7 +1034,7 @@ the hell is all my money gone?“</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set your goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLe-en-hS1">
-                                <rect key="frame" x="195.5" y="40" width="209" height="43"/>
+                                <rect key="frame" x="196" y="40" width="209" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -981,5 +1078,8 @@ the hell is all my money gone?“</string>
         <image name="Money" width="68" height="290"/>
         <image name="Settings" width="23" height="23"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="EIN-HT-kxZ"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

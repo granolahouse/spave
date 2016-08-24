@@ -31,6 +31,7 @@ class ViewController: UIViewController {
     @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet weak var viewForSpentToday: UIView!
     
+    @IBOutlet weak var currencyLabelInRing: UILabel!
     @IBOutlet weak var seperatorLine: CustomSeperatorLine!
     @IBOutlet weak var viewLeftNumber: UIView!
     @IBOutlet weak var buttonForSpendings: UIBarButtonItem!
@@ -58,19 +59,25 @@ class ViewController: UIViewController {
     
     var valueForLabelSpentToday: Int = 0 {
         didSet {
-            labelForSpentToday.text = "€\(valueForLabelSpentToday)"
+            let currencySymbol = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
+
+            labelForSpentToday.text = "\(currencySymbol)\(valueForLabelSpentToday)"
         }
         
     }
     
     var valueForLabelSpentThisWeek: Int = 0 {
         didSet {
-            labelForSpentThisWeek.text = String("€\(valueForLabelSpentThisWeek)")
+            let currencySymbol = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
+
+            labelForSpentThisWeek.text = String("\(currencySymbol)\(valueForLabelSpentThisWeek)")
         }
     }
     
     var savedThisMonth: Int = 0 {
         didSet {
+            let currencySymbol = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
+            currencyLabelInRing.text = currencySymbol
             labelForSavingsGoal.text = String(savedThisMonth)
             customProgressBar.counter = savedThisMonth
         }
@@ -215,8 +222,9 @@ class ViewController: UIViewController {
        
         
         
-        
-        ll = ChartLimitLine(limit: Double((monthlyBudget-defaults.integerForKey("savingsGoal"))/numbersOfDaysInCurrentMonth), label: "Daily limit: €\(monthlyBudget/numbersOfDaysInCurrentMonth)")
+        let currencySymbol = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
+
+        ll = ChartLimitLine(limit: Double((monthlyBudget-defaults.integerForKey("savingsGoal"))/numbersOfDaysInCurrentMonth), label: "Daily limit: \(currencySymbol)\(monthlyBudget/numbersOfDaysInCurrentMonth)")
         
         barChartView.leftAxis.addLimitLine(ll)
         
@@ -248,8 +256,10 @@ class ViewController: UIViewController {
         savedThisMonth = calculateSavingsThisMonth()
         
         // Update labels
-        labelForSpentToday.text = "€\(valueForLabelSpentToday)"
-        labelForSpentThisWeek.text = String("€\(valueForLabelSpentThisWeek)")
+        let currencySymbol = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
+
+        labelForSpentToday.text = "\(currencySymbol)\(valueForLabelSpentToday)"
+        labelForSpentThisWeek.text = String("\(currencySymbol)\(valueForLabelSpentThisWeek)")
 
         
         labelForSavingsGoal.text = String(savedThisMonth)

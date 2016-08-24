@@ -162,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				24181FFA1D522B3700A4E0B6 /* Fonts */,
-				24E1B0B11D51FDE9008BDAD4 /* Controllers */,
+				24E1B0B11D51FDE9008BDAD4 /* View Controllers */,
 				24E1B0AE1D51FDD2008BDAD4 /* Supporting Files */,
 				24E1B0AB1D51FD8F008BDAD4 /* Views */,
 				24E1B0A81D51FD43008BDAD4 /* Models */,
@@ -215,6 +215,9 @@
 		24E1B0AE1D51FDD2008BDAD4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2453F47D1D67A72D005AE56D /* Money.swift */,
+				24F994291D54DB7900C516FA /* CustomSeperatorLine.swift */,
+				249C5CE11D54A0F100EE4853 /* CustomAddButton.swift */,
 				247ECE0E1D5B99390099AABF /* CustomProgressRing.swift */,
 				24B159B11D5BB4B80084BC5F /* UIDesign.swift */,
 				24B164961D62164A000AEAA1 /* CustomArrowButton.swift */,
@@ -222,7 +225,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		24E1B0B11D51FDE9008BDAD4 /* Controllers */ = {
+		24E1B0B11D51FDE9008BDAD4 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				24E1B0791D51FCD1008BDAD4 /* ViewController.swift */,
@@ -230,16 +233,13 @@
 				24C645601D51FEA000AB1E66 /* SpendingsViewController.swift */,
 				24C645611D51FEA000AB1E66 /* CoreDataTableViewController.swift */,
 				24C645621D51FEA000AB1E66 /* SpendingViewController.swift */,
-				249C5CE11D54A0F100EE4853 /* CustomAddButton.swift */,
-				24F994291D54DB7900C516FA /* CustomSeperatorLine.swift */,
 				2494B1C61D5E3309005EFB68 /* AddExpenseViewController.swift */,
 				2453F4731D64BA0C005AE56D /* OnboardingPageViewController.swift */,
 				2453F4791D64C714005AE56D /* Onboarding3ViewController.swift */,
 				2453F47B1D67996F005AE56D /* SpendingsTableViewCell.swift */,
-				2453F47D1D67A72D005AE56D /* Money.swift */,
 				2453F47F1D6D976D005AE56D /* ChooseCurrencyViewController.swift */,
 			);
-			name = Controllers;
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		B3A9EE0BC653C66BB471BA3F /* Pods */ = {
