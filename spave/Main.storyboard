@@ -27,9 +27,6 @@
             <string>SFUIDisplay-Regular</string>
             <string>SFUIDisplay-Regular</string>
         </mutableArray>
-        <mutableArray key="SF-UI-Display-Thin.otf">
-            <string>SFUIDisplay-Thin</string>
-        </mutableArray>
     </customFonts>
     <scenes>
         <!--Onboarding Page View Controller-->
@@ -234,20 +231,14 @@ the hell is all my money gone?“</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WMU-6b-LBv" userLabel="viewForCircle" customClass="CustomProgressRing" customModule="spave" customModuleProvider="target">
                                         <rect key="frame" x="176" y="0.0" width="248" height="248"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7U-7B-u1U">
-                                                <rect key="frame" x="76" y="86" width="148" height="75"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="u7U-7B-u1U">
+                                                <rect key="frame" x="50" y="86" width="124" height="75"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="64"/>
                                                 <color key="textColor" red="0.16078431372549018" green="0.20392156862745098" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeI-gw-5wA">
-                                                <rect key="frame" x="50" y="111" width="21" height="43"/>
-                                                <fontDescription key="fontDescription" name="SFUIDisplay-Thin" family="SF UI Display" pointSize="36"/>
-                                                <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="expected savings in month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsq-sZ-Oz8">
-                                                <rect key="frame" x="81" y="161" width="139" height="15"/>
+                                                <rect key="frame" x="55" y="161" width="139" height="15"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="12"/>
                                                 <color key="textColor" red="0.66666666666666663" green="0.68235294117647061" blue="0.70588235294117641" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -256,13 +247,12 @@ the hell is all my money gone?“</string>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="u7U-7B-u1U" firstAttribute="baseline" secondItem="CeI-gw-5wA" secondAttribute="baseline" id="24d-G5-8vo"/>
+                                            <constraint firstItem="u7U-7B-u1U" firstAttribute="width" secondItem="WMU-6b-LBv" secondAttribute="width" multiplier="1/2" id="1Dd-gs-ahP"/>
                                             <constraint firstItem="qsq-sZ-Oz8" firstAttribute="leading" secondItem="u7U-7B-u1U" secondAttribute="leading" constant="5" id="5FO-gb-lTU"/>
-                                            <constraint firstItem="CeI-gw-5wA" firstAttribute="leading" secondItem="WMU-6b-LBv" secondAttribute="leading" constant="50" id="Awn-iW-4pI"/>
                                             <constraint firstItem="qsq-sZ-Oz8" firstAttribute="top" secondItem="u7U-7B-u1U" secondAttribute="bottom" id="EGM-lT-SGh"/>
                                             <constraint firstItem="u7U-7B-u1U" firstAttribute="centerY" secondItem="WMU-6b-LBv" secondAttribute="centerY" id="HZu-SG-oyJ"/>
-                                            <constraint firstItem="u7U-7B-u1U" firstAttribute="leading" secondItem="CeI-gw-5wA" secondAttribute="trailing" constant="5" id="WZy-Q2-Ibs"/>
                                             <constraint firstAttribute="width" secondItem="WMU-6b-LBv" secondAttribute="height" multiplier="1:1" id="dRd-dg-yKg"/>
+                                            <constraint firstItem="u7U-7B-u1U" firstAttribute="leading" secondItem="WMU-6b-LBv" secondAttribute="leading" constant="50" id="xVC-HD-Erv"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="counter">
@@ -445,7 +435,6 @@ the hell is all my money gone?“</string>
                         <outlet property="barChartView" destination="mky-nl-knh" id="xxU-be-yy3"/>
                         <outlet property="buttonForSpendings" destination="KH5-Ml-gD8" id="UET-kD-nrT"/>
                         <outlet property="buttonToTrack" destination="5jN-be-mgG" id="57j-9a-CtO"/>
-                        <outlet property="currencyLabelInRing" destination="CeI-gw-5wA" id="wjh-zg-7yW"/>
                         <outlet property="customProgressBar" destination="WMU-6b-LBv" id="wbM-Qu-WcB"/>
                         <outlet property="labelForSavingsGoal" destination="u7U-7B-u1U" id="xt0-ym-aCm"/>
                         <outlet property="labelForSpentThisWeek" destination="dgk-16-UPr" id="WA7-fg-agw"/>

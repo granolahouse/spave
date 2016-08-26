@@ -58,6 +58,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 defaults.setObject(Money.CurrencyIso.USD.rawValue, forKey: "usersDefaultCurrency")
             }
             
+            if defaults.doubleForKey("monthlyBudget") == 0 {
+                defaults.setDouble(800, forKey: "monthlyBudget")
+            }
+            if defaults.doubleForKey("savingsGoal") == 0 {
+                defaults.setDouble(60, forKey: "savingsGoal")
+            }
+            
             //exchange Rates
             if defaults.objectForKey("currencyExchangeRates") == nil {
                 //load exchange rates
@@ -79,8 +86,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             defaults.setObject(["misc","food", "fun", "travel"], forKey: "categories")
             
             //Monthly budget
-            defaults.setInteger(800, forKey: "monthlyBudget")
-            defaults.setInteger(60, forKey: "savingsGoal")
+            defaults.setDouble(800, forKey: "monthlyBudget")
+            defaults.setDouble(60, forKey: "savingsGoal")
+
+            
+            //defaults.setInteger(800, forKey: "monthlyBudget")
+            //defaults.setInteger(60, forKey: "savingsGoal")
             
             //Users default currency
             defaults.setObject(Money.CurrencyIso.USD.rawValue, forKey: "usersDefaultCurrency")

@@ -20,7 +20,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     let defaults = NSUserDefaults.standardUserDefaults()
 
-    var dailyLimit = 0
+    var dailyLimit = 0.0
     var numbersOfDaysInCurrentMonth = 0
     var fetchedResultsController : NSFetchedResultsController?
     
@@ -29,8 +29,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         let currencySymbol = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
         //Set the value of the textfields from NSDefaults
-        textfieldForSavingsGoal.text = String(defaults.integerForKey("savingsGoal"))
-        textfieldForMonthlyBudget.text = String(defaults.integerForKey("monthlyBudget"))
+        textfieldForSavingsGoal.text = NSDecimalNumber(double: defaults.doubleForKey("savingsGoal")).stringValue
+        textfieldForMonthlyBudget.text = NSDecimalNumber(double: defaults.doubleForKey("monthlyBudget")).stringValue
         
         //Numbers of days of current month
         let calendar = NSCalendar.currentCalendar()
@@ -38,7 +38,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AddExpenseViewController.changeCurrencyToTrack), name:"ChangeCurrencyToTrack", object: nil)
         
-        dailyLimit = (defaults.integerForKey("monthlyBudget")-defaults.integerForKey("savingsGoal"))/numbersOfDaysInCurrentMonth
+        dailyLimit = (defaults.doubleForKey("monthlyBudget") - (defaults.doubleForKey("savingsGoal")))/Double(numbersOfDaysInCurrentMonth)
         
         labelForCalculatedDailyLimit.text = String("\(currencySymbol)\(dailyLimit)")
         
@@ -57,11 +57,41 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     func changeCurrencyToTrack(notification:NSNotification) {
         if let changedCurrency = notification.object as? [String] {
-            defaults.setObject(changedCurrency[0], forKey: "usersDefaultCurrency")
+            
+            //FIRST: we need to change the defaults
+            
+            let oldCurrency = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!
+            let newCurrency = Money(amount: 1, currencyIsoString: changedCurrency[0]).currency!
+            
+            var monthlyBudgetOldCurrency = Money(amount: NSDecimalNumber(double: defaults.doubleForKey("monthlyBudget")), currencyIso: oldCurrency)
+            var savingsGoalOldCurrency = Money(amount: NSDecimalNumber(double: defaults.doubleForKey("savingsGoal")), currencyIso: oldCurrency)
+            
+            do {
+                let monthlyBudgetNewCurrency = try monthlyBudgetOldCurrency.convertMoneyToDifferentCurrency(newCurrency)
+                print("monthlyBudgetInNewCurrency: \(monthlyBudgetNewCurrency)")
+                defaults.setDouble(monthlyBudgetNewCurrency.amount.doubleValue, forKey: "monthlyBudget")
+            } catch {
+                    //shit
+            }
+            do {
+                let savingsGoalNewCurrency = try savingsGoalOldCurrency.convertMoneyToDifferentCurrency(newCurrency)
+                print("savingsGoalNewCurrency: \(savingsGoalNewCurrency)")
+                defaults.setDouble(savingsGoalNewCurrency.amount.doubleValue, forKey: "savingsGoal")
+                
+            } catch {
+                // shit
+            }
+            
+            
+            defaults.setObject(newCurrency.rawValue, forKey: "usersDefaultCurrency")
+            
+            dailyLimit = (defaults.doubleForKey("monthlyBudget") - (defaults.doubleForKey("savingsGoal")))/Double(numbersOfDaysInCurrentMonth)
+            
+            
             let currencySymbol = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
             labelForCalculatedDailyLimit.text = String("\(currencySymbol)\(dailyLimit)")
             
-            //TODO: We now need to change all values in the database to the new currency
+            //SECOND: We now need to change all values in the database to the new currency
             
             //load expenses from Database
             
@@ -103,8 +133,12 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                     let changedCurrency = money!.currency!.rawValue
                     let changedCurrencySymbol = money!.currency!.getCurrencySymbol()
                     expense.currency = changedCurrency
-                    textfieldForSavingsGoal.text = String(defaults.integerForKey("savingsGoal"))
-                    textfieldForMonthlyBudget.text = String(defaults.integerForKey("monthlyBudget"))
+                    
+                    
+                    
+                    textfieldForSavingsGoal.text = String(defaults.doubleForKey("savingsGoal"))
+                    textfieldForMonthlyBudget.text = String(defaults.doubleForKey("monthlyBudget"))
+                    
                     
 
                 }
@@ -136,12 +170,12 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             self.presentViewController(alert, animated: true, completion: nil)
         } else {
         
-            let newMonthlyBudget = Int(textfieldForMonthlyBudget.text!)
-            let newSavingsGoal = Int(textfieldForSavingsGoal.text!)
-            defaults.setInteger(newMonthlyBudget!, forKey: "monthlyBudget")
-            defaults.setInteger(newSavingsGoal!, forKey: "savingsGoal")
+            let newMonthlyBudget = Double(textfieldForMonthlyBudget.text!)
+            let newSavingsGoal = Double(textfieldForSavingsGoal.text!)
+            defaults.setDouble(newMonthlyBudget!, forKey: "monthlyBudget")
+            defaults.setDouble(newSavingsGoal!, forKey: "savingsGoal")
         
-            dailyLimit = (defaults.integerForKey("monthlyBudget")-defaults.integerForKey("savingsGoal"))/numbersOfDaysInCurrentMonth
+            dailyLimit = (defaults.doubleForKey("monthlyBudget") - (defaults.doubleForKey("savingsGoal")))/Double(numbersOfDaysInCurrentMonth)
             let currencySymbol = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
             
             labelForCalculatedDailyLimit.text = String("\(currencySymbol)\(dailyLimit)")
