@@ -90,7 +90,7 @@ struct Money {
     }
     
     var currency:CurrencyIso?
-    var amount: Double
+    var amount: NSDecimalNumber
     
     func getDefaultCurrencyAsSymbol() -> String {
         //Todo
@@ -99,12 +99,12 @@ struct Money {
     
     
     
-    init(amount: Double, currencyIso: CurrencyIso) {
+    init(amount: NSDecimalNumber, currencyIso: CurrencyIso) {
         self.amount = amount
         self.currency = currencyIso
     }
     
-    init(amount: Double, currencyIsoString: String) {
+    init(amount: NSDecimalNumber, currencyIsoString: String) {
         self.amount = amount
         
         if let currencyAsIso = Money.CurrencyIso(rawValue: currencyIsoString) {
@@ -179,9 +179,11 @@ struct Money {
                 //We only need to convert to EUR if it's not already in EUR
                 do {
                     let exchangeRateEUR = try getCurrencyExchangeRateBasedOnEUR(self.currency!)
+                    
                     print("EUR -> \(self.currency!.rawValue): \(exchangeRateEUR)")
                     
-                    self = Money(amount: amount / exchangeRateEUR!, currencyIso: .EUR)
+                    
+                    self = Money(amount: NSDecimalNumber(double: amount.doubleValue / exchangeRateEUR!), currencyIso: .EUR)
                     print("››››› \(self)")
                     
                 } catch {
@@ -196,7 +198,7 @@ struct Money {
             print("DEBUG: We need to convert to the users default currency")
             do {
                 let exchangeRateNew = try getCurrencyExchangeRateBasedOnEUR(newCurrency)
-                self = Money(amount: amount * exchangeRateNew!, currencyIso: newCurrency)
+                self = Money(amount: NSDecimalNumber(double: amount.doubleValue * exchangeRateNew!), currencyIso: newCurrency)
                 print("DEBUG: successfully converted to \(newCurrency.rawValue) \(self)")
                 
             } catch {

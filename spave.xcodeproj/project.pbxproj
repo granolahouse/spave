@@ -32,7 +32,6 @@
 		24C645731D51FFDB00AB1E66 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C645711D51FFDB00AB1E66 /* Expense.swift */; };
 		24E1B0781D51FCD1008BDAD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E1B0771D51FCD1008BDAD4 /* AppDelegate.swift */; };
 		24E1B07A1D51FCD1008BDAD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E1B0791D51FCD1008BDAD4 /* ViewController.swift */; };
-		24E1B0801D51FCD1008BDAD4 /* spave.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24E1B07E1D51FCD1008BDAD4 /* spave.xcdatamodeld */; };
 		24E1B0821D51FCD1008BDAD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24E1B0811D51FCD1008BDAD4 /* Assets.xcassets */; };
 		24E1B0851D51FCD1008BDAD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24E1B0831D51FCD1008BDAD4 /* LaunchScreen.storyboard */; };
 		24E1B0901D51FCD1008BDAD4 /* spaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E1B08F1D51FCD1008BDAD4 /* spaveTests.swift */; };
@@ -85,7 +84,6 @@
 		24E1B0741D51FCD1008BDAD4 /* spave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spave.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24E1B0771D51FCD1008BDAD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24E1B0791D51FCD1008BDAD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		24E1B07F1D51FCD1008BDAD4 /* spave.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = spave.xcdatamodel; sourceTree = "<group>"; };
 		24E1B0811D51FCD1008BDAD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24E1B0841D51FCD1008BDAD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24E1B08B1D51FCD1008BDAD4 /* spaveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = spaveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,7 +166,6 @@
 				24E1B0A81D51FD43008BDAD4 /* Models */,
 				24E1B0771D51FCD1008BDAD4 /* AppDelegate.swift */,
 				24E1B0811D51FCD1008BDAD4 /* Assets.xcassets */,
-				24E1B07E1D51FCD1008BDAD4 /* spave.xcdatamodeld */,
 				249C5CDF1D53718600EE4853 /* Info.plist */,
 			);
 			path = spave;
@@ -451,7 +448,6 @@
 				24E1B07A1D51FCD1008BDAD4 /* ViewController.swift in Sources */,
 				2453F47A1D64C714005AE56D /* Onboarding3ViewController.swift in Sources */,
 				247ECE0F1D5B99390099AABF /* CustomProgressRing.swift in Sources */,
-				24E1B0801D51FCD1008BDAD4 /* spave.xcdatamodeld in Sources */,
 				24C645651D51FEA000AB1E66 /* CoreDataTableViewController.swift in Sources */,
 				24C645641D51FEA000AB1E66 /* SpendingsViewController.swift in Sources */,
 				24C645681D51FEBC00AB1E66 /* CoreDataStack.swift in Sources */,
@@ -722,16 +718,6 @@
 			);
 			currentVersion = 24C6456E1D51FF8500AB1E66 /* Model.xcdatamodel */;
 			path = Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		24E1B07E1D51FCD1008BDAD4 /* spave.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				24E1B07F1D51FCD1008BDAD4 /* spave.xcdatamodel */,
-			);
-			currentVersion = 24E1B07F1D51FCD1008BDAD4 /* spave.xcdatamodel */;
-			path = spave.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -29,8 +29,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         let currencySymbol = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
         //Set the value of the textfields from NSDefaults
-        textfieldForSavingsGoal.text = "\(currencySymbol)\(String(defaults.integerForKey("savingsGoal")))"
-        textfieldForMonthlyBudget.text = "\(currencySymbol)\(String(defaults.integerForKey("monthlyBudget")))"
+        textfieldForSavingsGoal.text = String(defaults.integerForKey("savingsGoal"))
+        textfieldForMonthlyBudget.text = String(defaults.integerForKey("monthlyBudget"))
         
         //Numbers of days of current month
         let calendar = NSCalendar.currentCalendar()
@@ -83,13 +83,13 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                 let fetchedExpenses = try fetchedResultsController!.managedObjectContext.executeFetchRequest(fr) as! [Expense]
                 for expense in fetchedExpenses {
                     var money: Money?
-                        let currentAmount = expense.value as! Int
+                        let currentAmount = expense.value!
                     
                         //Attention, if there is no currency set we assume it's EUR, since the only person used the app since now used it in EUR Coco and Me :)
                         if let currentCurrency = expense.currency {
-                            money = Money(amount: Double(currentAmount), currencyIsoString: currentCurrency)
+                            money = Money(amount: currentAmount, currencyIsoString: currentCurrency)
                         } else {
-                            money = Money(amount: Double(currentAmount), currencyIso: .EUR)
+                            money = Money(amount: currentAmount, currencyIso: .EUR)
                         }
                     
                     
@@ -99,12 +99,12 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                         //shit
                     }
                     
-                    expense.value = Int(money!.amount) as NSNumber
+                    expense.value = money!.amount
                     let changedCurrency = money!.currency!.rawValue
                     let changedCurrencySymbol = money!.currency!.getCurrencySymbol()
                     expense.currency = changedCurrency
-                    textfieldForSavingsGoal.text = "\(changedCurrencySymbol)\(String(defaults.integerForKey("savingsGoal")))"
-                    textfieldForMonthlyBudget.text = "\(changedCurrencySymbol)\(String(defaults.integerForKey("monthlyBudget")))"
+                    textfieldForSavingsGoal.text = String(defaults.integerForKey("savingsGoal"))
+                    textfieldForMonthlyBudget.text = String(defaults.integerForKey("monthlyBudget"))
                     
 
                 }

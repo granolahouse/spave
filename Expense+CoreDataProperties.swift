@@ -2,7 +2,7 @@
 //  Expense+CoreDataProperties.swift
 //  
 //
-//  Created by Dominik Faber on 19.08.16.
+//  Created by Dominik Faber on 25.08.16.
 //
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -18,7 +18,7 @@ extension Expense {
     @NSManaged var date: NSDate?
     @NSManaged var desc: String?
     @NSManaged var location: NSObject?
-    @NSManaged var value: NSNumber?
+    @NSManaged var value: NSDecimalNumber?
     @NSManaged var currency: String?
 
 }

@@ -164,13 +164,10 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
     
     @IBAction func track(sender: AnyObject) {
     
-    
-    
         print("we track \(expenseToTrack)")
-        
-        
+
         //Initiatlize the money in the currency we want to track
-        var moneyToTrack = Money(amount: Double(expenseToTrack), currencyIso: currencyToTrack)
+        var moneyToTrack = Money(amount: NSDecimalNumber(integer: expenseToTrack), currencyIso: currencyToTrack)
         
         //But now, we want to save the money in the user's currency
         

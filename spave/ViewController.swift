@@ -52,34 +52,40 @@ class ViewController: UIViewController {
     var totalCostOfTheDay: Int = 0
     var dailyLimit: Int = 6
     var daysForBarChart: [String] = []
-    var monthlyBudget: Int = 0
+    var monthlyBudget: Money!
+    var formatter: NSNumberFormatter = NSNumberFormatter()
     
     
     
-    
-    var valueForLabelSpentToday: Int = 0 {
+    var valueForLabelSpentToday: NSDecimalNumber = 0 {
         didSet {
-            let currencySymbol = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
-
-            labelForSpentToday.text = "\(currencySymbol)\(valueForLabelSpentToday)"
+            let money = Money(amount: valueForLabelSpentToday, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String)
+            
+            labelForSpentToday.text = formatter.stringFromNumber(money.amount)
         }
         
     }
     
-    var valueForLabelSpentThisWeek: Int = 0 {
+    var valueForLabelSpentThisWeek: NSDecimalNumber = 0 {
         didSet {
-            let currencySymbol = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
+            let money = Money(amount: valueForLabelSpentThisWeek, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String)
+            
 
-            labelForSpentThisWeek.text = String("\(currencySymbol)\(valueForLabelSpentThisWeek)")
+            labelForSpentThisWeek.text = formatter.stringFromNumber(money.amount)
         }
     }
     
-    var savedThisMonth: Int = 0 {
+    var savedThisMonth: NSDecimalNumber = 0 {
         didSet {
+            
+            let money = Money(amount: savedThisMonth, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String)
+            
             let currencySymbol = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
             currencyLabelInRing.text = currencySymbol
-            labelForSavingsGoal.text = String(savedThisMonth)
-            customProgressBar.counter = savedThisMonth
+            labelForSavingsGoal.text = formatter.stringFromNumber(savedThisMonth)
+            print("debug: \(savedThisMonth.integerValue)")
+            
+            customProgressBar.counter = savedThisMonth.integerValue
         }
     }
     
@@ -98,7 +104,17 @@ class ViewController: UIViewController {
         
         //Load user defaults
         savingsGoal = defaults.integerForKey("savingsGoal")
-        monthlyBudget = defaults.integerForKey("monthlyBudget")
+        monthlyBudget = Money(amount: NSDecimalNumber(integer: defaults.integerForKey("monthlyBudget")),
+                              currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String)
+        
+        let limit: NSDecimalNumber = monthlyBudget.amount.decimalNumberBySubtracting(NSDecimalNumber(integer: defaults.integerForKey("savingsGoal")).decimalNumberByDividingBy(NSDecimalNumber(integer:numbersOfDaysInCurrentMonth)))
+        
+        
+        ll = ChartLimitLine(limit: limit.doubleValue, label: "")
+        
+        barChartView.leftAxis.addLimitLine(ll)
+
+        
         customProgressBar.savingsGoal = savingsGoal
         
         //Some UI changes
@@ -147,7 +163,7 @@ class ViewController: UIViewController {
         
         barChartView.noDataTextDescription = "No data yet. Start tracking by adding your expenses"
         
-        updateUI()
+       
         
         //Check if the user opens the app for the first time. If so, show onboarding
         
@@ -191,7 +207,7 @@ class ViewController: UIViewController {
                     
                     //Fill database with estimated spendings
                     while x < numberOfDaysSinceStartOfMonth {
-                        var expenseToTrack = Expense(value: spendingsUntilNow/numberOfDaysSinceStartOfMonth, date: NSDate().dateOfDaysBeforeOrAfter(-1*numberOfDaysSinceStartOfMonth+x), context: self.self.fetchedResultsController!.managedObjectContext)
+                        var expenseToTrack = Expense(value: NSDecimalNumber(integer:spendingsUntilNow/numberOfDaysSinceStartOfMonth), date: NSDate().dateOfDaysBeforeOrAfter(-1*numberOfDaysSinceStartOfMonth+x), context: self.self.fetchedResultsController!.managedObjectContext)
                         expenseToTrack.currency = currency
                         x+=1
                     }
@@ -211,6 +227,9 @@ class ViewController: UIViewController {
             self.presentViewController(alert, animated: true, completion: nil)
         }
         
+        
+        
+         updateUI()
     
     }
     
@@ -219,18 +238,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-    
-       
         
-        
-        let currencySymbol = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
 
-        ll = ChartLimitLine(limit: Double((monthlyBudget-defaults.integerForKey("savingsGoal"))/numbersOfDaysInCurrentMonth), label: "Daily limit: \(currencySymbol)\(monthlyBudget/numbersOfDaysInCurrentMonth)")
+        formatter.numberStyle = .CurrencyAccountingStyle
+        formatter.maximumFractionDigits = 0
         
-        barChartView.leftAxis.addLimitLine(ll)
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(ViewController.updateUI), name:
-            UIApplicationWillEnterForegroundNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(ViewController.updateUI), name: UIApplicationWillEnterForegroundNotification, object: nil)
         
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.updateUI), name:"AddExpenseModalDismissed", object: nil)
@@ -252,20 +265,20 @@ class ViewController: UIViewController {
     func updateUI() {
         
         // Set label content
+        
+        
+        
         valueForLabelSpentToday = spentInDateInterval(NSDate().startOfDay, endDate: NSDate().endOfDay!)
         valueForLabelSpentThisWeek = spentInDateInterval(NSDate().startOfWeek, endDate: NSDate().endOfDay!)
         savedThisMonth = calculateSavingsThisMonth()
         
-        // Update labels
-        let currencySymbol = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
-
-        labelForSpentToday.text = "\(currencySymbol)\(valueForLabelSpentToday)"
-        labelForSpentThisWeek.text = String("\(currencySymbol)\(valueForLabelSpentThisWeek)")
+        labelForSpentToday.text = formatter.stringFromNumber(valueForLabelSpentToday)
+        labelForSpentThisWeek.text = formatter.stringFromNumber(valueForLabelSpentThisWeek)
 
         
-        labelForSavingsGoal.text = String(savedThisMonth)
+        labelForSavingsGoal.text = formatter.stringFromNumber(savedThisMonth)
         //animatedCircle.counter = calculateSavingsThisMonth()
-        customProgressBar.counter = savedThisMonth
+        customProgressBar.counter = savedThisMonth.integerValue
         print("updatedUI; SavedThisMonth: \(customProgressBar.counter), \(customProgressBar.savingsGoal)")
         
         
@@ -278,16 +291,16 @@ class ViewController: UIViewController {
     // Sum the expenses
     // Create Fetch Request
     // return what we spent today
-    func spentInDateInterval(startDate: NSDate, endDate: NSDate) -> Int {
+    func spentInDateInterval(startDate: NSDate, endDate: NSDate) -> NSDecimalNumber {
         
-        var spent = 0
+        var spent: NSDecimalNumber = 0
         let expensesFetch = NSFetchRequest(entityName: "Expense")
         expensesFetch.predicate = NSPredicate(format: "%@ <= date AND date <= %@", startDate, endDate)
         
         do {
             let fetchedExpenses = try fetchedResultsController!.managedObjectContext.executeFetchRequest(expensesFetch) as! [Expense]
             for expense in fetchedExpenses {
-                spent += Int(expense.value!)
+                spent = spent.decimalNumberByAdding(expense.value!)
             }
         } catch {
             fatalError("Failed to fetch expenses: \(error)")
@@ -297,12 +310,8 @@ class ViewController: UIViewController {
     }
     
     
-    
-    
-    
-    
-    
-    func calculateSavingsThisMonth() -> Int {
+    func calculateSavingsThisMonth() -> NSDecimalNumber {
+        
         //Algorithm: monthlyBudget - spentThisMonth + (numberOfDaysUntilEndOfMonth*dailyBudget)
         
         //numberOfDaysUntilEndOfMonth - get the number of days until end of month
@@ -312,12 +321,13 @@ class ViewController: UIViewController {
         let spentThisMonth = spentInDateInterval(NSDate().startOfMonth(), endDate: NSDate())
         
         
-        //Numbers of days of current month
-        let calendar = NSCalendar.currentCalendar()
-        let numbersOfDaysInCurrentMonth = calendar.component([.Day], fromDate: NSDate().endOfMonth())
         
-        return monthlyBudget - (spentThisMonth + ((numberOfDaysUntilEndOfMonth-1)*monthlyBudget/numbersOfDaysInCurrentMonth))
+        let monthlyBudgetAsDouble: Double = monthlyBudget.amount.doubleValue
+        let spentThisMonthAsDouble: Double = spentThisMonth.doubleValue
+        let dailyLimit = (monthlyBudgetAsDouble - Double(savingsGoal))/Double(numbersOfDaysInCurrentMonth)
+        let savedThisMonthAsInt = monthlyBudgetAsDouble - spentThisMonthAsDouble + (Double(numberOfDaysUntilEndOfMonth-1))*dailyLimit
         
+        return NSDecimalNumber(double: savedThisMonthAsInt)
         
     }
     
@@ -371,6 +381,17 @@ class ViewController: UIViewController {
         barChartView.noDataText = "You need to provide data for the chart."
         
         
+        let numberOfDaysUntilEndOfMonth = NSDate().daysBetweenDates(NSDate(), endDate: NSDate().endOfMonth())
+        let spentThisMonth = spentInDateInterval(NSDate().startOfMonth(), endDate: NSDate())
+        
+
+        
+        let monthlyBudgetAsDouble: Double = monthlyBudget.amount.doubleValue
+        let spentThisMonthAsDouble: Double = spentThisMonth.doubleValue
+        let dailyLimit = (monthlyBudgetAsDouble - Double(savingsGoal))/Double(numbersOfDaysInCurrentMonth)
+        
+        
+        print("the other dailyLimit: \(dailyLimit)")
         
         
         //Some Chart UI changes
@@ -398,7 +419,7 @@ class ViewController: UIViewController {
         for i in 0..<dataPoints.count {
             let dataEntry = BarChartDataEntry(value: values[i], xIndex: i)
             dataEntries.append(dataEntry)
-            if (Int(values[i]) < monthlyBudget/numbersOfDaysInCurrentMonth) {
+            if (Double(values[i]) < dailyLimit) {
                 chartColorSet.append(blue)
             } else {
                 chartColorSet.append(pink)
@@ -416,7 +437,7 @@ class ViewController: UIViewController {
         
         
         
-        ll.limit = Double((monthlyBudget-defaults.integerForKey("savingsGoal"))/numbersOfDaysInCurrentMonth)
+        ll.limit = dailyLimit
         ll.labelPosition = .LeftTop
         ll.drawLabelEnabled = false
         ll.lineColor = UIDesign().red

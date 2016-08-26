@@ -13,7 +13,7 @@ import CoreData
 class Expense: NSManagedObject {
 
     // Insert code here to add functionality to your managed object subclass
-    convenience init(value: NSNumber, date: NSDate, context: NSManagedObjectContext) {
+    convenience init(value: NSDecimalNumber, date: NSDate, context: NSManagedObjectContext) {
         if let ent = NSEntityDescription.entityForName("Expense", inManagedObjectContext: context) {
             self.init(entity: ent, insertIntoManagedObjectContext: context)
             self.value = value

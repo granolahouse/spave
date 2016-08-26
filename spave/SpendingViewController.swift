@@ -78,15 +78,19 @@ class SpendingViewController: UIViewController, UITextFieldDelegate, UIPickerVie
             
             //Load Expense
             if let currency = expense.currency {
-                money = Money(amount: expense.value as! Double, currencyIsoString: currency)
+                money = Money(amount: expense.value!, currencyIsoString: currency)
             } else {
                 let defaultCurrency = defaults.objectForKey("usersDefaultCurrency") as! String
-                money = Money(amount: expense.value as! Double, currencyIsoString: defaultCurrency)
+                money = Money(amount: expense.value!, currencyIsoString: defaultCurrency)
             }
             
+            let formatter = NSNumberFormatter()
+            formatter.currencyCode = money!.currency!.rawValue
+            formatter.numberStyle = .CurrencyAccountingStyle
+            formatter.maximumFractionDigits = 0
+            label.text = formatter.stringFromNumber(money!.amount)
+
             
-            
-            label.text = String("\(money!.currency!.getCurrencySymbol())\(Int(money!.amount))")
         }
         
     }

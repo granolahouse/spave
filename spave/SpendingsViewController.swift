@@ -66,20 +66,23 @@ class SpendingsViewController: CoreDataTableViewController {
         
         let expense = fetchedResultsController!.objectAtIndexPath(indexPath) as! Expense
         
-        // Create the cell
+        // Create the cel.
         let cell  = tableView.dequeueReusableCellWithIdentifier("spendingCell", forIndexPath: indexPath) as! SpendingsTableViewCell
         var money: Money?
         
         if let currency = expense.currency {
-            money = Money(amount: expense.value as! Double, currencyIsoString: currency)
+            money = Money(amount: expense.value!, currencyIsoString: currency)
         } else {
             let defaultCurrency = defaults.objectForKey("usersDefaultCurrency") as! String
-            money = Money(amount: expense.value as! Double, currencyIsoString: defaultCurrency)
+            money = Money(amount: expense.value!, currencyIsoString: defaultCurrency)
         }
         
         
-        
-        cell.expense!.text = String("\(money!.currency!.getCurrencySymbol())\(Int(money!.amount))")
+        let formatter = NSNumberFormatter()
+        formatter.currencyCode = money!.currency!.rawValue
+        formatter.numberStyle = .CurrencyAccountingStyle
+        formatter.maximumFractionDigits = 0
+        cell.expense!.text = formatter.stringFromNumber(money!.amount)
         
         //Get human readable date 
         
