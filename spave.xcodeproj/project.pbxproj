@@ -12,7 +12,6 @@
 		24181FFF1D52447500A4E0B6 /* SF-UI-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 24181FFE1D52447000A4E0B6 /* SF-UI-Display-Regular.otf */; };
 		2453F4741D64BA0C005AE56D /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2453F4731D64BA0C005AE56D /* OnboardingPageViewController.swift */; };
 		2453F4761D64C1E6005AE56D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2453F4751D64C1E6005AE56D /* Main.storyboard */; };
-		2453F47A1D64C714005AE56D /* Onboarding3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2453F4791D64C714005AE56D /* Onboarding3ViewController.swift */; };
 		2453F47C1D67996F005AE56D /* SpendingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2453F47B1D67996F005AE56D /* SpendingsTableViewCell.swift */; };
 		2453F47E1D67A72D005AE56D /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2453F47D1D67A72D005AE56D /* Money.swift */; };
 		2453F4801D6D976D005AE56D /* ChooseCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2453F47F1D6D976D005AE56D /* ChooseCurrencyViewController.swift */; };
@@ -63,7 +62,6 @@
 		24181FFE1D52447000A4E0B6 /* SF-UI-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Regular.otf"; sourceTree = "<group>"; };
 		2453F4731D64BA0C005AE56D /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		2453F4751D64C1E6005AE56D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		2453F4791D64C714005AE56D /* Onboarding3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Onboarding3ViewController.swift; sourceTree = "<group>"; };
 		2453F47B1D67996F005AE56D /* SpendingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpendingsTableViewCell.swift; sourceTree = "<group>"; };
 		2453F47D1D67A72D005AE56D /* Money.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		2453F47F1D6D976D005AE56D /* ChooseCurrencyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCurrencyViewController.swift; sourceTree = "<group>"; };
@@ -232,7 +230,6 @@
 				24C645621D51FEA000AB1E66 /* SpendingViewController.swift */,
 				2494B1C61D5E3309005EFB68 /* AddExpenseViewController.swift */,
 				2453F4731D64BA0C005AE56D /* OnboardingPageViewController.swift */,
-				2453F4791D64C714005AE56D /* Onboarding3ViewController.swift */,
 				2453F47B1D67996F005AE56D /* SpendingsTableViewCell.swift */,
 				2453F47F1D6D976D005AE56D /* ChooseCurrencyViewController.swift */,
 			);
@@ -446,7 +443,6 @@
 				24F9942A1D54DB7900C516FA /* CustomSeperatorLine.swift in Sources */,
 				24C645731D51FFDB00AB1E66 /* Expense.swift in Sources */,
 				24E1B07A1D51FCD1008BDAD4 /* ViewController.swift in Sources */,
-				2453F47A1D64C714005AE56D /* Onboarding3ViewController.swift in Sources */,
 				247ECE0F1D5B99390099AABF /* CustomProgressRing.swift in Sources */,
 				24C645651D51FEA000AB1E66 /* CoreDataTableViewController.swift in Sources */,
 				24C645641D51FEA000AB1E66 /* SpendingsViewController.swift in Sources */,

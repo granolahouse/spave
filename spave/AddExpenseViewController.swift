@@ -217,6 +217,11 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
         }))
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let vc = segue.destinationViewController as! ChooseCurrencyViewController
+        vc.callBackAction = .ChangeCurrencyToTrack
+    }
+    
     
     //Picker delegate functions
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {

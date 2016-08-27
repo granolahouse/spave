@@ -14,6 +14,13 @@ class ChooseCurrencyViewController: UIViewController {
     @IBOutlet weak var roundedCornersView: UIView!
     var currencies: [Money.CurrencyIso] = Money.CurrencyIso.allValues
     
+    enum CallBackActions {
+        case ChangeDefaultCurrency
+        case ChangeCurrencyToTrack
+    }
+    
+    var callBackAction: CallBackActions?
+    
     @IBOutlet weak var currencyPicker: UIPickerView!
     var selectedCurrency: String = ""
     
@@ -36,15 +43,27 @@ class ChooseCurrencyViewController: UIViewController {
         currencyPicker.selectRow(defaultRowIndex!, inComponent: 0, animated: true)
         
     }
+    
+    
     @IBAction func closeModal(sender: AnyObject) {
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     @IBAction func OK(sender: AnyObject) {
-        
-        let object:[AnyObject] = [selectedCurrency]
-        NSNotificationCenter.defaultCenter().postNotificationName("ChangeCurrencyToTrack", object: object)
         self.dismissViewControllerAnimated(false, completion: nil)
+        let object:[AnyObject] = [self.selectedCurrency]
+        
+        if let callBackAction = callBackAction {
+            switch callBackAction {
+            case .ChangeCurrencyToTrack :
+                NSNotificationCenter.defaultCenter().postNotificationName("ChangeCurrencyToTrack", object: object)
+            case .ChangeDefaultCurrency :
+                NSNotificationCenter.defaultCenter().postNotificationName("ChangeDefaultCurrency", object: object)
+            default: break
+            }
+        }
+        
     }
+    
 }
 
 //PickerView Delegates

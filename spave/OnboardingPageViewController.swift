@@ -12,9 +12,15 @@ import UIKit
 class OnboardingPageViewController: UIPageViewController {
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
+        
+        let settingsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SettingsViewController")
+        
+        
+        
+        
         return [UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Onboarding1"),
                 UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Onboarding2"),
-                UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Onboarding3")]
+               settingsViewController]
     }()
     
     

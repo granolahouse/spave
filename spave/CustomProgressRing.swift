@@ -19,7 +19,7 @@ class CustomProgressRing: UIView {
     
     var bezier = UIBezierPath()
     
-    var counter: Int = 0 {
+    var counter: Double = 0 {
         
         didSet {
             if (counter > 0) {

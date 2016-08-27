@@ -59,31 +59,24 @@ class ViewController: UIViewController {
     var valueForLabelSpentToday: NSDecimalNumber = 0 {
         didSet {
             let money = Money(amount: valueForLabelSpentToday, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String)
-            
             labelForSpentToday.text = formatter.stringFromNumber(money.amount)
         }
-        
     }
     
     var valueForLabelSpentThisWeek: NSDecimalNumber = 0 {
         didSet {
             let money = Money(amount: valueForLabelSpentThisWeek, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String)
-            
-
             labelForSpentThisWeek.text = formatter.stringFromNumber(money.amount)
         }
     }
     
     var savedThisMonth: NSDecimalNumber = 0 {
         didSet {
-            
             let money = Money(amount: savedThisMonth, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String)
-            
             let currencySymbol = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
             labelForSavingsGoal.text = formatter.stringFromNumber(savedThisMonth)
-            print("debug: \(savedThisMonth.integerValue)")
-            
-            customProgressBar.counter = savedThisMonth.integerValue
+            customProgressBar.savingsGoal = Int(defaults.doubleForKey("savingsGoal"))
+            customProgressBar.counter = savedThisMonth.doubleValue
         }
     }
     
@@ -266,25 +259,27 @@ class ViewController: UIViewController {
     
     func updateUI() {
         
-        // Set label content
+        let currency = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!
         
+        let formatter = NSNumberFormatter()
+        formatter.currencyCode = currency.rawValue
+        formatter.numberStyle = .CurrencyAccountingStyle
+        formatter.roundingMode = .RoundHalfEven
+        formatter.maximumFractionDigits = 0
         
+
         
         valueForLabelSpentToday = spentInDateInterval(NSDate().startOfDay, endDate: NSDate().endOfDay!)
         valueForLabelSpentThisWeek = spentInDateInterval(NSDate().startOfWeek, endDate: NSDate().endOfDay!)
         savedThisMonth = calculateSavingsThisMonth()
+        customProgressBar.savingsGoal = Int(defaults.doubleForKey("savingsGoal"))
         
-        formatter.currencyCode = defaults.objectForKey("usersDefaultCurrency") as! String
-            
+        
+        // Update labels
         labelForSpentToday.text = formatter.stringFromNumber(valueForLabelSpentToday)
         labelForSpentThisWeek.text = formatter.stringFromNumber(valueForLabelSpentThisWeek)
-
-        
         labelForSavingsGoal.text = formatter.stringFromNumber(savedThisMonth)
-        //animatedCircle.counter = calculateSavingsThisMonth()
-        customProgressBar.counter = savedThisMonth.integerValue
-        print("updatedUI; SavedThisMonth: \(customProgressBar.counter), \(customProgressBar.savingsGoal)")
-        
+        customProgressBar.counter = savedThisMonth.doubleValue
         
         // Update chart
         drawSpendingsOverviewChart()
@@ -326,12 +321,20 @@ class ViewController: UIViewController {
         
         
         
-        let monthlyBudgetAsDouble: Double = monthlyBudget.amount.doubleValue
-        let spentThisMonthAsDouble: Double = spentThisMonth.doubleValue
-        let dailyLimit = (monthlyBudgetAsDouble - (savingsGoal!.amount.doubleValue))/Double(numbersOfDaysInCurrentMonth)
-        let savedThisMonthAsInt = monthlyBudgetAsDouble - spentThisMonthAsDouble + (Double(numberOfDaysUntilEndOfMonth-1))*dailyLimit
+        let monthlyBudgetAsDouble: Double = defaults.doubleForKey("monthlyBudget")
+        print("debug for Calculate savings: monthlyBudget = \(monthlyBudgetAsDouble)")
         
-        return NSDecimalNumber(double: savedThisMonthAsInt)
+        let spentThisMonthAsDouble: Double = spentThisMonth.doubleValue
+        print("debug for Calculate savings: spentThisMonth = \(spentThisMonthAsDouble)")
+        
+        let dailyLimit = (monthlyBudgetAsDouble - (savingsGoal!.amount.doubleValue))/Double(numbersOfDaysInCurrentMonth)
+        print("debug for Calculate savings: dailyLimiz = \(dailyLimit)")
+        
+        let savedThisMonthAsDouble = monthlyBudgetAsDouble - spentThisMonthAsDouble + (Double(numberOfDaysUntilEndOfMonth-1))*dailyLimit
+        print("debug for Calculate savings: savedThisMonth = \(savedThisMonthAsDouble)")
+        
+        
+        return NSDecimalNumber(double: savedThisMonthAsDouble)
         
     }
     

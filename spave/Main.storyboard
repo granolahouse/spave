@@ -18,9 +18,6 @@
             <string>Roboto-Thin</string>
             <string>Roboto-Thin</string>
             <string>Roboto-Thin</string>
-            <string>Roboto-Thin</string>
-            <string>Roboto-Thin</string>
-            <string>Roboto-Thin</string>
         </mutableArray>
         <mutableArray key="SF-UI-Display-Regular.otf">
             <string>SFUIDisplay-Regular</string>
@@ -451,7 +448,7 @@ the hell is all my money gone?“</string>
         <!--Settings-->
         <scene sceneID="Q3V-bk-thb">
             <objects>
-                <viewController title="Settings" id="arg-W2-W1j" customClass="SettingsViewController" customModule="spave" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SettingsViewController" storyboardIdentifier="SettingsViewController" title="Settings" id="arg-W2-W1j" customClass="SettingsViewController" customModule="spave" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OCd-wd-vTt"/>
                         <viewControllerLayoutGuide type="bottom" id="e7b-V5-hQo"/>
@@ -520,12 +517,23 @@ the hell is all my money gone?“</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NoX-Yu-VNv">
-                                <rect key="frame" x="241" y="503" width="118" height="30"/>
+                                <rect key="frame" x="241" y="493" width="118" height="30"/>
                                 <state key="normal" title="Change currency">
                                     <color key="titleColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="krg-fc-v4P" kind="presentation" animates="NO" modalPresentationStyle="overCurrentContext" id="EIN-HT-kxZ"/>
+                                    <segue destination="krg-fc-v4P" kind="presentation" identifier="changeDefaultCurrency" animates="NO" modalPresentationStyle="overCurrentContext" id="EIN-HT-kxZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wiX-1m-jhK" customClass="CustomAddButton" customModule="spave" customModuleProvider="target">
+                                <rect key="frame" x="270" y="500" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wiX-1m-jhK" secondAttribute="height" multiplier="1:1" id="LXi-sh-vzN"/>
+                                    <constraint firstAttribute="width" constant="60" id="Sip-1k-1h8"/>
+                                </constraints>
+                                <state key="normal" title="GO"/>
+                                <connections>
+                                    <action selector="go:" destination="arg-W2-W1j" eventType="touchUpInside" id="IKb-BG-wmv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -543,16 +551,20 @@ the hell is all my money gone?“</string>
                             <constraint firstAttribute="trailingMargin" secondItem="Key-4q-JhN" secondAttribute="trailing" id="Q4l-fk-JWa"/>
                             <constraint firstItem="T6E-Hw-mRS" firstAttribute="centerX" secondItem="Q2k-6X-8lH" secondAttribute="centerX" id="Tee-ux-Kln"/>
                             <constraint firstItem="T6E-Hw-mRS" firstAttribute="top" secondItem="Q2k-6X-8lH" secondAttribute="bottom" id="VJt-RC-m6G"/>
+                            <constraint firstItem="wiX-1m-jhK" firstAttribute="centerX" secondItem="vm4-hI-iyH" secondAttribute="centerX" id="Zrw-aP-TJX"/>
                             <constraint firstItem="e7b-V5-hQo" firstAttribute="top" secondItem="Key-4q-JhN" secondAttribute="bottom" constant="20" id="aMt-lS-WdC"/>
                             <constraint firstItem="Q2k-6X-8lH" firstAttribute="centerX" secondItem="lEK-qf-ina" secondAttribute="centerX" id="aUc-1G-kgR"/>
+                            <constraint firstItem="e7b-V5-hQo" firstAttribute="top" secondItem="wiX-1m-jhK" secondAttribute="bottom" constant="40" id="c4a-ml-CQY"/>
                             <constraint firstItem="NoX-Yu-VNv" firstAttribute="centerX" secondItem="L0e-Xk-26a" secondAttribute="centerX" id="cag-4x-NMy"/>
                             <constraint firstItem="kMq-Am-lBe" firstAttribute="centerX" secondItem="lEK-qf-ina" secondAttribute="centerX" id="k8A-vp-OOz"/>
-                            <constraint firstItem="NoX-Yu-VNv" firstAttribute="top" secondItem="L0e-Xk-26a" secondAttribute="bottom" constant="30" id="yHo-UA-0gR"/>
+                            <constraint firstItem="NoX-Yu-VNv" firstAttribute="top" secondItem="L0e-Xk-26a" secondAttribute="bottom" constant="20" id="yHo-UA-0gR"/>
                             <constraint firstItem="x5C-bs-zzF" firstAttribute="top" secondItem="T6E-Hw-mRS" secondAttribute="bottom" id="yRI-6B-lNe"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="goButton" destination="wiX-1m-jhK" id="Wcc-Ps-5NY"/>
                         <outlet property="labelForCalculatedDailyLimit" destination="25t-oc-TpT" id="6hp-Hh-vex"/>
+                        <outlet property="resetDatabaseButton" destination="Key-4q-JhN" id="Pmq-8x-GNL"/>
                         <outlet property="textfieldForMonthlyBudget" destination="Q2k-6X-8lH" id="Vzl-qp-Xe5"/>
                         <outlet property="textfieldForSavingsGoal" destination="lEK-qf-ina" id="eYR-Ng-LRM"/>
                     </connections>
@@ -564,7 +576,7 @@ the hell is all my money gone?“</string>
         <!--Add expense-->
         <scene sceneID="nbU-5s-ICH">
             <objects>
-                <viewController title="Add expense" id="EwR-MJ-Hci" customClass="AddExpenseViewController" customModule="spave" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="AddExpenseViewController" storyboardIdentifier="AddExpenseViewController" title="Add expense" id="EwR-MJ-Hci" customClass="AddExpenseViewController" customModule="spave" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n3u-l9-9ka"/>
                         <viewControllerLayoutGuide type="bottom" id="mwY-bh-OeX"/>
@@ -640,7 +652,7 @@ the hell is all my money gone?“</string>
                                     <color key="titleColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="krg-fc-v4P" kind="presentation" animates="NO" modalPresentationStyle="overCurrentContext" id="D3g-YM-jPj"/>
+                                    <segue destination="krg-fc-v4P" kind="presentation" identifier="changeCurrencyToTrack" animates="NO" modalPresentationStyle="overCurrentContext" id="D3g-YM-jPj"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -948,118 +960,6 @@ the hell is all my money gone?“</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MAT-0f-bwl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1633" y="909"/>
-        </scene>
-        <!--Onboarding3-->
-        <scene sceneID="UpH-TA-8ks">
-            <objects>
-                <viewController storyboardIdentifier="Onboarding3" title="Onboarding3" useStoryboardIdentifierAsRestorationIdentifier="YES" id="34n-qB-hI5" customClass="Onboarding3ViewController" customModule="spave" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hep-qU-o0m"/>
-                        <viewControllerLayoutGuide type="bottom" id="fZV-OG-X0A"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="CTa-WS-ocg">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="200" placeholder="€200" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hsx-WS-3NQ">
-                                <rect key="frame" x="246" y="272" width="110" height="57"/>
-                                <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="48"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                <connections>
-                                    <outlet property="delegate" destination="34n-qB-hI5" id="b4K-NQ-E1D"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHH-fc-hYp">
-                                <rect key="frame" x="248" y="191" width="105" height="17"/>
-                                <string key="text">Monthly budget
- </string>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Monthly savings goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIu-6X-KDi">
-                                <rect key="frame" x="231" y="329" width="140" height="17"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Just variable expenses (income - fix costs)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0NT-Lo-SQe">
-                                <rect key="frame" x="181" y="208" width="239" height="15"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="800" placeholder="€1.400" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1M4-2Z-zsP">
-                                <rect key="frame" x="228" y="135" width="146" height="57"/>
-                                <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="48"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                <connections>
-                                    <outlet property="delegate" destination="34n-qB-hI5" id="thE-Tz-DCz"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="€48" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSa-vH-S2j" userLabel="calculated daily limit ">
-                                <rect key="frame" x="261" y="409" width="79" height="56"/>
-                                <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="48"/>
-                                <color key="textColor" red="0.23529411759999999" green="0.69019607839999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your daily limit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUY-Q7-KhZ">
-                                <rect key="frame" x="252" y="465" width="97" height="17"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9j-if-RR8" customClass="CustomAddButton" customModule="spave" customModuleProvider="target">
-                                <rect key="frame" x="270" y="510" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="M9j-if-RR8" secondAttribute="height" id="IiJ-ZV-z19"/>
-                                    <constraint firstAttribute="width" constant="60" id="dsX-pv-0CR"/>
-                                </constraints>
-                                <state key="normal" title="GO"/>
-                                <connections>
-                                    <action selector="go:" destination="34n-qB-hI5" eventType="touchUpInside" id="Jy4-Jw-rVa"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set your goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLe-en-hS1">
-                                <rect key="frame" x="196" y="40" width="209" height="43"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="WUY-Q7-KhZ" firstAttribute="centerX" secondItem="wSa-vH-S2j" secondAttribute="centerX" id="3F0-3R-QSy"/>
-                            <constraint firstItem="DIu-6X-KDi" firstAttribute="centerX" secondItem="hsx-WS-3NQ" secondAttribute="centerX" id="7oF-5W-W5h"/>
-                            <constraint firstItem="hsx-WS-3NQ" firstAttribute="centerX" secondItem="CTa-WS-ocg" secondAttribute="centerX" id="86l-Jc-If8"/>
-                            <constraint firstItem="RHH-fc-hYp" firstAttribute="centerX" secondItem="1M4-2Z-zsP" secondAttribute="centerX" id="AqM-b9-XbG"/>
-                            <constraint firstItem="DIu-6X-KDi" firstAttribute="top" secondItem="hsx-WS-3NQ" secondAttribute="bottom" id="PA6-3B-yCG"/>
-                            <constraint firstItem="wSa-vH-S2j" firstAttribute="centerX" secondItem="DIu-6X-KDi" secondAttribute="centerX" id="PSA-uX-lBC"/>
-                            <constraint firstItem="fZV-OG-X0A" firstAttribute="top" secondItem="M9j-if-RR8" secondAttribute="bottom" constant="30" id="RR6-nQ-C14"/>
-                            <constraint firstItem="wSa-vH-S2j" firstAttribute="top" secondItem="hsx-WS-3NQ" secondAttribute="bottom" constant="80" id="VvO-Dm-RE8"/>
-                            <constraint firstItem="mLe-en-hS1" firstAttribute="top" secondItem="hep-qU-o0m" secondAttribute="bottom" multiplier="2" id="au4-Ax-TSI"/>
-                            <constraint firstItem="WUY-Q7-KhZ" firstAttribute="top" secondItem="wSa-vH-S2j" secondAttribute="bottom" id="bE8-qM-hl7"/>
-                            <constraint firstItem="RHH-fc-hYp" firstAttribute="top" secondItem="1M4-2Z-zsP" secondAttribute="bottom" id="bcc-Hb-lIv"/>
-                            <constraint firstItem="1M4-2Z-zsP" firstAttribute="centerX" secondItem="hsx-WS-3NQ" secondAttribute="centerX" id="cSd-9d-cgt"/>
-                            <constraint firstItem="hsx-WS-3NQ" firstAttribute="top" secondItem="1M4-2Z-zsP" secondAttribute="bottom" constant="80" id="ilA-bM-ly9"/>
-                            <constraint firstItem="M9j-if-RR8" firstAttribute="centerX" secondItem="CTa-WS-ocg" secondAttribute="centerX" id="jpK-6r-Ehp"/>
-                            <constraint firstItem="0NT-Lo-SQe" firstAttribute="centerX" secondItem="RHH-fc-hYp" secondAttribute="centerX" id="lDl-OT-jEn"/>
-                            <constraint firstItem="hsx-WS-3NQ" firstAttribute="centerY" secondItem="CTa-WS-ocg" secondAttribute="centerY" id="pE0-so-0cS"/>
-                            <constraint firstItem="mLe-en-hS1" firstAttribute="centerX" secondItem="CTa-WS-ocg" secondAttribute="centerX" id="qqz-g6-bDZ"/>
-                            <constraint firstItem="0NT-Lo-SQe" firstAttribute="top" secondItem="RHH-fc-hYp" secondAttribute="bottom" id="x00-WE-sub"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="labelForCalculatedDailyLimit" destination="wSa-vH-S2j" id="PH0-ww-gNN"/>
-                        <outlet property="textfieldForMonthlyBudget" destination="1M4-2Z-zsP" id="m4E-A6-Rfr"/>
-                        <outlet property="textfieldForSavingsGoal" destination="hsx-WS-3NQ" id="ICi-s7-4bJ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KHA-Xa-BOY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1716" y="-1068"/>
         </scene>
     </scenes>
     <resources>
