@@ -82,9 +82,9 @@ extension ChooseCurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
         let pickerLabel = UILabel()
-        pickerLabel.textColor = UIColor.blackColor()
+        pickerLabel.textColor = UIDesign().darkBlue
         pickerLabel.text = "\(currencies[row].rawValue) (\(currencies[row].getCurrencySymbol()))"
-        pickerLabel.font = UIFont(name: ".SFUIText-Regular", size: 12)!
+        pickerLabel.font = UIFont(name: ".SFUIText-Regular", size: 18)!
         pickerLabel.textAlignment = NSTextAlignment.Center
         return pickerLabel
     }

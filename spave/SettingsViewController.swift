@@ -234,7 +234,7 @@ extension SettingsViewController: UITextFieldDelegate {
             let newSavingsGoal = Double(textfieldForSavingsGoal.text!)
             
             switch textField.tag {
-                case 1: defaults.setDouble(newMonthlyBudget!, forKey: "monthlyBudget")
+                case 1: defaults.setDouble(newSavingsGoal!, forKey: "savingsGoal")
                 case 2: defaults.setDouble(newMonthlyBudget!, forKey: "monthlyBudget")
                 default: break
             }

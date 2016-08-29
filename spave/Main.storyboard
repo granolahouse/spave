@@ -21,8 +21,6 @@
         </mutableArray>
         <mutableArray key="SF-UI-Display-Regular.otf">
             <string>SFUIDisplay-Regular</string>
-            <string>SFUIDisplay-Regular</string>
-            <string>SFUIDisplay-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -324,9 +322,9 @@ the hell is all my money gone?“</string>
                                                     <constraint firstAttribute="width" secondItem="5jN-be-mgG" secondAttribute="height" id="jZK-oS-KZo"/>
                                                     <constraint firstAttribute="width" constant="60" id="m7O-za-4Uh"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <state key="normal" title="+">
-                                                    <color key="titleColor" red="0.23529411759999999" green="0.69019607839999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <segue destination="EwR-MJ-Hci" kind="popoverPresentation" popoverAnchorView="5jN-be-mgG" id="toA-07-Ooh">
@@ -458,7 +456,7 @@ the hell is all my money gone?“</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="200" placeholder="€200" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lEK-qf-ina">
-                                <rect key="frame" x="245" y="272" width="110" height="57"/>
+                                <rect key="frame" x="20" y="272" width="560" height="57"/>
                                 <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="48"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -495,7 +493,7 @@ the hell is all my money gone?“</string>
                                 <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="800" placeholder="€1.400" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Q2k-6X-8lH">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="800" placeholder="€1.400" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Q2k-6X-8lH">
                                 <rect key="frame" x="227" y="145" width="146" height="57"/>
                                 <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="48"/>
@@ -542,16 +540,20 @@ the hell is all my money gone?“</string>
                             <constraint firstItem="kMq-Am-lBe" firstAttribute="top" secondItem="lEK-qf-ina" secondAttribute="bottom" id="1ou-p2-N3v"/>
                             <constraint firstItem="25t-oc-TpT" firstAttribute="centerX" secondItem="kMq-Am-lBe" secondAttribute="centerX" id="3Ki-ku-IxO"/>
                             <constraint firstItem="L0e-Xk-26a" firstAttribute="centerX" secondItem="25t-oc-TpT" secondAttribute="centerX" id="8Ha-2x-e7P"/>
+                            <constraint firstAttribute="trailing" secondItem="Q2k-6X-8lH" secondAttribute="trailing" constant="20" id="ArG-0j-fxa"/>
                             <constraint firstItem="lEK-qf-ina" firstAttribute="top" secondItem="Q2k-6X-8lH" secondAttribute="bottom" constant="70" id="Bgy-pZ-p3f"/>
                             <constraint firstItem="25t-oc-TpT" firstAttribute="top" secondItem="lEK-qf-ina" secondAttribute="bottom" constant="70" id="CfQ-eG-ISG"/>
                             <constraint firstItem="lEK-qf-ina" firstAttribute="centerY" secondItem="vm4-hI-iyH" secondAttribute="centerY" id="GCJ-Z8-CM6"/>
                             <constraint firstItem="lEK-qf-ina" firstAttribute="centerX" secondItem="vm4-hI-iyH" secondAttribute="centerX" id="Hp5-m7-b9O"/>
                             <constraint firstItem="L0e-Xk-26a" firstAttribute="top" secondItem="25t-oc-TpT" secondAttribute="bottom" id="I6s-Wt-g32"/>
+                            <constraint firstItem="lEK-qf-ina" firstAttribute="leading" secondItem="vm4-hI-iyH" secondAttribute="leading" constant="20" id="M8R-UY-lAa"/>
                             <constraint firstItem="x5C-bs-zzF" firstAttribute="centerX" secondItem="T6E-Hw-mRS" secondAttribute="centerX" id="MhE-S8-Nsb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Key-4q-JhN" secondAttribute="trailing" id="Q4l-fk-JWa"/>
+                            <constraint firstAttribute="trailing" secondItem="lEK-qf-ina" secondAttribute="trailing" constant="20" id="SXp-oo-B2i"/>
                             <constraint firstItem="T6E-Hw-mRS" firstAttribute="centerX" secondItem="Q2k-6X-8lH" secondAttribute="centerX" id="Tee-ux-Kln"/>
                             <constraint firstItem="T6E-Hw-mRS" firstAttribute="top" secondItem="Q2k-6X-8lH" secondAttribute="bottom" id="VJt-RC-m6G"/>
                             <constraint firstItem="wiX-1m-jhK" firstAttribute="centerX" secondItem="vm4-hI-iyH" secondAttribute="centerX" id="Zrw-aP-TJX"/>
+                            <constraint firstItem="Q2k-6X-8lH" firstAttribute="leading" secondItem="vm4-hI-iyH" secondAttribute="leading" constant="20" id="ZsQ-1g-cVr"/>
                             <constraint firstItem="e7b-V5-hQo" firstAttribute="top" secondItem="Key-4q-JhN" secondAttribute="bottom" constant="20" id="aMt-lS-WdC"/>
                             <constraint firstItem="Q2k-6X-8lH" firstAttribute="centerX" secondItem="lEK-qf-ina" secondAttribute="centerX" id="aUc-1G-kgR"/>
                             <constraint firstItem="e7b-V5-hQo" firstAttribute="top" secondItem="wiX-1m-jhK" secondAttribute="bottom" constant="40" id="c4a-ml-CQY"/>
@@ -592,9 +594,9 @@ the hell is all my money gone?“</string>
                                     <constraint firstAttribute="width" constant="60" id="CO3-5C-hQc"/>
                                     <constraint firstAttribute="width" secondItem="3vq-wr-hZ8" secondAttribute="height" id="RNQ-5a-zb6"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="+">
-                                    <color key="titleColor" red="0.23529411764705882" green="0.69019607843137254" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="track:" destination="EwR-MJ-Hci" eventType="touchUpInside" id="gK8-Ae-ELg"/>
@@ -622,18 +624,6 @@ the hell is all my money gone?“</string>
                                     <action selector="cancel:" destination="EwR-MJ-Hci" eventType="touchUpInside" id="8hd-I6-57Z"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPG-Qb-0y5">
-                                <rect key="frame" x="560" y="30" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcV-ic-2QL">
-                                <rect key="frame" x="570" y="40" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zdl-jP-Arv">
                                 <rect key="frame" x="368" y="262" width="100" height="216"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -968,7 +958,7 @@ the hell is all my money gone?“</string>
         <image name="Settings" width="23" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EIN-HT-kxZ"/>
+        <segue reference="D3g-YM-jPj"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
