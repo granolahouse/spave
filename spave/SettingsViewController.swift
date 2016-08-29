@@ -57,7 +57,6 @@ class SettingsViewController: UIViewController {
     
     
     @IBAction func resetDatabase(sender: AnyObject) {
-        // Get the stack
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         delegate.resetDatabase()
     }

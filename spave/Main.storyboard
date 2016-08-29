@@ -18,6 +18,7 @@
             <string>Roboto-Thin</string>
             <string>Roboto-Thin</string>
             <string>Roboto-Thin</string>
+            <string>Roboto-Thin</string>
         </mutableArray>
         <mutableArray key="SF-UI-Display-Regular.otf">
             <string>SFUIDisplay-Regular</string>
@@ -32,10 +33,10 @@
             </objects>
             <point key="canvasLocation" x="-276" y="-1062"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboarding Page1 View Controller-->
         <scene sceneID="qvp-Wd-OWg">
             <objects>
-                <viewController storyboardIdentifier="Onboarding1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZhV-u2-TX1" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Onboarding1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZhV-u2-TX1" customClass="OnboardingPage1ViewController" customModule="spave" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z9X-X0-vEK"/>
                         <viewControllerLayoutGuide type="bottom" id="wUX-sm-cXb"/>
@@ -44,57 +45,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqd-EQ-1iW">
-                                <rect key="frame" x="264" y="40" width="73" height="43"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The beautiful way to get some extra money " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="5vd-JN-Aia">
+                                <rect key="frame" x="40" y="400" width="520" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2G-ni-efz">
-                                <rect key="frame" x="229" y="185" width="143" height="21"/>
-                                <string key="text">... sounds familiar?
-</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Then spave is for you!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vd-JN-Aia">
-                                <rect key="frame" x="215" y="226" width="171" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Money" translatesAutoresizingMaskIntoConstraints="NO" id="T60-S5-AtP">
-                                <rect key="frame" x="266" y="277" width="68" height="290"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4A4-jI-BUX" customClass="CustomProgressRing" customModule="spave" customModuleProvider="target">
+                                <rect key="frame" x="150" y="60" width="300" height="300"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$120" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="BuD-UN-fDd">
+                                        <rect key="frame" x="50" y="112" width="140.5" height="75"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="64"/>
+                                        <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expected savings this month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qJo-Ns-C4A">
+                                        <rect key="frame" x="50" y="187" width="150" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="290" id="5IK-8l-9fJ"/>
-                                    <constraint firstAttribute="width" constant="68" id="dGm-Ep-ePw"/>
+                                    <constraint firstItem="BuD-UN-fDd" firstAttribute="centerY" secondItem="4A4-jI-BUX" secondAttribute="centerY" id="3po-KX-za7"/>
+                                    <constraint firstItem="qJo-Ns-C4A" firstAttribute="top" secondItem="BuD-UN-fDd" secondAttribute="bottom" id="IPB-aE-rBc"/>
+                                    <constraint firstAttribute="width" secondItem="4A4-jI-BUX" secondAttribute="height" multiplier="1:1" id="O78-Af-FY8"/>
+                                    <constraint firstItem="qJo-Ns-C4A" firstAttribute="width" secondItem="4A4-jI-BUX" secondAttribute="width" multiplier="1/2" id="dqx-gy-nLg"/>
+                                    <constraint firstItem="BuD-UN-fDd" firstAttribute="leading" secondItem="4A4-jI-BUX" secondAttribute="leading" constant="50" id="kEq-eq-BQa"/>
+                                    <constraint firstItem="BuD-UN-fDd" firstAttribute="width" secondItem="4A4-jI-BUX" secondAttribute="width" multiplier="1/2" id="s5M-Rq-Dh1"/>
+                                    <constraint firstItem="qJo-Ns-C4A" firstAttribute="leading" secondItem="BuD-UN-fDd" secondAttribute="leading" id="znP-cZ-Fuu"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkq-Tw-3Or">
-                                <rect key="frame" x="50" y="122" width="500" height="43"/>
-                                <string key="text">„It’s end of month but where 
-the hell is all my money gone?“</string>
-                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Nch-cY-48v">
+                                <rect key="frame" x="40" y="449" width="520" height="50.5"/>
+                                <string key="text">spave helps you to keep track of your every day spendings and motivates you to achieve your savings target. 
+</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tkq-Tw-3Or" firstAttribute="leading" secondItem="zBm-kx-yX7" secondAttribute="leadingMargin" constant="30" id="14W-Ed-NyI"/>
-                            <constraint firstItem="gqd-EQ-1iW" firstAttribute="top" secondItem="z9X-X0-vEK" secondAttribute="bottom" multiplier="2" id="DcX-EV-euZ"/>
-                            <constraint firstItem="5vd-JN-Aia" firstAttribute="top" secondItem="y2G-ni-efz" secondAttribute="bottom" constant="20" id="JId-ZY-J6t"/>
-                            <constraint firstItem="gqd-EQ-1iW" firstAttribute="centerX" secondItem="zBm-kx-yX7" secondAttribute="centerX" id="Nxq-WE-cVw"/>
-                            <constraint firstItem="tkq-Tw-3Or" firstAttribute="top" secondItem="gqd-EQ-1iW" secondAttribute="bottom" constant="39" id="TfW-4Q-zEP"/>
-                            <constraint firstItem="5vd-JN-Aia" firstAttribute="centerX" secondItem="zBm-kx-yX7" secondAttribute="centerX" id="ThF-xU-CKM"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="tkq-Tw-3Or" secondAttribute="trailing" constant="30" id="UmU-uH-EWc"/>
-                            <constraint firstItem="y2G-ni-efz" firstAttribute="centerX" secondItem="zBm-kx-yX7" secondAttribute="centerX" id="WD3-I5-07B"/>
-                            <constraint firstItem="T60-S5-AtP" firstAttribute="top" secondItem="5vd-JN-Aia" secondAttribute="bottom" constant="30" id="g22-gU-QgH"/>
-                            <constraint firstItem="T60-S5-AtP" firstAttribute="centerX" secondItem="zBm-kx-yX7" secondAttribute="centerX" id="q2q-i9-Pur"/>
-                            <constraint firstItem="y2G-ni-efz" firstAttribute="top" secondItem="tkq-Tw-3Or" secondAttribute="bottom" constant="20" id="x4O-1z-ixb"/>
+                            <constraint firstAttribute="trailing" secondItem="5vd-JN-Aia" secondAttribute="trailing" constant="40" id="9PI-fK-zCM"/>
+                            <constraint firstItem="5vd-JN-Aia" firstAttribute="centerX" secondItem="zBm-kx-yX7" secondAttribute="centerX" id="Hms-ur-S9d"/>
+                            <constraint firstItem="4A4-jI-BUX" firstAttribute="height" secondItem="zBm-kx-yX7" secondAttribute="height" multiplier="1/2" id="HyG-IQ-eOU"/>
+                            <constraint firstItem="Nch-cY-48v" firstAttribute="leading" secondItem="zBm-kx-yX7" secondAttribute="leading" constant="40" id="Q2f-cy-Rc3"/>
+                            <constraint firstItem="4A4-jI-BUX" firstAttribute="top" secondItem="z9X-X0-vEK" secondAttribute="bottom" constant="40" id="aee-a2-vzX"/>
+                            <constraint firstItem="5vd-JN-Aia" firstAttribute="top" secondItem="4A4-jI-BUX" secondAttribute="bottom" constant="40" id="j4O-Rt-D67"/>
+                            <constraint firstAttribute="trailing" secondItem="Nch-cY-48v" secondAttribute="trailing" constant="40" id="ooi-1v-wF9"/>
+                            <constraint firstItem="5vd-JN-Aia" firstAttribute="leading" secondItem="zBm-kx-yX7" secondAttribute="leading" constant="40" id="pTg-GV-rkG"/>
+                            <constraint firstItem="Nch-cY-48v" firstAttribute="top" secondItem="5vd-JN-Aia" secondAttribute="bottom" constant="20" id="tBW-6V-FuK"/>
+                            <constraint firstItem="4A4-jI-BUX" firstAttribute="centerX" secondItem="zBm-kx-yX7" secondAttribute="centerX" id="ujn-rc-13G"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="progressRing" destination="4A4-jI-BUX" id="fbD-cp-DKA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k3b-Mh-p0C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -112,79 +121,36 @@ the hell is all my money gone?“</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWt-0L-SJA">
-                                <rect key="frame" x="264" y="40" width="73" height="43"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SET YOUR SAVINGS GOAL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sun-bD-S1b">
-                                <rect key="frame" x="197" y="108" width="206" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.23529411759999999" green="0.69019607839999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just tell spave how much money you wanna save per month and what your monthly budget is. The rest is math spave does for you. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jH-pD-h7V">
-                                <rect key="frame" x="50" y="129" width="500" height="34"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jH-pD-h7V">
+                                <rect key="frame" x="50" y="224.5" width="500" height="151"/>
+                                <string key="text">...tracks spendings super fast
+
+...estimates your monthly savings
+
+...calculates your daily budget
+
+…supports tracking in different currencies for frequent travellers
+
+...lets you see your spendings on a map</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRACK ALL EXPENSES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfo-4W-hgm">
-                                <rect key="frame" x="212" y="193" width="177" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="spave..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sun-bD-S1b">
+                                <rect key="frame" x="271" y="183.5" width="59" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.23529411759999999" green="0.69019607839999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We made it extremely fast to track every expense. Even when you are standing at the supermarket cash point. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nG3-Nj-Yup">
-                                <rect key="frame" x="50" y="214" width="500" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMd-Fg-aT7">
-                                <rect key="frame" x="174" y="277" width="253" height="21"/>
-                                <string key="text">GET ENGAGED TO SAVE MONEY
-</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.23529411759999999" green="0.69019607839999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Each day spave calculates your estimated monthly savings. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9T-dT-vlF">
-                                <rect key="frame" x="50" y="298" width="500" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Let's go, set your goal! -&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEF-rZ-tf4">
-                                <rect key="frame" x="125" y="480" width="196" height="21"/>
-                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="17"/>
-                                <color key="textColor" red="0.16078431369999999" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="OMd-Fg-aT7" firstAttribute="centerX" secondItem="Vfb-WY-8yj" secondAttribute="centerX" id="2qk-b8-smB"/>
-                            <constraint firstItem="DZg-fj-g3Q" firstAttribute="top" secondItem="TEF-rZ-tf4" secondAttribute="bottom" constant="60" id="2w8-qa-ZBM"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="nG3-Nj-Yup" secondAttribute="trailing" constant="30" id="6gl-6U-dmz"/>
-                            <constraint firstItem="Sun-bD-S1b" firstAttribute="top" secondItem="NWt-0L-SJA" secondAttribute="bottom" multiplier="1.3" id="9KB-Zg-ec8"/>
-                            <constraint firstItem="nG3-Nj-Yup" firstAttribute="leading" secondItem="Vfb-WY-8yj" secondAttribute="leadingMargin" constant="30" id="E3d-Rp-FxD"/>
-                            <constraint firstItem="OMd-Fg-aT7" firstAttribute="top" secondItem="nG3-Nj-Yup" secondAttribute="bottom" constant="30" id="ETf-aZ-Kou"/>
-                            <constraint firstItem="TEF-rZ-tf4" firstAttribute="centerX" secondItem="Vfb-WY-8yj" secondAttribute="centerX" id="L0i-nb-zPf"/>
-                            <constraint firstItem="nG3-Nj-Yup" firstAttribute="centerX" secondItem="Vfb-WY-8yj" secondAttribute="centerX" id="PnM-ta-wkC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="i9T-dT-vlF" secondAttribute="trailing" constant="30" id="Pya-YL-7kU"/>
-                            <constraint firstItem="Sfo-4W-hgm" firstAttribute="top" secondItem="9jH-pD-h7V" secondAttribute="bottom" constant="30" id="Q0R-ml-H3V"/>
+                            <constraint firstItem="9jH-pD-h7V" firstAttribute="centerY" secondItem="Vfb-WY-8yj" secondAttribute="centerY" id="32T-kU-BFu"/>
+                            <constraint firstItem="9jH-pD-h7V" firstAttribute="centerX" secondItem="Vfb-WY-8yj" secondAttribute="centerX" id="BUb-5x-kSl"/>
                             <constraint firstItem="Sun-bD-S1b" firstAttribute="centerX" secondItem="Vfb-WY-8yj" secondAttribute="centerX" id="Qnm-PJ-RlR"/>
-                            <constraint firstItem="i9T-dT-vlF" firstAttribute="top" secondItem="OMd-Fg-aT7" secondAttribute="bottom" id="UDK-FF-7Xq"/>
                             <constraint firstItem="9jH-pD-h7V" firstAttribute="leading" secondItem="Vfb-WY-8yj" secondAttribute="leadingMargin" constant="30" id="W0K-mX-sQT"/>
-                            <constraint firstItem="NWt-0L-SJA" firstAttribute="top" secondItem="UMc-uy-x0l" secondAttribute="bottom" multiplier="2" id="gXo-yA-8Uv"/>
-                            <constraint firstItem="Sfo-4W-hgm" firstAttribute="centerX" secondItem="Vfb-WY-8yj" secondAttribute="centerX" id="hS4-LI-A7A"/>
-                            <constraint firstItem="9jH-pD-h7V" firstAttribute="top" secondItem="Sun-bD-S1b" secondAttribute="bottom" id="mCf-Jd-dXK"/>
-                            <constraint firstItem="NWt-0L-SJA" firstAttribute="centerX" secondItem="Vfb-WY-8yj" secondAttribute="centerX" id="mZk-Xx-lAP"/>
+                            <constraint firstItem="9jH-pD-h7V" firstAttribute="top" secondItem="Sun-bD-S1b" secondAttribute="bottom" constant="20" id="hix-9y-iXb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9jH-pD-h7V" secondAttribute="trailing" constant="30" id="v28-Rk-vKo"/>
-                            <constraint firstItem="i9T-dT-vlF" firstAttribute="leading" secondItem="Vfb-WY-8yj" secondAttribute="leadingMargin" constant="30" id="voV-nr-QHr"/>
-                            <constraint firstItem="nG3-Nj-Yup" firstAttribute="top" secondItem="Sfo-4W-hgm" secondAttribute="bottom" id="yiZ-v8-FRH"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -232,8 +198,8 @@ the hell is all my money gone?“</string>
                                                 <color key="textColor" red="0.16078431372549018" green="0.20392156862745098" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="expected savings in month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsq-sZ-Oz8">
-                                                <rect key="frame" x="55" y="161" width="139" height="15"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Expected savings this month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsq-sZ-Oz8">
+                                                <rect key="frame" x="45" y="161" width="149" height="15"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="12"/>
                                                 <color key="textColor" red="0.66666666666666663" green="0.68235294117647061" blue="0.70588235294117641" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -278,8 +244,8 @@ the hell is all my money gone?“</string>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="spent today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zsx-bZ-JkI">
-                                                        <rect key="frame" x="122" y="82" width="57" height="12"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spent today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zsx-bZ-JkI">
+                                                        <rect key="frame" x="121" y="82" width="59" height="12"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                         <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -301,8 +267,8 @@ the hell is all my money gone?“</string>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="spent this week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMM-Lo-H6M">
-                                                        <rect key="frame" x="112" y="82" width="76" height="12"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spent this week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMM-Lo-H6M">
+                                                        <rect key="frame" x="112" y="82" width="77" height="12"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                         <color key="textColor" red="0.66666666666666663" green="0.68235294117647061" blue="0.70588235294117641" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -481,8 +447,8 @@ the hell is all my money gone?“</string>
                                 <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly savings goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMq-Am-lBe">
-                                <rect key="frame" x="230" y="329" width="140" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Monthly savings target" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMq-Am-lBe">
+                                <rect key="frame" x="218" y="329" width="152" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" red="0.66666666669999997" green="0.68235294120000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -954,11 +920,10 @@ the hell is all my money gone?“</string>
     </scenes>
     <resources>
         <image name="ExpensesIcon" width="23" height="20"/>
-        <image name="Money" width="68" height="290"/>
         <image name="Settings" width="23" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="D3g-YM-jPj"/>
+        <segue reference="EIN-HT-kxZ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

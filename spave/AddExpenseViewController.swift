@@ -119,18 +119,32 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
     
     @IBAction func handlePan(recognizer: UIPanGestureRecognizer) {
         let translation = recognizer.translationInView(self.view)
-
+        let velocity = recognizer.velocityInView(self.view)
+        
         if (recognizer.state == .Changed) {
             if (translation.y < -10) {
-            
-                expenseToTrack += 1
-            
+                
+                if (-velocity.y > 500) {
+                    //super fast speed
+                    expenseToTrack += 10
+                } else {
+                    //normal speed
+                    expenseToTrack += 1
+                }
+                
                 recognizer.setTranslation(CGPointZero, inView: self.view)
 
                 
             } else if (translation.y > 10) {
         
-                expenseToTrack -= 1
+                
+                if (velocity.y > 500) {
+                    //super fast speed
+                    expenseToTrack -= 10
+                } else {
+                    //normal speed
+                    expenseToTrack -= 1
+                }
                 recognizer.setTranslation(CGPointZero, inView: self.view)
             }
         }

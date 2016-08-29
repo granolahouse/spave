@@ -90,18 +90,21 @@ class CustomProgressRing: UIView {
   
     
     func setProgress(progress: CGFloat, duration: CGFloat) {
-        print("ser progress: \(progress)")
+        
+        
+        
         let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         animation.fromValue = myLayer.strokeEnd
         animation.toValue = progress
         
         animation.delegate = self
         animation.cumulative = true
         
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        animation.duration = CFTimeInterval(duration)
         
         myLayer.strokeEnd = progress
+        myLayer.speed = 0.1
+        
         layer.addAnimation(animation, forKey: "strokeEnd")
     }
 
