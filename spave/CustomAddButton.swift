@@ -15,7 +15,7 @@ class CustomAddButton: UIButton {
     
     var path: UIBezierPath?
     
-
+    @IBInspectable var strokeColor: UIColor = UIDesign().blue
 
     
     override init(frame: CGRect) {
@@ -29,8 +29,6 @@ class CustomAddButton: UIButton {
     
     override func drawRect(rect: CGRect) {
         
-        print("Rect with: \(rect.width-10)")
-        print("Rect height: \(rect.height-10)")
         
         let rectWithPadding = CGRect(x: rect.minX+5, y: rect.minY+5, width: rect.width-10.0, height: rect.height-10.0)
         
@@ -38,7 +36,7 @@ class CustomAddButton: UIButton {
         
         self.path!.lineWidth = 3
         
-        UIDesign().blue.setStroke()
+        strokeColor.setStroke()
         self.path!.stroke()
         
         

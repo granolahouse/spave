@@ -14,6 +14,7 @@ import CoreData
 class SettingsViewController: UIViewController {
     
     
+    @IBOutlet weak var changeCurrencyButton: CustomAddButton!
     @IBOutlet weak var textfieldForSavingsGoal: UITextField!
     @IBOutlet weak var textfieldForMonthlyBudget: UITextField!
     @IBOutlet weak var labelForCalculatedDailyLimit: UILabel!
@@ -21,6 +22,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var resetDatabaseButton: UIButton!
     let defaults = NSUserDefaults.standardUserDefaults()
 
+    @IBOutlet weak var stackView: UIStackView!
     var dailyLimit = 0.0
     var numbersOfDaysInCurrentMonth = 0
     var fetchedResultsController : NSFetchedResultsController?
@@ -53,6 +55,16 @@ class SettingsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.currentDevice().orientation.isLandscape.boolValue {
+            print("Landscape")
+            stackView.axis = .Horizontal
+        } else {
+            stackView.axis = .Vertical
+        }
+    }
+    
     
     
     
@@ -203,11 +215,13 @@ class SettingsViewController: UIViewController {
         formatter.roundingMode = .RoundHalfEven
         formatter.maximumFractionDigits = 0
         
+        
         numbersOfDaysInCurrentMonth = calendar.component([.Day], fromDate: NSDate().endOfMonth())
         dailyLimit = (defaults.doubleForKey("monthlyBudget") - (defaults.doubleForKey("savingsGoal")))/Double(numbersOfDaysInCurrentMonth)
         textfieldForSavingsGoal.text = formatter.stringFromNumber(NSDecimalNumber(double: self.defaults.doubleForKey("savingsGoal")))
         textfieldForMonthlyBudget.text = formatter.stringFromNumber(NSDecimalNumber(double: self.defaults.doubleForKey("monthlyBudget")))
         labelForCalculatedDailyLimit.text = formatter.stringFromNumber(NSDecimalNumber(double: dailyLimit))
+        changeCurrencyButton.setTitle(currency.getCurrencySymbol(), forState: .Normal)
     }
     
 }
