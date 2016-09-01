@@ -74,8 +74,20 @@ class SettingsViewController: UIViewController {
     
     
     @IBAction func resetDatabase(sender: AnyObject) {
-        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        delegate.resetDatabase()
+        
+        let alert = UIAlertController(title: "Are you sure?", message: "Do you really want to delete all your data? You can't undo this!", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: {(UIAlertAction) -> Void in
+            alert.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default, handler: {(UIAlertAction) -> Void in
+            let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            delegate.resetDatabase()
+        }))
+        
+        
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     
