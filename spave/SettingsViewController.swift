@@ -28,6 +28,8 @@ class SettingsViewController: UIViewController {
     var fetchedResultsController : NSFetchedResultsController?
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,9 +54,12 @@ class SettingsViewController: UIViewController {
 
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         if UIDevice.currentDevice().orientation.isLandscape.boolValue {

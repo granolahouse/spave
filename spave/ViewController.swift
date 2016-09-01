@@ -31,6 +31,7 @@ class ViewController: UIViewController {
     @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet weak var viewForSpentToday: UIView!
     
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var seperatorLine: CustomSeperatorLine!
     @IBOutlet weak var viewLeftNumber: UIView!
     @IBOutlet weak var buttonForSpendings: UIBarButtonItem!
@@ -246,6 +247,15 @@ class ViewController: UIViewController {
         
     }
     
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.currentDevice().orientation.isLandscape.boolValue {
+            print("Landscape")
+            stackView.axis = .Horizontal
+        } else {
+            stackView.axis = .Vertical
+        }
+    }
+    
     
     
     override func didReceiveMemoryWarning() {
@@ -333,7 +343,6 @@ class ViewController: UIViewController {
         
         let savedThisMonthAsDouble = monthlyBudgetAsDouble - (spentThisMonthAsDouble + (Double(numberOfDaysUntilEndOfMonth-1))*dailyLimit)
         print("debug for Calculate savings: savedThisMonth = \(savedThisMonthAsDouble)")
-        
         
         return NSDecimalNumber(double: savedThisMonthAsDouble)
         
