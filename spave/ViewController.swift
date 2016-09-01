@@ -317,6 +317,7 @@ class ViewController: UIViewController {
         
         
         let numberOfDaysUntilEndOfMonth = NSDate().daysBetweenDates(NSDate(), endDate: NSDate().endOfMonth())
+        print("debug for Calculate savings: numberOfDaysUntilEndOfMonth = \(numberOfDaysUntilEndOfMonth)")
         let spentThisMonth = spentInDateInterval(NSDate().startOfMonth(), endDate: NSDate())
         
         
@@ -328,9 +329,9 @@ class ViewController: UIViewController {
         print("debug for Calculate savings: spentThisMonth = \(spentThisMonthAsDouble)")
         
         let dailyLimit = (monthlyBudgetAsDouble - (savingsGoal!.amount.doubleValue))/Double(numbersOfDaysInCurrentMonth)
-        print("debug for Calculate savings: dailyLimiz = \(dailyLimit)")
+        print("debug for Calculate savings: dailyLimit = \(dailyLimit)")
         
-        let savedThisMonthAsDouble = monthlyBudgetAsDouble - spentThisMonthAsDouble + (Double(numberOfDaysUntilEndOfMonth-1))*dailyLimit
+        let savedThisMonthAsDouble = monthlyBudgetAsDouble - (spentThisMonthAsDouble + (Double(numberOfDaysUntilEndOfMonth-1))*dailyLimit)
         print("debug for Calculate savings: savedThisMonth = \(savedThisMonthAsDouble)")
         
         
