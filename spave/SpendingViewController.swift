@@ -31,6 +31,9 @@ class SpendingViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
         let defaults = NSUserDefaults.standardUserDefaults()
         categories = defaults.objectForKey("categories") as? [String]
+        categories = categories!.sort({$0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending})
+        
+
         print(categories)
         
         descriptionTextfield.delegate = self
@@ -70,8 +73,9 @@ class SpendingViewController: UIViewController, UITextFieldDelegate, UIPickerVie
             //Load Category
             if let defaultCategory = expense.category {
                 
-                let defaultRowIndex = categories!.indexOf(defaultCategory)
-                categoryPicker.selectRow(defaultRowIndex!, inComponent: 0, animated: true)
+                if let defaultRowIndex = categories!.indexOf(defaultCategory) {
+                    categoryPicker.selectRow(defaultRowIndex, inComponent: 0, animated: true)
+                }
             }
             
             var money: Money?

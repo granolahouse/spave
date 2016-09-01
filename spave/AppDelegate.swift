@@ -15,8 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     let stack = CoreDataStack(modelName: "Model")!
-    
-    
+    let categories = ["Misc", "Mobility", "Food", "Groceries", "Drinks", "Restaurant", "Friends", "Entertainment", "Free time", "Clothes", "Education", "Kids", "Pets", "Hobby", "Health"]
     
     func resetDatabase(){
         
@@ -50,8 +49,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if defaults.boolForKey("appLaunchedFirstTime") {
             
-            if defaults.objectForKey("categories") == nil {
-                defaults.setObject(["misc","food", "fun", "travel"], forKey: "categories")
+            
+            
+            
+            
+            
+            if defaults.objectForKey("categories") == nil || defaults.objectForKey("categories") as! [String] != categories {
+                defaults.setObject(categories, forKey: "categories")
             }
             
             if defaults.objectForKey("usersDefaultCurrency") == nil {
@@ -83,7 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             defaults.setBool(true, forKey: "appLaunchedFirstTime")
             
             //Categories
-            defaults.setObject(["misc","food", "fun", "travel"], forKey: "categories")
+            defaults.setObject(categories, forKey: "categories")
             
             //Monthly budget
             defaults.setDouble(800, forKey: "monthlyBudget")

@@ -59,6 +59,7 @@ class AddExpenseViewController: UIViewController, UIGestureRecognizerDelegate, C
         
         
         categories = defaults.objectForKey("categories") as? [String]
+        categories = categories!.sort({$0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending})
         
         self.closeButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2/2))
         
