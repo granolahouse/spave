@@ -443,6 +443,7 @@ class ViewController: UIViewController {
                 chartColorSet.append(pink)
             }
         }
+        
         let chartDataSet = BarChartDataSet(values: dataEntries, label: "money spent")
         
         //chartDataSet.barSpace = 0.8
@@ -462,6 +463,7 @@ class ViewController: UIViewController {
         ll.drawLabelEnabled = false
         ll.lineColor = UIDesign().red
         ll.lineWidth = 0.5
+        
         barChartView.data = chartData
         
     }

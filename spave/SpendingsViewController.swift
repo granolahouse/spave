@@ -41,7 +41,7 @@ class SpendingsViewController: UITableViewController {
             } catch {
                 
             }
-            tableView.reloadData()
+            self.tableView.reloadData()
         }
     }
     
@@ -79,8 +79,12 @@ class SpendingsViewController: UITableViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return (fetchedResultsController?.fetchedObjects?.count)!
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
