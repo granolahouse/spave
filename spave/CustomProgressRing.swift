@@ -27,8 +27,8 @@ class CustomProgressRing: UIView {
             } else {
                 setProgress(0, duration: 100)
             }
-            myLayer.strokeColor = UIDesign().blue.CGColor
-            myLayer.shadowColor = UIDesign().blue.CGColor
+            myLayer.strokeColor = UIDesign().blue.cgColor
+            myLayer.shadowColor = UIDesign().blue.cgColor
         }
     }
     
@@ -39,7 +39,7 @@ class CustomProgressRing: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        self.backgroundColor = UIColor.blackColor()
+        self.backgroundColor = UIColor.black
         
         bezier = UIBezierPath(arcCenter: CGPoint(x: bounds.width/2, y: bounds.height/2),
                               radius: (self.bounds.width)/2,
@@ -47,24 +47,24 @@ class CustomProgressRing: UIView {
                               endAngle: CGFloat(M_PI * 2 - M_PI_2),
                               clockwise: true)
         
-        backgroundCircleLayer.path = bezier.CGPath
-        backgroundCircleLayer.fillColor = UIColor.clearColor().CGColor
-        backgroundCircleLayer.strokeColor = UIDesign().lightGrey.CGColor
+        backgroundCircleLayer.path = bezier.cgPath
+        backgroundCircleLayer.fillColor = UIColor.clear.cgColor
+        backgroundCircleLayer.strokeColor = UIDesign().lightGrey.cgColor
         backgroundCircleLayer.lineWidth = 3.0;
         backgroundCircleLayer.lineCap = kCALineCapRound
         backgroundCircleLayer.strokeStart = 0
         backgroundCircleLayer.strokeEnd = 1
         layer.addSublayer(backgroundCircleLayer)
         
-        myLayer.path = bezier.CGPath
-        myLayer.fillColor = UIColor.clearColor().CGColor
-        myLayer.strokeColor = UIDesign().blue.CGColor
+        myLayer.path = bezier.cgPath
+        myLayer.fillColor = UIColor.clear.cgColor
+        myLayer.strokeColor = UIDesign().blue.cgColor
         myLayer.lineWidth = 3.0;
         myLayer.lineCap = kCALineCapRound
         myLayer.strokeStart = 0
         myLayer.strokeEnd = 1
         
-        myLayer.shadowColor = UIDesign().blue.CGColor
+        myLayer.shadowColor = UIDesign().blue.cgColor
         myLayer.shadowRadius = 8
         myLayer.shadowOpacity = 1
         
@@ -74,14 +74,14 @@ class CustomProgressRing: UIView {
         layer.addSublayer(myLayer)
 
     }
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         bezier = UIBezierPath(arcCenter: CGPoint(x: bounds.width/2, y: bounds.height/2),
                               radius: (self.bounds.width)/2,
                               startAngle: CGFloat(-M_PI_2),
                               endAngle: CGFloat(M_PI * 2 - M_PI_2),
                               clockwise: true)
-        backgroundCircleLayer.path = bezier.CGPath
-        myLayer.path = bezier.CGPath
+        backgroundCircleLayer.path = bezier.cgPath
+        myLayer.path = bezier.cgPath
         
     }
     
@@ -89,7 +89,7 @@ class CustomProgressRing: UIView {
     
   
     
-    func setProgress(progress: CGFloat, duration: CGFloat) {
+    func setProgress(_ progress: CGFloat, duration: CGFloat) {
         
         
         
@@ -98,14 +98,14 @@ class CustomProgressRing: UIView {
         animation.fromValue = myLayer.strokeEnd
         animation.toValue = progress
         
-        animation.delegate = self
-        animation.cumulative = true
+        //animation.delegate = self
+        animation.isCumulative = true
         
         
         myLayer.strokeEnd = progress
         myLayer.speed = 0.1
         
-        layer.addAnimation(animation, forKey: "strokeEnd")
+        layer.add(animation, forKey: "strokeEnd")
     }
 
 }

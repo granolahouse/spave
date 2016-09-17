@@ -17,6 +17,7 @@
 		2453F4801D6D976D005AE56D /* ChooseCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2453F47F1D6D976D005AE56D /* ChooseCurrencyViewController.swift */; };
 		2453F4821D747F03005AE56D /* OnboardingPage1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2453F4811D747F03005AE56D /* OnboardingPage1ViewController.swift */; };
 		247ECE0F1D5B99390099AABF /* CustomProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247ECE0E1D5B99390099AABF /* CustomProgressRing.swift */; };
+		248864CB1D8D7658006081AD /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 248864C41D8D75EC006081AD /* Charts.framework */; };
 		2494B1C71D5E3309005EFB68 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2494B1C61D5E3309005EFB68 /* AddExpenseViewController.swift */; };
 		249C5CE01D53718600EE4853 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 249C5CDF1D53718600EE4853 /* Info.plist */; };
 		249C5CE21D54A0F100EE4853 /* CustomAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249C5CE11D54A0F100EE4853 /* CustomAddButton.swift */; };
@@ -37,10 +38,37 @@
 		24E1B0901D51FCD1008BDAD4 /* spaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E1B08F1D51FCD1008BDAD4 /* spaveTests.swift */; };
 		24E1B09B1D51FCD1008BDAD4 /* spaveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E1B09A1D51FCD1008BDAD4 /* spaveUITests.swift */; };
 		24F9942A1D54DB7900C516FA /* CustomSeperatorLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F994291D54DB7900C516FA /* CustomSeperatorLine.swift */; };
-		B6A41E05AB3BC764305D505A /* Pods_spave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B95B9D56FFD89D695C7A514 /* Pods_spave.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		248864C31D8D75EC006081AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 248864BC1D8D75EB006081AD /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+		248864C51D8D75EC006081AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 248864BC1D8D75EB006081AD /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+		248864C71D8D75EC006081AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 248864BC1D8D75EB006081AD /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65B3F5BF1C7370BE000983D0;
+			remoteInfo = "Charts-OSX";
+		};
+		248864C91D8D75EC006081AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 248864BC1D8D75EB006081AD /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
+			remoteInfo = ChartsTests;
+		};
 		24E1B08C1D51FCD1008BDAD4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 24E1B06C1D51FCD1008BDAD4 /* Project object */;
@@ -68,6 +96,7 @@
 		2453F47F1D6D976D005AE56D /* ChooseCurrencyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCurrencyViewController.swift; sourceTree = "<group>"; };
 		2453F4811D747F03005AE56D /* OnboardingPage1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPage1ViewController.swift; sourceTree = "<group>"; };
 		247ECE0E1D5B99390099AABF /* CustomProgressRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomProgressRing.swift; sourceTree = "<group>"; };
+		248864BC1D8D75EB006081AD /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../Downloads/Charts-master/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
 		2494B1C61D5E3309005EFB68 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
 		249C5CDF1D53718600EE4853 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		249C5CE11D54A0F100EE4853 /* CustomAddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAddButton.swift; sourceTree = "<group>"; };
@@ -93,7 +122,6 @@
 		24E1B09A1D51FCD1008BDAD4 /* spaveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spaveUITests.swift; sourceTree = "<group>"; };
 		24E1B09C1D51FCD1008BDAD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24F994291D54DB7900C516FA /* CustomSeperatorLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSeperatorLine.swift; sourceTree = "<group>"; };
-		3B95B9D56FFD89D695C7A514 /* Pods_spave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE6C31BC513D3FECFE96E1D /* Pods-spave.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spave.debug.xcconfig"; path = "Pods/Target Support Files/Pods-spave/Pods-spave.debug.xcconfig"; sourceTree = "<group>"; };
 		D0B8A2A099EB7E01910E6F5F /* Pods-spave.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spave.release.xcconfig"; path = "Pods/Target Support Files/Pods-spave/Pods-spave.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,7 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6A41E05AB3BC764305D505A /* Pods_spave.framework in Frameworks */,
+				248864CB1D8D7658006081AD /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +162,17 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		248864BD1D8D75EB006081AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				248864C41D8D75EC006081AD /* Charts.framework */,
+				248864C61D8D75EC006081AD /* Charts.framework */,
+				248864C81D8D75EC006081AD /* Charts.framework */,
+				248864CA1D8D75EC006081AD /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		24E1B06B1D51FCD1008BDAD4 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +182,7 @@
 				24E1B0751D51FCD1008BDAD4 /* Products */,
 				B3A9EE0BC653C66BB471BA3F /* Pods */,
 				BD58CD825B585B808B3D46FB /* Frameworks */,
+				248864BC1D8D75EB006081AD /* Charts.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -251,7 +291,6 @@
 		BD58CD825B585B808B3D46FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3B95B9D56FFD89D695C7A514 /* Pods_spave.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -328,13 +367,16 @@
 					24E1B0731D51FCD1008BDAD4 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 9GPRB6M9CA;
+						LastSwiftMigration = 0800;
 					};
 					24E1B08A1D51FCD1008BDAD4 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 24E1B0731D51FCD1008BDAD4;
 					};
 					24E1B0951D51FCD1008BDAD4 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 24E1B0731D51FCD1008BDAD4;
 					};
 				};
@@ -350,6 +392,12 @@
 			mainGroup = 24E1B06B1D51FCD1008BDAD4;
 			productRefGroup = 24E1B0751D51FCD1008BDAD4 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 248864BD1D8D75EB006081AD /* Products */;
+					ProjectRef = 248864BC1D8D75EB006081AD /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				24E1B0731D51FCD1008BDAD4 /* spave */,
@@ -358,6 +406,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		248864C41D8D75EC006081AD /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 248864C31D8D75EC006081AD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		248864C61D8D75EC006081AD /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 248864C51D8D75EC006081AD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		248864C81D8D75EC006081AD /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 248864C71D8D75EC006081AD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		248864CA1D8D75EC006081AD /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 248864C91D8D75EC006081AD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		24E1B0721D51FCD1008BDAD4 /* Resources */ = {
@@ -604,6 +683,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = granolahouse.spave;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -619,6 +699,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = granolahouse.spave;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -631,6 +712,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = granolahouse.spaveTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/spave.app/spave";
 			};
 			name = Debug;
@@ -643,6 +725,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = granolahouse.spaveTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/spave.app/spave";
 			};
 			name = Release;
@@ -654,6 +737,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = granolahouse.spaveUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = spave;
 			};
 			name = Debug;
@@ -665,6 +749,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = granolahouse.spaveUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = spave;
 			};
 			name = Release;

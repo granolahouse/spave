@@ -37,46 +37,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         
         
         //Settings with user defaults
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         
         
         
         
-        if defaults.boolForKey("appLaunchedFirstTime") {
+        if defaults.bool(forKey: "appLaunchedFirstTime") {
             
             
             
             
             
             
-            if defaults.objectForKey("categories") == nil || defaults.objectForKey("categories") as! [String] != categories {
-                defaults.setObject(categories, forKey: "categories")
+            if defaults.object(forKey: "categories") == nil || defaults.object(forKey: "categories") as! [String] != categories {
+                defaults.set(categories, forKey: "categories")
             }
             
-            if defaults.objectForKey("usersDefaultCurrency") == nil {
-                defaults.setObject(Money.CurrencyIso.USD.rawValue, forKey: "usersDefaultCurrency")
+            if defaults.object(forKey: "usersDefaultCurrency") == nil {
+                defaults.set(Money.CurrencyIso.USD.rawValue, forKey: "usersDefaultCurrency")
             }
             
-            if defaults.doubleForKey("monthlyBudget") == 0 {
-                defaults.setDouble(800, forKey: "monthlyBudget")
+            if defaults.double(forKey: "monthlyBudget") == 0 {
+                defaults.set(800, forKey: "monthlyBudget")
             }
-            if defaults.doubleForKey("savingsGoal") == 0 {
-                defaults.setDouble(60, forKey: "savingsGoal")
+            if defaults.double(forKey: "savingsGoal") == 0 {
+                defaults.set(60, forKey: "savingsGoal")
             }
             
             //exchange Rates
-            if defaults.objectForKey("currencyExchangeRates") == nil {
+            if defaults.object(forKey: "currencyExchangeRates") == nil {
                 //load exchange rates
                 var rates: [String: AnyObject]
                 do {
                     let m = Money(amount: 1, currencyIso: .EUR)
                     rates = try m.getCurrencyExchangeRatesFromWebService()
-                    defaults.setObject(rates, forKey: "currencyExchangeRates")
+                    defaults.set(rates, forKey: "currencyExchangeRates")
                 } catch {
                     //shit - We could load some example rates instead?
                 }
@@ -84,21 +84,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         } else {
             //app was launched the first time, so we create some NSDefaults and set their default
-            defaults.setBool(true, forKey: "appLaunchedFirstTime")
+            defaults.set(true, forKey: "appLaunchedFirstTime")
             
             //Categories
-            defaults.setObject(categories, forKey: "categories")
+            defaults.set(categories, forKey: "categories")
             
             //Monthly budget
-            defaults.setDouble(800, forKey: "monthlyBudget")
-            defaults.setDouble(60, forKey: "savingsGoal")
+            defaults.set(800, forKey: "monthlyBudget")
+            defaults.set(60, forKey: "savingsGoal")
 
             
             //defaults.setInteger(800, forKey: "monthlyBudget")
             //defaults.setInteger(60, forKey: "savingsGoal")
             
             //Users default currency
-            defaults.setObject(Money.CurrencyIso.USD.rawValue, forKey: "usersDefaultCurrency")
+            defaults.set(Money.CurrencyIso.USD.rawValue, forKey: "usersDefaultCurrency")
             
             //exchange Rates
             
@@ -107,7 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             do {
                 let m = Money(amount: 1, currencyIso: .EUR)
                 rates = try m.getCurrencyExchangeRatesFromWebService()
-                defaults.setObject(rates, forKey: "currencyExchangeRates")
+                defaults.set(rates, forKey: "currencyExchangeRates")
             } catch {
                 //shit - We could load some example rates instead?
             }
@@ -129,28 +129,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func applicationWillResignActive(application: UIApplication) {
+    func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
         stack.save()
         
     }
     
-    func applicationDidEnterBackground(application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         stack.save()
     }
     
-    func applicationWillEnterForeground(application: UIApplication) {
+    func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
     
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
     
-    func applicationWillTerminate(application: UIApplication) {
+    func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     

@@ -26,12 +26,12 @@ class SpendingViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     override func viewDidLoad() {
         
         
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
         
-        let defaults = NSUserDefaults.standardUserDefaults()
-        categories = defaults.objectForKey("categories") as? [String]
-        categories = categories!.sort({$0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending})
+        let defaults = UserDefaults.standard
+        categories = defaults.object(forKey: "categories") as? [String]
+        categories = categories!.sorted(by: {$0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending})
         
 
         print(categories)
@@ -41,9 +41,9 @@ class SpendingViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         if let expense = expense {
             
             //Load Date
-            let dateFormatter = NSDateFormatter()
+            let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "EEEE, h:s a"
-            let humanReadableExpenseDate = dateFormatter.stringFromDate(expense.date!)
+            let humanReadableExpenseDate = dateFormatter.string(from: expense.date! as Date)
             dateLabel.text = humanReadableExpenseDate
             
             
@@ -67,13 +67,13 @@ class SpendingViewController: UIViewController, UITextFieldDelegate, UIPickerVie
                 self.map.addAnnotation(objectAnnotation)
             } else {
                 //No location set
-                self.map.hidden = true
+                self.map.isHidden = true
             }
             
             //Load Category
             if let defaultCategory = expense.category {
                 
-                if let defaultRowIndex = categories!.indexOf(defaultCategory) {
+                if let defaultRowIndex = categories!.index(of: defaultCategory) {
                     categoryPicker.selectRow(defaultRowIndex, inComponent: 0, animated: true)
                 }
             }
@@ -84,15 +84,15 @@ class SpendingViewController: UIViewController, UITextFieldDelegate, UIPickerVie
             if let currency = expense.currency {
                 money = Money(amount: expense.value!, currencyIsoString: currency)
             } else {
-                let defaultCurrency = defaults.objectForKey("usersDefaultCurrency") as! String
+                let defaultCurrency = defaults.object(forKey: "usersDefaultCurrency") as! String
                 money = Money(amount: expense.value!, currencyIsoString: defaultCurrency)
             }
             
-            let formatter = NSNumberFormatter()
+            let formatter = NumberFormatter()
             formatter.currencyCode = money!.currency!.rawValue
-            formatter.numberStyle = .CurrencyAccountingStyle
+            formatter.numberStyle = .currencyAccounting
             formatter.maximumFractionDigits = 0
-            label.text = formatter.stringFromNumber(money!.amount)
+            label.text = formatter.string(from: money!.amount)
 
             
         }
@@ -100,46 +100,46 @@ class SpendingViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     }
     
     //Textfield delegates
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         print("textfield left")
         if let expense = expense {
             expense.desc = textField.text
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print("return")
         return true
     }
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
     //Picker delegates
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         return categories!.count
     }
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         return categories![row]
         
     }
     
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let pickerLabel = UILabel()
         pickerLabel.textColor = UIDesign().darkBlue
         pickerLabel.text = categories![row]
-        pickerLabel.font = UIFont(name: ".SFUIText-Regular", size: 12)!
-        pickerLabel.textAlignment = NSTextAlignment.Center
+        //pickerLabel.font = UIFont(name: ".SFUIText-Regular", size: 12)!
+        pickerLabel.textAlignment = NSTextAlignment.center
         return pickerLabel
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         expense!.category = categories![row]
     }
 

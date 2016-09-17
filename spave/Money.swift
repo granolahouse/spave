@@ -11,10 +11,10 @@ import Foundation
 
 
 struct Money {
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = UserDefaults.standard
     
-    enum MoneyErrorType: ErrorType {
-        case AnyError
+    enum MoneyErrorType: Error {
+        case anyError
     }
    
     
@@ -123,28 +123,28 @@ struct Money {
             currencyStringForURL = currencyStringForURL+","+currency.rawValue
         }
         
-        let requestURL: NSURL = NSURL(string: "https://api.fixer.io/latest?symbols=\(currencyStringForURL)")!
-        if let data = NSData(contentsOfURL: requestURL) {
+        let requestURL: URL = URL(string: "https://api.fixer.io/latest?symbols=\(currencyStringForURL)")!
+        if let data = try? Data(contentsOf: requestURL) {
             do {
-                let json = try NSJSONSerialization.JSONObjectWithData(data, options:.AllowFragments) as! [String: AnyObject]
+                let json = try JSONSerialization.jsonObject(with: data, options:.allowFragments) as! [String: AnyObject]
             
                 print("successfully loaded rates from the webservice fixer.io")
                 return json["rates"] as! [String: AnyObject]
             
                 //Update defaults
-                defaults.setObject(json["rates"] as! [String: AnyObject], forKey: "currencyExchangeRates")
+                defaults.set(json["rates"] as! [String: AnyObject], forKey: "currencyExchangeRates")
             } catch {
                 print("error loading the rates from the webservice")
                 //lets return the data we have in the database
-                return defaults.objectForKey("currencyExchangeRates") as! [String: AnyObject]
+                return defaults.object(forKey: "currencyExchangeRates") as! [String: AnyObject]
             }
         } else {
-            return defaults.objectForKey("currencyExchangeRates") as! [String: AnyObject]
+            return defaults.object(forKey: "currencyExchangeRates") as! [String: AnyObject]
             print("++++11111 we used the local version of exchangeRates")
         }
     }
     
-    func getCurrencyExchangeRateBasedOnEUR(currencyIso: CurrencyIso) -> Double? {
+    func getCurrencyExchangeRateBasedOnEUR(_ currencyIso: CurrencyIso) -> Double? {
         var rates: [String: AnyObject]
             rates = getCurrencyExchangeRatesFromWebService()
             print("Rates array: \(rates)")
@@ -164,7 +164,7 @@ struct Money {
         
     }
     
-    mutating func convertMoneyToDifferentCurrency(newCurrency: CurrencyIso) throws -> Money {
+    mutating func convertMoneyToDifferentCurrency(_ newCurrency: CurrencyIso) throws -> Money {
         /* Todo
          Convert money to EUR
          convert moneyInEUR to new currency
@@ -183,7 +183,7 @@ struct Money {
                     print("EUR -> \(self.currency!.rawValue): \(exchangeRateEUR)")
                     
                     
-                    self = Money(amount: NSDecimalNumber(double: amount.doubleValue / exchangeRateEUR!), currencyIso: .EUR)
+                    self = Money(amount: NSDecimalNumber(value: amount.doubleValue / exchangeRateEUR! as Double), currencyIso: .EUR)
                     print("››››› \(self)")
                     
                 } catch {
@@ -198,7 +198,7 @@ struct Money {
             print("DEBUG: We need to convert to the users default currency")
             do {
                 let exchangeRateNew = try getCurrencyExchangeRateBasedOnEUR(newCurrency)
-                self = Money(amount: NSDecimalNumber(double: amount.doubleValue * exchangeRateNew!), currencyIso: newCurrency)
+                self = Money(amount: NSDecimalNumber(value: amount.doubleValue * exchangeRateNew! as Double), currencyIso: newCurrency)
                 print("DEBUG: successfully converted to \(newCurrency.rawValue) \(self)")
                 
             } catch {

@@ -20,12 +20,12 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var labelForCalculatedDailyLimit: UILabel!
     @IBOutlet weak var goButton: CustomAddButton!
     @IBOutlet weak var resetDatabaseButton: UIButton!
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = UserDefaults.standard
 
     @IBOutlet weak var stackView: UIStackView!
     var dailyLimit = 0.0
     var numbersOfDaysInCurrentMonth = 0
-    var fetchedResultsController : NSFetchedResultsController?
+    var fetchedResultsController : NSFetchedResultsController<Expense>?
     
     
     
@@ -33,11 +33,11 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        resetDatabaseButton.hidden = true
+        resetDatabaseButton.isHidden = true
         
         if navigationController != nil {
-            goButton.hidden = true
-            resetDatabaseButton.hidden = false
+            goButton.isHidden = true
+            resetDatabaseButton.isHidden = false
         }
         
         
@@ -50,7 +50,7 @@ class SettingsViewController: UIViewController {
         
         
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SettingsViewController.changeDefaultCurrency), name:"ChangeDefaultCurrency", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingsViewController.changeDefaultCurrency), name:NSNotification.Name(rawValue: "ChangeDefaultCurrency"), object: nil)
 
     }
 
@@ -61,51 +61,51 @@ class SettingsViewController: UIViewController {
     
     
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        if UIDevice.currentDevice().orientation.isLandscape.boolValue {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isLandscape {
             print("Landscape")
-            stackView.axis = .Horizontal
+            stackView.axis = .horizontal
         } else {
-            stackView.axis = .Vertical
+            stackView.axis = .vertical
         }
     }
     
     
     
     
-    @IBAction func resetDatabase(sender: AnyObject) {
+    @IBAction func resetDatabase(_ sender: AnyObject) {
         
-        let alert = UIAlertController(title: "Are you sure?", message: "Do you really want to delete all your data? You can't undo this!", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: "Are you sure?", message: "Do you really want to delete all your data? You can't undo this!", preferredStyle: UIAlertControllerStyle.alert)
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: {(UIAlertAction) -> Void in
-            alert.dismissViewControllerAnimated(true, completion: nil)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: {(UIAlertAction) -> Void in
+            alert.dismiss(animated: true, completion: nil)
         }))
         
-        alert.addAction(UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default, handler: {(UIAlertAction) -> Void in
-            let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        alert.addAction(UIAlertAction(title: "Delete", style: UIAlertActionStyle.default, handler: {(UIAlertAction) -> Void in
+            let delegate = UIApplication.shared.delegate as! AppDelegate
             delegate.resetDatabase()
         }))
         
         
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
     
     
-    @IBAction func go(sender: AnyObject) {
-        defaults.setBool(true, forKey: "UserHasSeenOnboarding")
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func go(_ sender: AnyObject) {
+        defaults.set(true, forKey: "UserHasSeenOnboarding")
+        self.dismiss(animated: true, completion: nil)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let vc = segue.destinationViewController as! ChooseCurrencyViewController
-        vc.callBackAction = .ChangeDefaultCurrency        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! ChooseCurrencyViewController
+        vc.callBackAction = .changeDefaultCurrency        
     }
     
-    func changeDefaultCurrency(notification:NSNotification) {
+    func changeDefaultCurrency(_ notification:Notification) {
         
         //Todo: As this function might block the interface we will send it to a background process. Nevertheless we will block the interface until the conversion of currency is done.
         
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), {() -> Void in
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async(execute: {() -> Void in
          
             
             
@@ -121,35 +121,35 @@ class SettingsViewController: UIViewController {
             
             //FIRST: we need to change the defaults
             
-            let oldCurrency = Money(amount: 1, currencyIsoString: self.defaults.objectForKey("usersDefaultCurrency") as! String).currency!
+            let oldCurrency = Money(amount: 1, currencyIsoString: self.defaults.object(forKey: "usersDefaultCurrency") as! String).currency!
             let newCurrency = Money(amount: 1, currencyIsoString: changedCurrency[0]).currency!
             
-            var monthlyBudgetOldCurrency = Money(amount: NSDecimalNumber(double: self.defaults.doubleForKey("monthlyBudget")), currencyIso: oldCurrency)
-            var savingsGoalOldCurrency = Money(amount: NSDecimalNumber(double: self.defaults.doubleForKey("savingsGoal")), currencyIso: oldCurrency)
+            var monthlyBudgetOldCurrency = Money(amount: NSDecimalNumber(value: self.defaults.double(forKey: "monthlyBudget") as Double), currencyIso: oldCurrency)
+            var savingsGoalOldCurrency = Money(amount: NSDecimalNumber(value: self.defaults.double(forKey: "savingsGoal") as Double), currencyIso: oldCurrency)
             
             do {
                 let monthlyBudgetNewCurrency = try monthlyBudgetOldCurrency.convertMoneyToDifferentCurrency(newCurrency)
                 print("monthlyBudgetInNewCurrency: \(monthlyBudgetNewCurrency)")
-                self.defaults.setDouble(monthlyBudgetNewCurrency.amount.doubleValue, forKey: "monthlyBudget")
+                self.defaults.set(monthlyBudgetNewCurrency.amount.doubleValue, forKey: "monthlyBudget")
             } catch {
                     //shit
             }
             do {
                 let savingsGoalNewCurrency = try savingsGoalOldCurrency.convertMoneyToDifferentCurrency(newCurrency)
                 print("savingsGoalNewCurrency: \(savingsGoalNewCurrency)")
-                self.defaults.setDouble(savingsGoalNewCurrency.amount.doubleValue, forKey: "savingsGoal")
+                self.defaults.set(savingsGoalNewCurrency.amount.doubleValue, forKey: "savingsGoal")
                 
             } catch {
                 // shit
             }
             
             
-            self.defaults.setObject(newCurrency.rawValue, forKey: "usersDefaultCurrency")
+            self.defaults.set(newCurrency.rawValue, forKey: "usersDefaultCurrency")
             
-            self.dailyLimit = (self.defaults.doubleForKey("monthlyBudget") - (self.defaults.doubleForKey("savingsGoal")))/Double(self.numbersOfDaysInCurrentMonth)
+            self.dailyLimit = (self.defaults.double(forKey: "monthlyBudget") - (self.defaults.double(forKey: "savingsGoal")))/Double(self.numbersOfDaysInCurrentMonth)
             
             
-            let currencySymbol = Money(amount: 1, currencyIsoString: self.defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
+            let currencySymbol = Money(amount: 1, currencyIsoString: self.defaults.object(forKey: "usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
             self.labelForCalculatedDailyLimit.text = String("\(currencySymbol)\(self.dailyLimit)")
             
             //SECOND: We now need to change all values in the database to the new currency
@@ -157,21 +157,21 @@ class SettingsViewController: UIViewController {
             //load expenses from Database
             
             // Stack
-            let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let delegate = UIApplication.shared.delegate as! AppDelegate
             let stack = delegate.stack
             
             //Create Fetch Request
-            let fr = NSFetchRequest(entityName: "Expense")
+            let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "Expense")
             fr.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
             
             //FetchResultsController
-            self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
+            self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fr as! NSFetchRequest<Expense>, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
 
             
             //convert each expense to the new default currency; Attention, if there is no currency set we assume it's EUR
 
             do {
-                let fetchedExpenses = try self.fetchedResultsController!.managedObjectContext.executeFetchRequest(fr) as! [Expense]
+                let fetchedExpenses = try self.fetchedResultsController!.managedObjectContext.fetch(fr) as! [Expense]
                 for expense in fetchedExpenses {
                     var money: Money?
                         let currentAmount = expense.value!
@@ -209,7 +209,7 @@ class SettingsViewController: UIViewController {
         
             
             //Update UI on Completion
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            DispatchQueue.main.async(execute: { () -> Void in
                 self.updateUI()
             })
             
@@ -223,22 +223,22 @@ class SettingsViewController: UIViewController {
         
         
         //Numbers of days of current month
-        let calendar = NSCalendar.currentCalendar()
-        let currency = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!
+        let calendar = Calendar.current
+        let currency = Money(amount: 1, currencyIsoString: defaults.object(forKey: "usersDefaultCurrency") as! String).currency!
         
-        let formatter = NSNumberFormatter()
+        let formatter = NumberFormatter()
         formatter.currencyCode = currency.rawValue
-        formatter.numberStyle = .CurrencyAccountingStyle
-        formatter.roundingMode = .RoundHalfEven
+        formatter.numberStyle = .currencyAccounting
+        formatter.roundingMode = .halfEven
         formatter.maximumFractionDigits = 0
         
         
-        numbersOfDaysInCurrentMonth = calendar.component([.Day], fromDate: NSDate().endOfMonth())
-        dailyLimit = (defaults.doubleForKey("monthlyBudget") - (defaults.doubleForKey("savingsGoal")))/Double(numbersOfDaysInCurrentMonth)
-        textfieldForSavingsGoal.text = formatter.stringFromNumber(NSDecimalNumber(double: self.defaults.doubleForKey("savingsGoal")))
-        textfieldForMonthlyBudget.text = formatter.stringFromNumber(NSDecimalNumber(double: self.defaults.doubleForKey("monthlyBudget")))
-        labelForCalculatedDailyLimit.text = formatter.stringFromNumber(NSDecimalNumber(double: dailyLimit))
-        changeCurrencyButton.setTitle(currency.getCurrencySymbol(), forState: .Normal)
+        numbersOfDaysInCurrentMonth = (calendar as NSCalendar).component([.day], from: Date().endOfMonth())
+        dailyLimit = (defaults.double(forKey: "monthlyBudget") - (defaults.double(forKey: "savingsGoal")))/Double(numbersOfDaysInCurrentMonth)
+        textfieldForSavingsGoal.text = formatter.string(from: NSDecimalNumber(value: self.defaults.double(forKey: "savingsGoal") as Double))
+        textfieldForMonthlyBudget.text = formatter.string(from: NSDecimalNumber(value: self.defaults.double(forKey: "monthlyBudget") as Double))
+        labelForCalculatedDailyLimit.text = formatter.string(from: NSDecimalNumber(value: dailyLimit as Double))
+        changeCurrencyButton.setTitle(currency.getCurrencySymbol(), for: UIControlState())
     }
     
 }
@@ -246,16 +246,16 @@ class SettingsViewController: UIViewController {
 extension SettingsViewController: UITextFieldDelegate {
     
     //Textfield delegates
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
        
         if textField.text == "" {
-            let alert = UIAlertController(title: "Ups", message: "Please enter a valid number", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: {(UIAlertAction) -> Void in
+            let alert = UIAlertController(title: "Ups", message: "Please enter a valid number", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: {(UIAlertAction) -> Void in
                     textField.becomeFirstResponder()
             }))
                 
                 
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
         } else {
         
             
@@ -264,32 +264,32 @@ extension SettingsViewController: UITextFieldDelegate {
             let newSavingsGoal = Double(textfieldForSavingsGoal.text!)
             
             switch textField.tag {
-                case 1: defaults.setDouble(newSavingsGoal!, forKey: "savingsGoal")
-                case 2: defaults.setDouble(newMonthlyBudget!, forKey: "monthlyBudget")
+                case 1: defaults.set(newSavingsGoal!, forKey: "savingsGoal")
+                case 2: defaults.set(newMonthlyBudget!, forKey: "monthlyBudget")
                 default: break
             }
             
            
         
-            dailyLimit = (defaults.doubleForKey("monthlyBudget") - (defaults.doubleForKey("savingsGoal")))/Double(numbersOfDaysInCurrentMonth)
-            let currencySymbol = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
+            dailyLimit = (defaults.double(forKey: "monthlyBudget") - (defaults.double(forKey: "savingsGoal")))/Double(numbersOfDaysInCurrentMonth)
+            let currencySymbol = Money(amount: 1, currencyIsoString: defaults.object(forKey: "usersDefaultCurrency") as! String).currency!.getCurrencySymbol()
 
             updateUI()
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
     }
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         
         switch textField.tag {
-            case 1: textfieldForSavingsGoal.text = String(self.defaults.doubleForKey("savingsGoal"))
-            case 2: textfieldForMonthlyBudget.text = String(self.defaults.doubleForKey("monthlyBudget"))
+            case 1: textfieldForSavingsGoal.text = String(self.defaults.double(forKey: "savingsGoal"))
+            case 2: textfieldForMonthlyBudget.text = String(self.defaults.double(forKey: "monthlyBudget"))
             default: break
         }
         

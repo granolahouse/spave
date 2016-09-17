@@ -15,8 +15,8 @@ class ChooseCurrencyViewController: UIViewController {
     var currencies: [Money.CurrencyIso] = Money.CurrencyIso.allValues
     
     enum CallBackActions {
-        case ChangeDefaultCurrency
-        case ChangeCurrencyToTrack
+        case changeDefaultCurrency
+        case changeCurrencyToTrack
     }
     
     var callBackAction: CallBackActions?
@@ -26,38 +26,38 @@ class ChooseCurrencyViewController: UIViewController {
     
     @IBOutlet weak var messageLabel: UILabel!
     
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = UserDefaults.standard
     
     @IBOutlet weak var closeButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Make modal windo transparent
-        view.backgroundColor = UIDesign().darkBlue.colorWithAlphaComponent(0.8)
-        view.opaque = false
+        view.backgroundColor = UIDesign().darkBlue.withAlphaComponent(0.8)
+        view.isOpaque = false
         roundedCornersView.layer.cornerRadius = 30
-        self.closeButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2/2))
+        self.closeButton.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI_2/2))
         
-        let m = Money(amount: 1, currencyIsoString: defaults.objectForKey("usersDefaultCurrency") as! String)
-        let defaultRowIndex = currencies.indexOf(m.currency!)
+        let m = Money(amount: 1, currencyIsoString: defaults.object(forKey: "usersDefaultCurrency") as! String)
+        let defaultRowIndex = currencies.index(of: m.currency!)
         currencyPicker.selectRow(defaultRowIndex!, inComponent: 0, animated: true)
         
     }
     
     
-    @IBAction func closeModal(sender: AnyObject) {
-        self.dismissViewControllerAnimated(false, completion: nil)
+    @IBAction func closeModal(_ sender: AnyObject) {
+        self.dismiss(animated: false, completion: nil)
     }
-    @IBAction func OK(sender: AnyObject) {
-        self.dismissViewControllerAnimated(false, completion: nil)
-        let object:[AnyObject] = [self.selectedCurrency]
+    @IBAction func OK(_ sender: AnyObject) {
+        self.dismiss(animated: false, completion: nil)
+        let object:[AnyObject] = [self.selectedCurrency as AnyObject]
         
         if let callBackAction = callBackAction {
             switch callBackAction {
-            case .ChangeCurrencyToTrack :
-                NSNotificationCenter.defaultCenter().postNotificationName("ChangeCurrencyToTrack", object: object)
-            case .ChangeDefaultCurrency :
-                NSNotificationCenter.defaultCenter().postNotificationName("ChangeDefaultCurrency", object: object)
+            case .changeCurrencyToTrack :
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "ChangeCurrencyToTrack"), object: object)
+            case .changeDefaultCurrency :
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "ChangeDefaultCurrency"), object: object)
             default: break
             }
         }
@@ -69,27 +69,27 @@ class ChooseCurrencyViewController: UIViewController {
 //PickerView Delegates
 extension ChooseCurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return currencies.count
     }
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return currencies[row].rawValue
     }
     
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let pickerLabel = UILabel()
         pickerLabel.textColor = UIDesign().darkBlue
         pickerLabel.text = "\(currencies[row].rawValue) (\(currencies[row].getCurrencySymbol()))"
-        pickerLabel.font = UIFont(name: ".SFUIText-Regular", size: 18)!
-        pickerLabel.textAlignment = NSTextAlignment.Center
+        //pickerLabel.font = UIFont(name: ".SFUIText-Regular", size: 18)!
+        pickerLabel.textAlignment = NSTextAlignment.center
         return pickerLabel
     }
 
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedCurrency = currencies[row].rawValue
         print("just selected currency: \(selectedCurrency)")
     }

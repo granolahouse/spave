@@ -27,12 +27,12 @@ class CustomAddButton: UIButton {
     }
     
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         
         
         let rectWithPadding = CGRect(x: rect.minX+5, y: rect.minY+5, width: rect.width-10.0, height: rect.height-10.0)
         
-        self.path = UIBezierPath(ovalInRect: rectWithPadding)
+        self.path = UIBezierPath(ovalIn: rectWithPadding)
         
         self.path!.lineWidth = 3
         

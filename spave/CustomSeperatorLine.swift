@@ -14,7 +14,7 @@ import UIKit
 class CustomSeperatorLine: UIView {
    
     @IBInspectable var horizontal: Bool = false
-    @IBInspectable var color: UIColor = UIColor.blackColor()
+    @IBInspectable var color: UIColor = UIColor.black
  
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,18 +25,18 @@ class CustomSeperatorLine: UIView {
     }
     
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         
         if horizontal {
             let separatorLine = UIBezierPath()
             
-            separatorLine.moveToPoint(CGPoint(x:rect.minX, y:rect.minY))
+            separatorLine.move(to: CGPoint(x:rect.minX, y:rect.minY))
             
-            separatorLine.addLineToPoint(CGPoint(x:rect.maxX, y:rect.minY))
+            separatorLine.addLine(to: CGPoint(x:rect.maxX, y:rect.minY))
             
             //Keep using the method addLineToPoint until you get to the one where about to close the path
             
-            separatorLine.closePath()
+            separatorLine.close()
             
             //If you want to stroke it with a red color
             color.setStroke()
@@ -48,13 +48,13 @@ class CustomSeperatorLine: UIView {
             
             let separatorLine = UIBezierPath()
             
-            separatorLine.moveToPoint(CGPoint(x:rect.maxX, y:rect.minY))
+            separatorLine.move(to: CGPoint(x:rect.maxX, y:rect.minY))
             
-            separatorLine.addLineToPoint(CGPoint(x:rect.maxX, y:rect.maxY))
+            separatorLine.addLine(to: CGPoint(x:rect.maxX, y:rect.maxY))
             
             //Keep using the method addLineToPoint until you get to the one where about to close the path
             
-            separatorLine.closePath()
+            separatorLine.close()
             
             //If you want to stroke it with a red color
             color.setStroke()
