@@ -395,6 +395,10 @@ class ViewController: UIViewController {
         
     
     func setChart(_ dataPoints: [String], values: [Double]) {
+        
+        let formato:BarChartFormatter = BarChartFormatter(months: dataPoints)
+        let xaxis:XAxis = XAxis()
+        
         barChartView.noDataText = "You need to provide data for the chart."
         
         
@@ -434,7 +438,9 @@ class ViewController: UIViewController {
         var chartColorSet : [UIColor] = []
         
         for i in 0..<dataPoints.count {
-            let dataEntry = BarChartDataEntry(x: Double(i), yValues: [values[i]])
+            
+            let dataEntry = BarChartDataEntry(x: Double(i), yValues: [values[i]], label: "huhu")
+            
             //let dataEntry = BarChartDataEntry(value: values[i], xIndex: i)
             dataEntries.append(dataEntry)
             if (Double(values[i]) < dailyLimit) {
@@ -442,18 +448,30 @@ class ViewController: UIViewController {
             } else {
                 chartColorSet.append(pink)
             }
+            formato.stringForValue(Double(i), axis: xaxis)
         }
+        
+        xaxis.valueFormatter = formato
+        barChartView.xAxis.valueFormatter = xaxis.valueFormatter
         
         let chartDataSet = BarChartDataSet(values: dataEntries, label: "money spent")
         
-        //chartDataSet.barSpace = 0.8
         
         chartDataSet.drawValuesEnabled = false
-        let chartData = BarChartData(dataSets: [chartDataSet])
+        
         //let chartData = BarChartData(xVals: dataPoints, dataSet: chartDataSet)
         
+        
+        let chartData = BarChartData(dataSets: [chartDataSet])
+        
+        chartData.barWidth = 0.10
+        
+        
+        
         chartDataSet.colors = chartColorSet
+        
         barChartView.animate(xAxisDuration: 0, yAxisDuration: 1.0)
+        barChartView.fitBars = true
         
         
         
@@ -465,6 +483,8 @@ class ViewController: UIViewController {
         ll.lineWidth = 0.5
         
         barChartView.data = chartData
+        
+        
         
     }
     

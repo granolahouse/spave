@@ -141,23 +141,28 @@ class SpendingsViewController: UITableViewController {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             
             
+            
+            
             let expense = fetchedResultsController!.object(at: indexPath) as! Expense
+            do{
+                try fetchedResultsController?.managedObjectContext.save()
+            }catch{
+                fatalError("Error while saving main context: \(error)")
+            }
             
             // remove your object
             
             print("I will delete \(expense)")
             
             fetchedResultsController?.managedObjectContext.delete(expense)
-            //stack.context.deleteObject(expense)
             
-            /* save changes
             do {
-                try stack.context.save()
-                print("saved delete")
-            } catch{
-                print("error when saving context")
-            }*/
-            tableView.reloadData()
+                try fetchedResultsController?.performFetch()
+            } catch {
+                
+            }
+    
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     

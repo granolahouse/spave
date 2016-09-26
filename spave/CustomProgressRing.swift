@@ -95,15 +95,17 @@ class CustomProgressRing: UIView {
         
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        //animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         animation.fromValue = myLayer.strokeEnd
         animation.toValue = progress
+        animation.duration = 10.0
         
         //animation.delegate = self
         animation.isCumulative = true
         
         
         myLayer.strokeEnd = progress
-        myLayer.speed = 0.1
+        myLayer.speed = 0.2
         
         layer.add(animation, forKey: "strokeEnd")
     }
